@@ -13,24 +13,29 @@
   --muted-light: #a89f93;
   --rule: #d6cdc0;
   --accent: #2c5f4a;
+  --accent-warm: #3d7a5f;
   --soft: #f5f1ea;
   --soft2: #f8f5ee;
   --soft3: #f0ebe1;
   --header-h: 52px;
-  --radius: 10px;
+  --radius: 12px;
   --transition: 0.2s ease;
   --bottom-nav-h: 56px;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 15px;
   line-height: 1.5;
   color: var(--ink);
   background: var(--paper);
+  -webkit-font-smoothing: antialiased;
 }
 button, input { font: inherit; }
 button { cursor: pointer; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
 /* === Header === */
 .app-header {
@@ -43,12 +48,12 @@ button { cursor: pointer; }
 }
 .badge {
   background: var(--accent); color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px; font-weight: 700; text-transform: uppercase;
   padding: 4px 8px; border-radius: 4px;
 }
 .app-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px; font-weight: 700; color: var(--accent);
   margin: 0;
 }
@@ -66,11 +71,14 @@ button { cursor: pointer; }
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
+  min-height: 36px;
 }
 .btn-sos { background: #fdf0e6; border-color: #d4a574; color: #8b6b4a; }
+.btn-sos:hover { background: #f5e6d6; }
+.btn-grocery:hover, .btn-tools:hover, .print-btn:hover { background: var(--soft); }
 
 /* === Layout === */
 .workspace { display: flex; min-height: calc(100vh - var(--header-h)); }
@@ -82,25 +90,27 @@ button { cursor: pointer; }
   overflow-y: auto;
 }
 .sidebar-head { padding: 12px; border-bottom: 1px solid var(--rule); background: var(--soft3); }
-.sidebar-head h2 { font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+.sidebar-head h2 { font-family: var(--font-sans); font-size: 10px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
 .cat-row { display: flex; flex-wrap: wrap; gap: 4px; }
 .cat-btn {
   padding: 4px 8px; border-radius: 4px; border: 1px solid var(--rule);
   background: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 11px;
+  min-height: 28px;
 }
 .cat-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 .nav-list { padding: 8px; display: flex; flex-direction: column; gap: 2px; }
 .nav-item {
   text-align: left; padding: 7px 10px; border: none; border-radius: 5px;
   background: transparent;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 12px;
   width: 100%;
+  min-height: 36px;
 }
 .nav-item.active { background: var(--accent); color: #fff; }
-.search-result-count { padding: 4px 10px 8px; font-size: 11px; color: var(--muted); font-family: Arial, Helvetica, sans-serif; }
+.search-result-count { padding: 4px 10px 8px; font-size: 11px; color: var(--muted); font-family: var(--font-sans); }
 
 .main {
   flex: 1; padding: 20px 24px 80px;
@@ -108,7 +118,7 @@ button { cursor: pointer; }
   max-height: calc(100vh - var(--header-h));
   overflow-y: auto;
 }
-.main h1, .main h2, .main h3 { font-family: Arial, Helvetica, sans-serif; color: var(--accent); }
+.main h1, .main h2, .main h3 { font-family: var(--font-sans); color: var(--accent); }
 .main h1 { font-size: 22px; }
 .main h2 { font-size: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; margin: 22px 0 8px; }
 .main p { margin: 0 0 10px; }
@@ -120,12 +130,38 @@ button { cursor: pointer; }
 }
 table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0; }
 th, td { border: 1px solid var(--rule); padding: 6px 8px; text-align: left; }
-th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
+th { background: #eee9e1; font-family: var(--font-sans); }
 .cover-block { text-align: center; padding: 28px 12px 20px; }
-.cover-block .title { font-family: Arial, Helvetica, sans-serif; font-size: 26px; font-weight: 800; color: var(--accent); }
-.cover-block .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 700; }
+.cover-block .title { font-family: var(--font-sans); font-size: 26px; font-weight: 800; color: var(--accent); }
+.cover-block .subtitle { font-family: var(--font-sans); font-size: 18px; font-weight: 700; }
 .cover-block .tag { font-size: 13px; color: var(--muted); }
 .cover-block .motto { font-style: italic; font-size: 15px; color: var(--accent); margin-top: 18px; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: inline-block; }
+
+/* === Quick Start Cards === */
+.quick-start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.quick-start-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 16px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 1px 4px rgba(32,29,25,0.06);
+  min-height: 100px;
+}
+.quick-start-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(32,29,25,0.12);
+}
+.quick-start-card .icon { font-size: 32px; display: block; margin-bottom: 6px; }
+.quick-start-card .label { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--accent); }
+.quick-start-card .desc { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
 /* === Recipe Cards === */
 .recipe-card {
@@ -134,8 +170,14 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
   border-radius: var(--radius);
   padding: 20px 22px;
   margin: 16px 0;
+  box-shadow: 0 1px 4px rgba(32,29,25,0.06);
 }
 .recipe-card h2 { border-bottom: none; font-size: 20px; margin: 0 0 4px; }
+.quick-badge {
+  background: #fdf0e6; color: #8b6b4a;
+  font-family: var(--font-sans); font-size: 9px; font-weight: 700; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 4px; margin-left: 8px;
+}
 .recipe-meta {
   display: flex; flex-wrap: wrap; gap: 8px 16px;
   font-size: 12px; color: var(--muted);
@@ -149,32 +191,48 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
   border-left: 3px solid var(--accent); margin: 8px 0;
   font-size: 13px;
 }
-.recipe-actions { display: flex; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--soft3); }
+.recipe-actions { display: flex; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--soft3); flex-wrap: wrap; }
 .btn-favorite, .btn-grocery-add {
   padding: 6px 14px; border: 1px solid var(--rule); border-radius: 4px;
-  background: #fff; font-family: Arial, Helvetica, sans-serif;
+  background: #fff; font-family: var(--font-sans);
   font-size: 11px; font-weight: 600;
+  min-height: 36px;
 }
 .btn-favorite.active { background: #fdf0e6; border-color: #d4a574; color: #8b6b4a; }
+
+/* === Tonight Mode === */
+.tonight-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 12px 0;
+}
+.tonight-btn {
+  padding: 6px 16px; border: 1px solid var(--rule); border-radius: 20px;
+  background: #fff; font-family: var(--font-sans); font-size: 12px; font-weight: 600;
+  min-height: 36px;
+}
+.tonight-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
 /* === Dashboard === */
 .dashboard {
   width: 320px; flex-shrink: 0;
-  background: var(--soft2); border-left: 1px solid var(--rule);
+  background: var(--soft2);
+  border-left: 1px solid var(--rule);
   padding: 14px; display: flex; flex-direction: column; gap: 14px;
-  max-height: calc(100vh - var(--header-h)); overflow-y: auto;
+  max-height: calc(100vh - var(--header-h));
+  overflow-y: auto;
 }
 .dashboard.collapsed { width: 0; padding: 0; opacity: 0; overflow: hidden; border: none; }
 .card {
   background: #fff; border: 1px solid var(--rule); border-radius: var(--radius);
   padding: 12px;
 }
-.card h3 { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: var(--accent); text-transform: uppercase; margin: 0 0 6px; }
+.card h3 { font-family: var(--font-sans); font-size: 11px; color: var(--accent); text-transform: uppercase; margin: 0 0 6px; }
 .age-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 8px; }
 .age-tab {
   padding: 7px 4px; border-radius: 5px; border: 1px solid var(--rule);
-  background: #fff; font-family: Arial, Helvetica, sans-serif;
+  background: #fff; font-family: var(--font-sans);
   font-size: 11px; text-align: center;
+  min-height: 36px;
 }
 .age-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 .age-note { font-size: 11px; background: var(--soft); border-left: 4px solid var(--accent); padding: 8px 10px; border-radius: 0 5px 5px 0; }
@@ -183,40 +241,73 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
   padding: 8px 10px; margin-bottom: 4px; border-radius: 6px;
   background: var(--soft); border: 1px solid rgba(207,198,186,0.6);
   font-size: 12px; cursor: pointer;
+  min-height: 40px;
 }
 .check-row {
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 12px; padding: 6px 4px; cursor: pointer;
+  min-height: 32px;
 }
 .check-row.done span { text-decoration: line-through; color: var(--muted); }
 .progress { font-size: 10px; font-weight: 700; background: var(--soft); padding: 2px 6px; border-radius: 4px; color: var(--accent); }
-.quick-start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 12px 0; }
-.quick-start-card {
-  background: #fff; border: 1px solid var(--rule); border-radius: var(--radius);
-  padding: 14px; text-align: center; cursor: pointer;
-}
-.quick-start-card .icon { font-size: 28px; display: block; margin-bottom: 6px; }
-.quick-start-card .label { font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: 600; color: var(--accent); }
-.quick-start-card .desc { font-size: 11px; color: var(--muted); }
 
-/* === Grocery Panel === */
+/* === Grocery List === */
 .grocery-panel {
   position: fixed; top: var(--header-h); right: 0; bottom: 0;
-  width: min(100%, 400px);
+  width: min(100%, 420px);
   background: var(--paper);
   box-shadow: -4px 0 24px rgba(32,29,25,0.12);
   z-index: 75;
   transform: translateX(105%);
   transition: transform 0.3s ease;
+  display: flex; flex-direction: column;
 }
 .grocery-panel.open { transform: translateX(0); }
-.grocery-panel .grocery-header { padding: 14px 16px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; background: var(--soft2); }
-.grocery-panel .grocery-header h2 { font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: var(--accent); margin: 0; }
-.grocery-panel .grocery-body { padding: 12px 16px; max-height: 70vh; overflow-y: auto; }
-.grocery-item { display: flex; align-items: center; gap: 10px; padding: 6px 4px; border-bottom: 1px solid var(--soft3); font-size: 13px; }
-.grocery-item .grocery-text.checked { text-decoration: line-through; color: var(--muted); }
-.grocery-actions { padding: 12px 16px; border-top: 1px solid var(--rule); display: flex; gap: 8px; background: var(--soft2); }
-.grocery-actions button { padding: 6px 14px; border: 1px solid var(--rule); border-radius: 4px; background: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; }
+.grocery-panel .grocery-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--soft2); flex-shrink: 0;
+}
+.grocery-panel .grocery-header h2 { font-family: var(--font-sans); font-size: 14px; color: var(--accent); margin: 0; }
+.grocery-panel .grocery-header .close-grocery {
+  background: none; border: none; font-size: 20px; color: var(--muted);
+  min-height: 36px; min-width: 36px;
+}
+.grocery-panel .grocery-body {
+  flex: 1; overflow-y: auto; padding: 12px 16px;
+}
+.grocery-aisle {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--muted); padding: 10px 0 4px; border-bottom: 1px solid var(--soft3); margin-top: 8px;
+}
+.grocery-aisle:first-child { margin-top: 0; }
+.grocery-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 4px; border-bottom: 1px solid var(--soft3);
+  font-size: 13px; min-height: 36px;
+}
+.grocery-item input[type="checkbox"] { accent-color: var(--accent); min-width: 16px; min-height: 16px; }
+.grocery-text.checked { text-decoration: line-through; color: var(--muted); }
+.grocery-count {
+  background: var(--soft); color: var(--muted);
+  padding: 0 6px; border-radius: 3px; font-size: 10px; font-weight: 600;
+}
+.grocery-source { font-size: 10px; color: var(--muted-light); margin-left: auto; }
+.grocery-actions {
+  padding: 12px 16px; border-top: 1px solid var(--rule);
+  display: flex; gap: 8px; flex-shrink: 0; background: var(--soft2); flex-wrap: wrap;
+}
+.grocery-actions button {
+  padding: 6px 14px; border: 1px solid var(--rule); border-radius: 4px;
+  background: #fff; font-family: var(--font-sans);
+  font-size: 11px; font-weight: 600; min-height: 36px;
+}
+.grocery-actions .btn-clear-all { color: #8b3a3a; border-color: #e6c5c5; }
+.grocery-actions .btn-export { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.empty-state {
+  text-align: center; color: var(--muted); padding: 40px 20px; font-style: italic;
+}
 
 /* === SOS Overlay === */
 .sos-overlay {
@@ -231,14 +322,15 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
   padding: 24px; overflow-y: auto;
 }
 .sos-overlay .sos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-.sos-overlay .sos-header h2 { font-family: Arial, Helvetica, sans-serif; font-size: 20px; color: var(--accent); margin: 0; }
-.sos-overlay .sos-header .close-sos { background: none; border: none; font-size: 24px; color: var(--muted); }
+.sos-overlay .sos-header h2 { font-family: var(--font-sans); font-size: 20px; color: var(--accent); margin: 0; }
+.sos-overlay .sos-header .close-sos { background: none; border: none; font-size: 24px; color: var(--muted); min-height: 36px; }
 .sos-item {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px;
   margin-bottom: 8px; cursor: pointer; background: #fff;
+  min-height: 52px;
 }
-.sos-item .sos-name { font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 600; }
+.sos-item .sos-name { font-family: var(--font-sans); font-size: 13px; font-weight: 600; }
 .sos-item .sos-time { font-size: 11px; color: var(--muted); }
 .sos-item .sos-tag { font-size: 9px; font-weight: 700; text-transform: uppercase; background: #fdf0e6; color: #8b6b4a; padding: 2px 8px; border-radius: 4px; }
 
@@ -254,7 +346,7 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
 .mobile-bottom-nav .nav-btn {
   display: flex; flex-direction: column; align-items: center; gap: 1px;
   padding: 2px 8px; border: none; background: transparent;
-  color: var(--muted); font-family: Arial, Helvetica, sans-serif;
+  color: var(--muted); font-family: var(--font-sans);
   font-size: 8px; font-weight: 600; text-transform: uppercase;
   min-height: 44px; min-width: 44px;
 }
@@ -273,11 +365,30 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
   left: 50%; transform: translateX(-50%);
   z-index: 45; background: #8b3a3a; color: #fff;
   padding: 4px 14px; border-radius: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px; font-weight: 600; text-transform: uppercase;
 }
 .offline-indicator.visible { display: block; }
 
+/* === Daily Principle === */
+.daily-principle {
+  background: var(--soft2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 16px 0 0;
+  text-align: center;
+}
+.daily-principle .principle-label {
+  font-family: var(--font-sans);
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted-light); display: block; margin-bottom: 4px;
+}
+.daily-principle .principle-text {
+  font-size: 14px; color: var(--accent); font-style: italic;
+}
+
+/* === Responsive === */
 @media (max-width: 900px) {
   .sidebar {
     position: fixed; top: var(--header-h); left: 0; bottom: 0;
@@ -298,18 +409,28 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
   .dashboard.open { transform: translateX(0); }
   .mobile-bottom-nav { display: block; }
   .grocery-panel { top: 0; z-index: 80; }
+  .quick-start-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .quick-start-card { padding: 12px; min-height: 80px; }
+  .quick-start-card .icon { font-size: 28px; }
 }
 
 @media (max-width: 480px) {
-  .btn-tools span, .print-btn span, .btn-grocery span, .btn-sos span { display: none; }
-  .quick-start-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
-  .quick-start-card { padding: 10px; }
+  .app-header { gap: 6px; padding: 0 8px; }
   .search-wrap { max-width: 140px; }
+  .btn-tools span, .print-btn span, .btn-grocery span, .btn-sos span { 
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
+  }
+  .btn-tools, .print-btn, .btn-grocery, .btn-sos { padding: 6px 8px; min-width: 36px; justify-content: center; }
+  .quick-start-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .quick-start-card { padding: 10px; min-height: 70px; }
+  .quick-start-card .icon { font-size: 24px; }
+  .recipe-card { padding: 12px; }
+  .grocery-panel { width: 100%; }
 }
 
 .app-footer {
   text-align: center; padding: 10px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   font-size: 10px; color: var(--muted);
   border-top: 1px solid var(--rule);
 }
@@ -335,16 +456,17 @@ th { background: #eee9e1; font-family: Arial, Helvetica, sans-serif; }
 <!-- Grocery Panel -->
 <div class="grocery-panel" id="grocery-panel" role="dialog" aria-label="Grocery list" aria-modal="true">
   <div class="grocery-header">
-    <h2>🛒 Grocery List</h2>
-    <button type="button" class="close-grocery" id="close-grocery" style="background:none;border:none;font-size:20px;color:var(--muted);">✕</button>
+    <h2>🛒 Grocery List <span id="grocery-count" style="font-size:11px;font-weight:400;color:var(--muted);"></span></h2>
+    <button type="button" class="close-grocery" id="close-grocery">✕</button>
   </div>
   <div class="grocery-body" id="grocery-body">
-    <div style="text-align:center;color:var(--muted);padding:40px 20px;font-style:italic;">Add ingredients from recipes to build your shopping list.</div>
+    <div class="empty-state">Add ingredients from recipes to build your shopping list.<br><br>📝 Tap "Add to Grocery" on any recipe.</div>
   </div>
   <div class="grocery-actions">
     <button type="button" id="grocery-check-all">Check All</button>
     <button type="button" id="grocery-uncheck-all">Uncheck All</button>
-    <button type="button" class="btn-clear-all" id="grocery-clear" style="color:#8b3a3a;border-color:#e6c5c5;">Clear All</button>
+    <button type="button" class="btn-export" id="grocery-export">📋 Copy List</button>
+    <button type="button" class="btn-clear-all" id="grocery-clear">Clear All</button>
   </div>
 </div>
 
@@ -507,7 +629,7 @@ const AppState = (function() {
 })();
 
 // ============================================================
-// DOM HELPERS
+// DOM HELPERS & CONSTANTS
 // ============================================================
 const DOM = { escape: (str) => { if (!str) return ''; const d = document.createElement('div'); d.textContent = str; return d.innerHTML; } };
 
@@ -525,6 +647,70 @@ function parseIngredients(str) {
 function isMobile() { return window.matchMedia("(max-width: 900px)").matches; }
 
 // ============================================================
+// GROCERY AISLE GROUPING (Real Market Layout)
+// ============================================================
+const GROCERY_AISLES = {
+  'produce': {
+    keywords: ['banana', 'avocado', 'sweet potato', 'plantain', 'pear', 'mango', 'spinach', 'greens', 'carrot', 'squash', 'pumpkin', 'tomato', 'broccoli', 'peas', 'onion', 'celery', 'parsley', 'potato', 'berries', 'citrus', 'lemon', 'lime', 'apple', 'peach', 'grape', 'kale', 'collards', 'chard', 'zucchini', 'cucumber', 'pepper', 'garlic', 'ginger root', 'fresh herbs'],
+    label: '🥬 Produce',
+    emoji: '🥬'
+  },
+  'seafood': {
+    keywords: ['salmon', 'fish', 'sardine', 'trout', 'shrimp', 'crab', 'pollock', 'haddock', 'sole', 'tilapia', 'tuna', 'mackerel', 'anchovy', 'cod'],
+    label: '🐟 Seafood',
+    emoji: '🐟'
+  },
+  'refrigerated': {
+    keywords: ['egg', 'tofu', 'yogurt', 'soy milk', 'soy beverage', 'fortified milk', 'pea milk', 'oat milk', 'almond milk', 'cashew milk', 'plant milk', 'cheese', 'butter', 'margarine', 'tempeh'],
+    label: '🥛 Refrigerated',
+    emoji: '🥛'
+  },
+  'canned': {
+    keywords: ['canned', 'crushed tomato', 'tomato sauce', 'tomato purée', 'broth', 'stock', 'coconut milk', 'beans canned', 'chickpeas canned', 'lentils canned'],
+    label: '🥫 Canned Goods',
+    emoji: '🥫'
+  },
+  'dry_goods': {
+    keywords: ['oats', 'rice', 'quinoa', 'millet', 'pasta', 'flour', 'breadcrumbs', 'cereal', 'granola', 'nuts', 'walnuts', 'almonds', 'cashews', 'seeds', 'sunflower seeds', 'pumpkin seeds', 'chia', 'flax'],
+    label: '🌾 Dry Goods / Pantry',
+    emoji: '🌾'
+  },
+  'baking': {
+    keywords: ['olive oil', 'oil', 'sesame oil', 'coconut oil', 'avocado oil', 'tahini', 'sunflower butter', 'peanut butter', 'nut butter', 'seed butter', 'herbs', 'spice', 'turmeric', 'cumin', 'cinnamon', 'ginger', 'thyme', 'oregano', 'paprika', 'coriander', 'pepper', 'salt', 'vanilla', 'baking powder', 'baking soda'],
+    label: '🧂 Oils, Spices & Baking',
+    emoji: '🧂'
+  },
+  'bakery': {
+    keywords: ['bread', 'toast', 'pita', 'tortilla', 'bagel', 'muffin', 'flatbread', 'naan', 'croissant'],
+    label: '🍞 Bakery',
+    emoji: '🍞'
+  },
+  'frozen': {
+    keywords: ['frozen', 'frozen peas', 'frozen corn', 'frozen spinach', 'frozen berries', 'frozen vegetables', 'frozen fruit'],
+    label: '❄️ Frozen Foods',
+    emoji: '❄️'
+  },
+  'international': {
+    keywords: ['tahini paste', 'harissa', 'curry paste', 'coconut aminos', 'soy sauce', 'tamari', 'miso', 'fish sauce', 'rice vinegar', 'sesame seeds'],
+    label: '🌏 International',
+    emoji: '🌏'
+  }
+};
+
+const AISLE_ORDER = ['produce', 'seafood', 'refrigerated', 'bakery', 'canned', 'dry_goods', 'baking', 'frozen', 'international', 'other'];
+const AISLE_LABELS = { 'other': '📦 Other' };
+
+function getAisle(item) {
+  const lower = item.toLowerCase();
+  for (const [aisleId, aisle] of Object.entries(GROCERY_AISLES)) {
+    if (aisle.keywords.some(keyword => lower.includes(keyword))) {
+      return aisleId;
+    }
+  }
+  return 'other';
+}
+
+// ============================================================
 // RECIPE DATA
 // ============================================================
 function recipe(id, title, cat, influence, role, ingredients, method, safety, variations, baseYield, opts) {
@@ -537,14 +723,42 @@ function recipe(id, title, cat, influence, role, ingredients, method, safety, va
     dietary: opts?.dietary || ['Plant-forward'],
     allergens: opts?.allergens || ['Varies'],
     isQuick: opts?.isQuick || false,
-    getScaledContent: function(ageKey) {
+    getScaledContent: function(ageKey, scaleFactor) {
       const isFav = AppState.isFavorite(this.id);
-      const ingredientsItems = this.ingredients.split(';').map(i => `<li>${DOM.escape(i.trim())}</li>`).join('');
+      const factor = scaleFactor || 1;
+      let ingredientItems = this.ingredients;
+      if (factor > 1) {
+        ingredientItems = this.ingredients.split(';').map(i => {
+          const trimmed = i.trim();
+          const qtyMatch = trimmed.match(/^([\d¼½¾]+)\s*/);
+          if (qtyMatch) {
+            const qtyStr = qtyMatch[1];
+            let qty = 0;
+            if (qtyStr.includes('¼')) qty = 0.25;
+            else if (qtyStr.includes('½')) qty = 0.5;
+            else if (qtyStr.includes('¾')) qty = 0.75;
+            else qty = parseFloat(qtyStr) || 0;
+            if (qty > 0) {
+              const scaled = qty * factor;
+              let display;
+              if (scaled === Math.floor(scaled)) display = Math.floor(scaled);
+              else if (scaled === 0.5) display = '½';
+              else if (scaled === 0.25) display = '¼';
+              else if (scaled === 0.75) display = '¾';
+              else display = scaled.toFixed(1);
+              return trimmed.replace(/^[\d¼½¾]+\s*/, display + ' ');
+            }
+          }
+          return trimmed;
+        }).join('; ');
+      }
+      const ingredientsItems = ingredientItems.split(';').map(i => `<li>${DOM.escape(i.trim())}</li>`).join('');
       const dietaryTags = this.dietary.map(d => `<span style="background:#e6f0ea;color:var(--accent);padding:2px 8px;border-radius:4px;font-size:10px;font-family:Arial;font-weight:600;margin:0 4px;">🌱 ${DOM.escape(d)}</span>`).join('');
       const allergenTags = this.allergens.map(a => `<span style="background:#f5e6e6;color:#8b3a3a;padding:2px 8px;border-radius:4px;font-size:10px;font-family:Arial;font-weight:600;margin:0 4px;">⚠️ ${DOM.escape(a)}</span>`).join('');
+      const batchHTML = factor > 1 ? `<div style="background:var(--soft);border:1px solid var(--rule);border-radius:var(--radius);padding:10px 14px;margin:10px 0;font-size:12px;color:var(--muted);"><strong>📦 Batch Cooking:</strong> ${factor}× recipe</div>` : '';
       return `
         <div class="recipe-card" data-recipe-id="${DOM.escape(this.id)}">
-          <h2>${DOM.escape(this.title)} ${this.isQuick ? '<span style="background:#fdf0e6;color:#8b6b4a;font-size:9px;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-left:8px;">⚡ Quick</span>' : ''}</h2>
+          <h2>${DOM.escape(this.title)} ${this.isQuick ? '<span class="quick-badge">⚡ Quick</span>' : ''}</h2>
           <div class="recipe-meta">
             <span style="font-style:italic;">${DOM.escape(this.influence)}</span>
             <span style="font-weight:600;color:var(--accent);">${DOM.escape(this.role)}</span>
@@ -554,6 +768,7 @@ function recipe(id, title, cat, influence, role, ingredients, method, safety, va
             ${dietaryTags}
             ${allergenTags}
           </div>
+          ${batchHTML}
           <div style="margin:10px 0 14px;padding:9px 11px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 6px 6px 0;font-size:12px;">
             <strong>Age Adaptation:</strong> ${DOM.escape(AGE_GUIDANCE[ageKey] || "Standard family food; adapt textures and portions.")}
           </div>
@@ -582,6 +797,7 @@ const AGE_GUIDANCE = {
 };
 
 const RECIPES = [
+  // BREAKFAST (6)
   recipe("rec-01","01 Creamy Banana-Tahini Oat Porridge","breakfast","East African / Middle Eastern","Energy · healthy fat",
     "¼ cup oats; ½ cup water or fortified soy beverage; ½ banana; 1 tsp tahini; ½ tsp ground flax.",
     "Simmer oats in liquid 5-7 minutes. Remove from heat; mash in banana and flax. Stir tahini in completely.",
@@ -630,6 +846,7 @@ const RECIPES = [
     "1 toddler serving",
     { prepTime: '5 min', cookTime: '7 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
   ),
+  // LUNCH (6)
   recipe("rec-07","07 West African Chickpea, Sweet Potato & Greens","lunch","West African","Plant protein · iron",
     "½ cup mashed chickpeas; ½-1 sweet potato; ½ cup cooked greens; 1 tsp oil; lemon/lime.",
     "Simmer sweet potato 10-12 min. Steam greens 3-4 min. Mash chickpeas; combine all with oil and citrus.",
@@ -678,6 +895,7 @@ const RECIPES = [
     "1 toddler serving",
     { prepTime: '5 min', cookTime: '5 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
   ),
+  // DINNER (8)
   recipe("rec-13","13 Ethiopian Lentil-Rice Bowl","dinner","Ethiopian","Plant iron · protein",
     "¼ cup dry lentils; ½ cup cooked rice; soft carrot/sweet potato; 1 tsp oil; mild turmeric/cumin.",
     "Simmer lentils 15-18 min. Steam carrot 8-10 min. Combine with rice, oil and spice.",
@@ -742,6 +960,7 @@ const RECIPES = [
     "1 toddler serving",
     { prepTime: '5 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
   ),
+  // SNACKS (5)
   recipe("rec-21","21 Avocado + Soft Toast","snack","Global / Roots staple","Healthy fat · energy",
     "Soft whole-grain toast; mashed avocado.",
     "Toast lightly. Mash avocado and spread; cut into strips.",
@@ -782,6 +1001,7 @@ const RECIPES = [
     "1 snack",
     { prepTime: '3 min', cookTime: '0 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Varies'], isQuick: true }
   ),
+  // FOUNDATIONS (5)
   recipe("rec-26","26 Basic Toddler Vegetable Broth","foundation","Roots Foundations","Cooking base",
     "Carrot, celery, onion, parsley stems; water.",
     "Simmer vegetables 45-60 min. Strain, cool, freeze in portions. No salt.",
@@ -824,6 +1044,9 @@ const RECIPES = [
   )
 ];
 
+// ============================================================
+// SECTIONS DATA
+// ============================================================
 const SECTIONS = [
   { id: "cover", title: "🏠 Cover & Overview", category: "start", content: `
     <div class="cover-block">
@@ -836,18 +1059,42 @@ const SECTIONS = [
     </div>
     <div class="quick-start-grid">
       <div class="quick-start-card" data-nav="recipes"><span class="icon">🍳</span><div class="label">I Need Food Now</div><div class="desc">Browse all 30 recipes</div></div>
+      <div class="quick-start-card" data-nav="tonight"><span class="icon">🌙</span><div class="label">Tonight</div><div class="desc">Filter by time</div></div>
       <div class="quick-start-card" data-nav="planner"><span class="icon">📅</span><div class="label">Feed the Family</div><div class="desc">7-day meal schedule</div></div>
-      <div class="quick-start-card" data-nav="grocery"><span class="icon">🛒</span><div class="label">I Need to Shop</div><div class="desc">Build your grocery list</div></div>
-      <div class="quick-start-card" data-nav="guides"><span class="icon">📖</span><div class="label">Guides & Resources</div><div class="desc">Nutrition & foodways</div></div>
+      <div class="quick-start-card" data-nav="grocery"><span class="icon">🛒</span><div class="label">I Need to Shop</div><div class="desc">Smart grocery list</div></div>
     </div>
-    <div style="background:var(--soft2);border:1px solid var(--rule);border-radius:var(--radius);padding:14px 18px;margin-top:16px;text-align:center;">
-      <span style="font-family:Arial;font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted-light);display:block;">🌱 Today's Principle</span>
-      <span style="font-size:14px;color:var(--accent);font-style:italic;">"You do not need to feed a perfect toddler. You need a dependable pattern."</span>
+    <div class="daily-principle">
+      <span class="principle-label">🌱 Today's Roots Principle</span>
+      <span class="principle-text" id="daily-principle">"You do not need to feed a perfect toddler. You need a dependable pattern."</span>
     </div>
-    <h2>A Note to Parents</h2>
+    <div class="callout"><strong>IMPORTANT — READ FIRST</strong><br>This book is a general planning and recipe resource, not individualized medical care. Review any restricted pattern with your child's pediatrician.</div>
+    <h2>A Note to Conscientious Parents</h2>
     <p>You do not need to feed a perfect toddler. You need a dependable pattern: energy, protein, iron, calcium, vitamin D, B12, iodine, healthy fats, and varied produce.</p>
-    <div class="callout">General planning resource, not medical advice. Review restricted patterns with your pediatrician.</div>
+    <p>This book is intentionally dairy-free and land-meat-free as a family food pattern. The central Roots principle is <strong>one meal, adapted</strong> — not three separate meals.</p>
+    <h2>The Nutritional Architecture</h2>
+    <ul>
+      <li><strong>ANCHOR</strong> — protein and/or iron: fish, egg, lentils, beans, chickpeas, tofu.</li>
+      <li><strong>ENERGY</strong> — grain or root: rice, oats, quinoa, potato, sweet potato, plantain, pasta.</li>
+      <li><strong>COLOR</strong> — produce: greens, squash, peas, carrots, tomato, berries, mango, citrus.</li>
+      <li><strong>FAT</strong> — energy density and essential fats: avocado, olive oil, tahini, nut/seed butter, fatty fish.</li>
+      <li><strong>COVER</strong> — nutrients that may require deliberate planning: calcium, vitamin D, B12 and iodine.</li>
+    </ul>
+    <div class="callout"><strong>ENERGY DENSITY &amp; SMALLER APPETITES</strong><br>Toddlers often eat small volumes. When appetite is modest, prioritize energy-dense components: avocado, olive oil, tahini, fatty fish, and soft cooked grains or roots.</div>
   `},
+
+  { id: "tonight", title: "🌙 Tonight — Quick Meals", category: "start", content: `
+    <h1>🌙 Tonight — What Can I Make?</h1>
+    <p style="font-size:12px;color:var(--muted);">Filter recipes by total time.</p>
+    <div class="tonight-grid" id="tonight-filters">
+      <button class="tonight-btn active" data-time="all">All</button>
+      <button class="tonight-btn" data-time="10">10 min</button>
+      <button class="tonight-btn" data-time="20">20 min</button>
+      <button class="tonight-btn" data-time="30">30 min</button>
+      <button class="tonight-btn" data-time="45">45+ min</button>
+    </div>
+    <div id="tonight-results"></div>
+  `},
+
   { id: "one-table", title: "📊 One Table · Three Ages", category: "start", content: `
     <h1>One Table · Ages 1–7</h1>
     <table>
@@ -858,19 +1105,21 @@ const SECTIONS = [
     </table>
     <p style="font-size:12px;color:var(--muted);">Caregiver decides what/when/where; child decides whether/how much.</p>
   `},
+
   { id: "planner", title: "📅 Plan the Week", category: "start", content: `
     <h1>Plan the Week</h1>
     <table>
-      <tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr>
-      <tr><td><strong>1</strong></td><td>Banana-tahini oats</td><td>Chickpea + sweet potato</td><td>Lentil-rice bowl</td></tr>
-      <tr><td><strong>2</strong></td><td>Egg + plantain</td><td>Black bean + rice</td><td>Salmon + sweet potato</td></tr>
-      <tr><td><strong>3</strong></td><td>Pear-sesame oatmeal</td><td>Tofu rice bowl</td><td>Chickpea patties</td></tr>
-      <tr><td><strong>4</strong></td><td>Egg + spinach</td><td>Chickpea-quinoa</td><td>Lentil stew</td></tr>
-      <tr><td><strong>5</strong></td><td>Banana-flax oats</td><td>Lentil soup</td><td>Three Sisters</td></tr>
-      <tr><td><strong>6</strong></td><td>Egg + sweet potato</td><td>Red lentil dal</td><td>Fish + beans</td></tr>
-      <tr><td><strong>7</strong></td><td>Banana-flax oatmeal</td><td>White bean bowl</td><td>Mediterranean chickpea</td></tr>
+      <tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th><th>Snacks</th></tr>
+      <tr><td><strong>1</strong></td><td>01 Banana–tahini oats</td><td>07 Chickpea + sweet potato</td><td>13 Lentil-rice bowl</td><td>21 Avocado toast</td></tr>
+      <tr><td><strong>2</strong></td><td>02 Egg + plantain</td><td>08 Black bean + rice</td><td>14 Salmon + sweet potato</td><td>23 Banana-chia</td></tr>
+      <tr><td><strong>3</strong></td><td>06 Pear-sesame oatmeal</td><td>09 Tofu rice bowl</td><td>16 Chickpea patties</td><td>24 Hummus + pita</td></tr>
+      <tr><td><strong>4</strong></td><td>03 Savory oatmeal</td><td>20 Mediterranean chickpea</td><td>15 Lentil stew</td><td>22 Pear + seed butter</td></tr>
+      <tr><td><strong>5</strong></td><td>05 Banana-flax oats</td><td>11 Lentil soup</td><td>17 Three Sisters</td><td>21 Avocado toast</td></tr>
+      <tr><td><strong>6</strong></td><td>04 Millet-banana</td><td>10 Red lentil dal</td><td>18 Fish + lentil</td><td>23 Banana-chia</td></tr>
+      <tr><td><strong>7</strong></td><td>06 Pear-sesame</td><td>12 White bean bowl</td><td>19 Fish + pumpkin</td><td>24 Hummus + pita</td></tr>
     </table>
   `},
+
   { id: "formulas", title: "🧪 Master Formulas", category: "formula", content: `
     <h1>Master Formulas</h1>
     <table>
@@ -881,7 +1130,7 @@ const SECTIONS = [
       <tr><td><strong>Spread</strong></td><td>Soft legume/veg + fat + thin liquid</td></tr>
       <tr><td><strong>Cake/Patty</strong></td><td>Protein + binder + veg/root</td></tr>
     </table>
-    <h2>Emergency Meals (10 min)</h2>
+    <h2>10-Minute Emergency Meals</h2>
     <ul>
       <li>Egg + avocado + soft toast + fruit</li>
       <li>Lentils + rice + frozen vegetables + oil</li>
@@ -890,6 +1139,7 @@ const SECTIONS = [
       <li>Canned salmon + rice + peas + oil</li>
     </ul>
   `},
+
   { id: "flex", title: "🔄 Flex the Table", category: "guide", content: `
     <h1>Flex the Table</h1>
     <h2>Calcium Anchors vs Contributors</h2>
@@ -897,6 +1147,7 @@ const SECTIONS = [
       <li><strong>Anchors:</strong> fortified soy beverage/yogurt, calcium-set tofu</li>
       <li><strong>Contributors:</strong> tahini, beans, greens, fish with bones</li>
     </ul>
+    <div class="callout"><strong>Soy-Free Calcium Sources</strong><br>Fortified pea milk (~440mg/cup), fortified oat milk (~300mg/cup), fortified almond milk (~450mg/cup), canned sardines/salmon with bones, tahini, white beans, chia.</div>
     <h2>Substitution Matrix</h2>
     <ul>
       <li><strong>Dairy-free</strong> → fortified soy; verify Ca + D</li>
@@ -906,6 +1157,7 @@ const SECTIONS = [
       <li><strong>Fish-free</strong> → eggs, legumes, tofu; plan B12 + omega-3</li>
     </ul>
   `},
+
   { id: "safety", title: "🛡️ Safety at a Glance", category: "guide", content: `
     <h1>Toddler Safety</h1>
     <ul>
@@ -915,16 +1167,16 @@ const SECTIONS = [
       <li>Children seated and supervised</li>
       <li>Fish: flake and check every portion for bones</li>
       <li>Check labels for allergens and sodium</li>
-      <li>Cool, refrigerate, reheat safely</li>
     </ul>
+    <h2>Storage &amp; Food Safety</h2>
+    <p>Refrigerate cooked food within 2 hours. Fish/egg dishes: use within 1-2 days. Freeze in small portions. Reheat thoroughly to 165°F.</p>
     <div class="callout">Safety should never be an afterthought. Adapt textures to your child's skills.</div>
   `},
+
   { id: "fish", title: "🐟 Fish, Mercury & Iron", category: "guide", content: `
     <h1>Fish & Mercury</h1>
     <p>FDA/EPA: two servings/week from Best Choices. ~1 oz ages 1–3, ~2 oz ages 4–7.</p>
-    <p>Examples: salmon, sardines, trout, pollock, haddock, sole, tilapia.</p>
     <h2>Iron Rule</h2>
-    <p>Every day, choose one iron anchor. Pair plant iron with vitamin C.</p>
     <table>
       <tr><th>Iron anchor</th><th>Vitamin-C partner</th></tr>
       <tr><td>Lentils</td><td>Tomato or citrus</td></tr>
@@ -932,28 +1184,9 @@ const SECTIONS = [
       <tr><td>Black beans</td><td>Mango or tomato</td></tr>
       <tr><td>Tofu</td><td>Broccoli or peppers</td></tr>
     </table>
+    <div class="callout"><strong>ZINC IS NOT IRON</strong><br>Vitamin C helps iron absorption but does not rescue zinc. Soak beans 8-12 hours to reduce phytate.</div>
   `},
-  { id: "pfas", title: "🧪 PFAS Reduction", category: "guide", content: `
-    <h1>PFAS — Practical Reduction</h1>
-    <ul>
-      <li><strong>Water:</strong> Follow local PFAS guidance</li>
-      <li><strong>Packaging:</strong> Prefer fresh, frozen, or minimally packaged</li>
-      <li><strong>Cookware:</strong> PFAS-free when replacing</li>
-      <li><strong>Fish:</strong> Keep fish in the diet; rotate species</li>
-    </ul>
-    <div class="callout">Do not let PFAS avoidance compromise nutrition.</div>
-  `},
-  { id: "quick-check", title: "✅ Quick Recipe Check", category: "guide", content: `
-    <h1>Quick Check</h1>
-    <ul style="font-family:Arial;font-size:13px;line-height:1.8;">
-      <li style="list-style:none;">✓ Soak beans 8-12 hours → rinse → cook until mashable</li>
-      <li style="list-style:none;">✓ Vitamin C with plant iron</li>
-      <li style="list-style:none;">✓ Varied zinc sources</li>
-      <li style="list-style:none;">✓ Remove toddler portions before salting</li>
-      <li style="list-style:none;">✓ Cool, refrigerate, or freeze promptly</li>
-      <li style="list-style:none;">✓ Check allergens, fish bones, choking shapes</li>
-    </ul>
-  `},
+
   { id: "foodways", title: "🌍 Foodways", category: "guide", content: `
     <h1>Foodways</h1>
     <ul>
@@ -965,18 +1198,18 @@ const SECTIONS = [
       <li><strong>East Asian:</strong> tofu, rice, fish, sesame, ginger</li>
       <li><strong>Indigenous North American:</strong> corn, beans, squash, wild rice</li>
     </ul>
-    <p style="font-size:12px;color:var(--muted);">Influence is not culinary authenticity. The Three Sisters is a broad framework, not a claim for one Nation.</p>
+    <div class="callout"><strong>Respect Line</strong><br>Influence is invitation, not ownership. Where this book is thin, community cooks, family elders, and Nation-specific resources are the deeper teachers.</div>
   `},
+
   { id: "references", title: "📚 References", category: "guide", content: `
-    <h1>References</h1>
+    <h1>References & Evidence</h1>
     <ul>
       <li>NIH ODS — Iron, Calcium, Vitamin D, B12, Zinc, Iodine</li>
       <li>FDA/EPA — Advice About Eating Fish</li>
       <li>AAP — HealthyChildren.org</li>
       <li>CDC — Choking Hazards, Food Safety</li>
-      <li>USDA MyPlate</li>
     </ul>
-    <div class="callout">General planning resource, not individualized care. Consult a pediatrician for restricted diets.</div>
+    <div class="callout"><strong>CLINICAL DISCLAIMER</strong><br>This book is a general planning resource, not individualized medical care. Review restricted diets with your pediatrician.</div>
   `}
 ];
 
@@ -1007,12 +1240,24 @@ const appData = {
     "Organic choices preserved variety.",
     "PFAS reduction without sacrificing nutrition.",
     "At least one emergency meal ready."
+  ],
+  principles: [
+    "You do not need to feed a perfect toddler. You need a dependable pattern.",
+    "Offer the energy-dense part of the meal first when appetite is small.",
+    "Calcium doesn't just come from dairy. Fortified soy, tofu, tahini, beans, and fish with edible bones all contribute.",
+    "Vitamin C supports plant-iron absorption. Zinc needs variety, not just one food.",
+    "One meal, adapted—not three separate meals.",
+    "Soaking dried beans reduces phytate. Canned beans are already cooked—just rinse.",
+    "Safety first: soft textures, safe shapes, bone-check every fish.",
+    "Children decide how much to eat. You decide what, when, and where."
   ]
 };
 
 // ============================================================
 // RENDER FUNCTIONS
 // ============================================================
+let currentScale = 1;
+
 function getFirstSectionIdForCategory(cat) {
   const items = appData.sections.filter(s => cat === "all" || s.category === cat);
   return items.length > 0 ? items[0].id : null;
@@ -1022,6 +1267,7 @@ function getSectionIdForNav(nav) {
   const map = {
     'home': 'cover',
     'recipes': getFirstSectionIdForCategory('breakfast'),
+    'tonight': 'tonight',
     'planner': 'planner',
     'guides': 'flex',
     'formulas': 'formulas',
@@ -1075,6 +1321,7 @@ function renderNav() {
       AppState.setSection(s.id);
       AppState.resetSearch();
       document.getElementById("global-search").value = "";
+      currentScale = 1;
       renderNav();
       renderMain();
       document.getElementById("main").scrollTop = 0;
@@ -1102,41 +1349,106 @@ function renderMain() {
     return;
   }
   if (isRecipe(sec) && typeof sec.getScaledContent === 'function') {
-    document.getElementById("main").innerHTML = sec.getScaledContent(state.age);
+    document.getElementById("main").innerHTML = sec.getScaledContent(state.age, currentScale);
     attachRecipeActions();
+  } else if (sec.id === 'tonight') {
+    renderTonight();
   } else {
     document.getElementById("main").innerHTML = sec.content;
   }
   updateMobileNav(state.sectionId);
 }
 
+function renderTonight() {
+  const container = document.getElementById('main');
+  let html = `
+    <h1>🌙 Tonight — What Can I Make?</h1>
+    <p style="font-size:12px;color:var(--muted);">Filter recipes by total time.</p>
+    <div class="tonight-grid" id="tonight-filters">
+      <button class="tonight-btn active" data-time="all">All</button>
+      <button class="tonight-btn" data-time="10">10 min</button>
+      <button class="tonight-btn" data-time="20">20 min</button>
+      <button class="tonight-btn" data-time="30">30 min</button>
+      <button class="tonight-btn" data-time="45">45+ min</button>
+    </div>
+    <div id="tonight-results"></div>
+  `;
+  container.innerHTML = html;
+  
+  // Attach filter events
+  document.querySelectorAll('.tonight-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tonight-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      renderTonightResults(this.getAttribute('data-time'));
+    });
+  });
+  
+  renderTonightResults('all');
+}
+
+function renderTonightResults(timeFilter) {
+  const container = document.getElementById('tonight-results');
+  if (!container) return;
+  
+  let recipes = RECIPES;
+  if (timeFilter !== 'all') {
+    const maxTime = parseInt(timeFilter);
+    recipes = RECIPES.filter(r => {
+      const total = parseInt(r.prepTime) + parseInt(r.cookTime);
+      return total <= maxTime;
+    });
+  }
+  
+  if (!recipes.length) {
+    container.innerHTML = `<p style="color:var(--muted);text-align:center;padding:20px;">No recipes under ${timeFilter} minutes. Try a longer time filter.</p>`;
+    return;
+  }
+  
+  let html = '';
+  recipes.forEach(r => {
+    const total = parseInt(r.prepTime) + parseInt(r.cookTime);
+    html += `
+      <div class="recipe-card" style="cursor:pointer;" onclick="AppState.setSection('${r.id}');renderNav();renderMain();document.getElementById('main').scrollTop=0;updateMobileNav('${r.id}');">
+        <h2>${DOM.escape(r.title)} ${r.isQuick ? '<span class="quick-badge">⚡ Quick</span>' : ''}</h2>
+        <div class="recipe-meta">
+          <span>⏱️ ${r.prepTime} prep · ${r.cookTime} cook · <strong>${total} min total</strong></span>
+          <span style="font-style:italic;">${DOM.escape(r.influence)}</span>
+        </div>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+}
+
 function attachRecipeActions() {
   document.querySelectorAll('.btn-favorite').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.getAttribute('data-recipe-id');
+    btn.addEventListener('click', function() {
+      const id = this.getAttribute('data-recipe-id');
       const isFav = AppState.toggleFavorite(id);
-      btn.textContent = isFav ? '⭐ Favorite' : '☆ Favorite';
-      btn.classList.toggle('active', isFav);
+      this.textContent = isFav ? '⭐ Favorite' : '☆ Favorite';
+      this.classList.toggle('active', isFav);
       renderNav();
     });
   });
+  
   document.querySelectorAll('.btn-grocery-add').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const ingredients = btn.getAttribute('data-ingredients');
-      const title = btn.getAttribute('data-title');
+    btn.addEventListener('click', function() {
+      const ingredients = this.getAttribute('data-ingredients');
+      const title = this.getAttribute('data-title');
       const parsed = parseIngredients(ingredients);
       const added = AppState.addGroceryItems(parsed, title);
       if (added > 0) {
-        btn.textContent = `✅ Added ${added}`;
-        btn.style.background = 'var(--accent)';
-        btn.style.color = '#fff';
-        renderGrocery();
+        this.textContent = `✅ Added ${added}`;
+        this.style.background = 'var(--accent)';
+        this.style.color = '#fff';
+        renderSmartGrocery();
         if (!document.getElementById('grocery-panel').classList.contains('open')) toggleGroceryPanel();
       } else {
-        btn.textContent = '⚠️ Already in list';
-        setTimeout(() => { btn.textContent = '🛒 Add to Grocery'; btn.style.background = ''; btn.style.color = ''; }, 1000);
+        this.textContent = '⚠️ Already in list';
+        setTimeout(() => { this.textContent = '🛒 Add to Grocery'; this.style.background = ''; this.style.color = ''; }, 1000);
       }
-      setTimeout(() => { btn.textContent = '🛒 Add to Grocery'; btn.style.background = ''; btn.style.color = ''; }, 1500);
+      setTimeout(() => { this.textContent = '🛒 Add to Grocery'; this.style.background = ''; this.style.color = ''; }, 1500);
     });
   });
 }
@@ -1180,33 +1492,83 @@ function renderChecklist() {
   document.getElementById("check-progress").textContent = n + "/" + appData.checklist.length;
 }
 
-function renderGrocery() {
+// === SMART GROCERY LIST ===
+function renderSmartGrocery() {
   const grocery = AppState.getGrocery();
   const body = document.getElementById('grocery-body');
+  const countEl = document.getElementById('grocery-count');
+  
   if (!grocery.items.length) {
-    body.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px 20px;font-style:italic;">Add ingredients from recipes to build your shopping list.</div>';
+    body.innerHTML = '<div class="empty-state">Add ingredients from recipes to build your shopping list.<br><br>📝 Tap "Add to Grocery" on any recipe.</div>';
+    if (countEl) countEl.textContent = '';
     updateGroceryBadge();
     return;
   }
-  let html = '';
+  
+  // Group by aisle with consolidation
+  const grouped = {};
+  const checkedState = {};
+  
   grocery.items.forEach((item, i) => {
-    const checked = !!grocery.checked[i];
-    html += `
-      <div class="grocery-item">
-        <input type="checkbox" id="grocery-item-${i}" ${checked ? 'checked' : ''} data-index="${i}">
-        <span class="grocery-text ${checked ? 'checked' : ''}">${DOM.escape(item.text)}</span>
-        ${item.source ? `<span style="font-size:10px;color:var(--muted-light);margin-left:auto;">${DOM.escape(item.source)}</span>` : ''}
-      </div>
-    `;
+    const aisle = getAisle(item.text);
+    if (!grouped[aisle]) grouped[aisle] = [];
+    
+    const existing = grouped[aisle].find(g => g.text.toLowerCase() === item.text.toLowerCase());
+    if (existing) {
+      existing.count = (existing.count || 1) + 1;
+      if (item.source && !existing.sources.includes(item.source)) {
+        existing.sources.push(item.source);
+      }
+      existing.index = i;
+    } else {
+      grouped[aisle].push({
+        text: item.text,
+        index: i,
+        count: 1,
+        sources: item.source ? [item.source] : []
+      });
+    }
+    checkedState[i] = !!grocery.checked[i];
   });
-  body.innerHTML = html;
-  body.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', (e) => {
-      const idx = parseInt(e.target.getAttribute('data-index'));
-      AppState.toggleGroceryItem(idx);
-      renderGrocery();
+  
+  if (countEl) countEl.textContent = `${grocery.items.length} items`;
+  
+  let html = '';
+  AISLE_ORDER.forEach(aisleId => {
+    const items = grouped[aisleId];
+    if (!items || !items.length) return;
+    
+    const aisle = GROCERY_AISLES[aisleId] || { label: '📦 Other', emoji: '📦' };
+    html += `<div class="grocery-aisle">${aisle.emoji} ${aisle.label}</div>`;
+    
+    items.forEach(item => {
+      const isChecked = checkedState[item.index] ? 'checked' : '';
+      const countDisplay = item.count > 1 ? `<span class="grocery-count">×${item.count}</span>` : '';
+      const sourcesDisplay = item.sources && item.sources.length > 0 ? 
+        `<span class="grocery-source">${item.sources.join(', ')}</span>` : '';
+      
+      html += `
+        <div class="grocery-item">
+          <input type="checkbox" ${isChecked} data-index="${item.index}">
+          <span class="grocery-text${isChecked ? ' checked' : ''}">${item.text}</span>
+          ${countDisplay}
+          ${sourcesDisplay}
+        </div>
+      `;
     });
   });
+  
+  body.innerHTML = html;
+  
+  // Attach events
+  body.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', function() {
+      const idx = parseInt(this.getAttribute('data-index'));
+      AppState.toggleGroceryItem(idx);
+      renderSmartGrocery();
+    });
+  });
+  
   updateGroceryBadge();
 }
 
@@ -1222,6 +1584,38 @@ function updateGroceryBadge() {
     badge.textContent = grocery.items.length;
     btn.appendChild(badge);
   }
+}
+
+function exportGroceryList() {
+  const grocery = AppState.getGrocery();
+  if (!grocery.items.length) { alert('Your grocery list is empty.'); return; }
+  
+  const grouped = {};
+  grocery.items.forEach(item => {
+    const aisle = getAisle(item.text);
+    if (!grouped[aisle]) grouped[aisle] = [];
+    const existing = grouped[aisle].find(g => g.text.toLowerCase() === item.text.toLowerCase());
+    if (existing) existing.count = (existing.count || 1) + 1;
+    else grouped[aisle].push({ text: item.text, count: 1 });
+  });
+  
+  let text = '🛒 GROCERY LIST\n' + '='.repeat(40) + '\n';
+  AISLE_ORDER.forEach(aisleId => {
+    const items = grouped[aisleId];
+    if (!items || !items.length) return;
+    const aisle = GROCERY_AISLES[aisleId] || { label: 'Other' };
+    text += `\n${aisle.label}\n${'-'.repeat(20)}\n`;
+    items.forEach(item => {
+      const countDisplay = item.count > 1 ? ` ×${item.count}` : '';
+      text += `☐ ${item.text}${countDisplay}\n`;
+    });
+  });
+  
+  navigator.clipboard.writeText(text).then(() => {
+    alert('📋 Grocery list copied to clipboard!');
+  }).catch(() => {
+    prompt('Copy this list:', text);
+  });
 }
 
 function renderSOS() {
@@ -1251,6 +1645,7 @@ function renderSOS() {
       AppState.setSection(id);
       AppState.resetSearch();
       document.getElementById("global-search").value = "";
+      currentScale = 1;
       renderNav();
       renderMain();
       document.getElementById("main").scrollTop = 0;
@@ -1261,26 +1656,26 @@ function renderSOS() {
   });
 }
 
+function getDailyPrinciple() {
+  const principles = appData.principles || [];
+  const day = new Date().getDate();
+  const index = (day + day * 7 + day * 13) % principles.length;
+  return principles[index] || principles[0];
+}
+
 // ============================================================
 // PANEL CONTROLS
 // ============================================================
 function openSidebar() {
   document.body.classList.add('mobile-browse-open');
   document.getElementById('backdrop').classList.add('visible');
-  document.getElementById('backdrop').setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
 
 function closeSidebar() {
   document.body.classList.remove('mobile-browse-open');
   document.getElementById('backdrop').classList.remove('visible');
-  document.getElementById('backdrop').setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-}
-
-function toggleSidebar() {
-  if (document.body.classList.contains('mobile-browse-open')) closeSidebar();
-  else openSidebar();
 }
 
 function openTools() {
@@ -1330,6 +1725,7 @@ function toggleGroceryPanel() {
     panel.classList.add('open');
     document.getElementById('backdrop').classList.add('visible');
     document.body.style.overflow = 'hidden';
+    renderSmartGrocery();
   }
 }
 
@@ -1362,11 +1758,15 @@ function printCurrentView() { window.print(); }
 // INIT
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
+  // Set daily principle
+  const principleEl = document.getElementById('daily-principle');
+  if (principleEl) principleEl.textContent = '"' + getDailyPrinciple() + '"';
+  
   renderNav();
   renderMain();
   renderMeals();
   renderChecklist();
-  renderGrocery();
+  renderSmartGrocery();
 
   // Search
   document.getElementById("global-search").addEventListener("input", e => {
@@ -1389,6 +1789,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       AppState.setSection(firstId);
+      currentScale = 1;
       renderNav();
       renderMain();
       document.getElementById("main").scrollTop = 0;
@@ -1406,19 +1807,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Quick start cards
+  // Quick start cards — FIXED
   document.querySelectorAll('.quick-start-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const nav = card.getAttribute('data-nav');
+    card.addEventListener('click', function() {
+      const nav = this.getAttribute('data-nav');
       if (nav === 'grocery') { toggleGroceryPanel(); return; }
       const targetId = getSectionIdForNav(nav);
-      if (!targetId) { 
+      if (!targetId) {
         document.getElementById("main").innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);"><span style="font-size:48px;display:block;margin-bottom:16px;">📖</span><h2 style="border-bottom:none;color:var(--muted);">Coming soon</h2></div>`;
         return;
       }
       AppState.setSection(targetId);
       AppState.resetSearch();
       document.getElementById("global-search").value = "";
+      currentScale = 1;
       AppState.setCategory("all");
       document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
       document.querySelector('.cat-btn[data-cat="all"]').classList.add("active");
@@ -1441,18 +1843,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Grocery actions
   document.getElementById("grocery-check-all").addEventListener("click", () => {
     AppState.setAllGroceryChecked(true);
-    renderGrocery();
+    renderSmartGrocery();
   });
   document.getElementById("grocery-uncheck-all").addEventListener("click", () => {
     AppState.setAllGroceryChecked(false);
-    renderGrocery();
+    renderSmartGrocery();
   });
   document.getElementById("grocery-clear").addEventListener("click", () => {
     if (confirm('Clear all items?')) {
       AppState.clearGrocery();
-      renderGrocery();
+      renderSmartGrocery();
     }
   });
+  document.getElementById("grocery-export").addEventListener("click", exportGroceryList);
 
   // Backdrop
   document.getElementById("backdrop").addEventListener("click", () => {
@@ -1469,13 +1872,14 @@ document.addEventListener("DOMContentLoaded", () => {
       if (nav === 'tools') { openTools(); return; }
       if (nav === 'browse') { openSidebar(); return; }
       const targetId = getSectionIdForNav(nav);
-      if (!targetId) { 
+      if (!targetId) {
         document.getElementById("main").innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);"><span style="font-size:48px;display:block;margin-bottom:16px;">📖</span><h2 style="border-bottom:none;color:var(--muted);">Coming soon</h2></div>`;
         return;
       }
       AppState.setSection(targetId);
       AppState.resetSearch();
       document.getElementById("global-search").value = "";
+      currentScale = 1;
       if (nav === 'recipes') {
         AppState.setCategory("all");
         document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
