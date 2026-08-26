@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#2c5f4a">
+<meta name="description" content="The Global Toddler Table — Roots Edition: A dairy-free, land-meat-free family food system for toddlers and young children.">
 <title>The Global Toddler Table — Roots Edition</title>
 <style>
+/* ===== Design System ===== */
 :root {
   --paper: #fdfaf5;
   --ink: #1e1a16;
@@ -17,6 +19,7 @@
   --soft: #f5f1ea;
   --soft2: #f8f5ee;
   --soft3: #f0ebe1;
+  --card-shadow: 0 1px 4px rgba(32,29,25,0.08);
   --header-h: 52px;
   --radius: 12px;
   --transition: 0.2s ease;
@@ -24,6 +27,96 @@
   --font-serif: Georgia, "Times New Roman", serif;
   --font-sans: Arial, Helvetica, sans-serif;
 }
+
+/* ===== Dark Mode ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121212;
+    --ink: #ececec;
+    --muted: #aaa;
+    --muted-light: #888;
+    --rule: #3a3a3a;
+    --accent: #4a8a6a;
+    --accent-warm: #5a8a6a;
+    --soft: #1e1e1e;
+    --soft2: #1a1a1a;
+    --soft3: #222;
+    --card-shadow: 0 1px 4px rgba(255,255,255,0.05);
+  }
+}
+
+/* ===== Reading Mode ===== */
+body.reading-mode .workspace .sidebar,
+body.reading-mode .dashboard,
+body.reading-mode .mobile-bottom-nav,
+body.reading-mode .app-header .header-actions,
+body.reading-mode .app-header .search-wrap,
+body.reading-mode .app-header .badge,
+body.reading-mode .quick-start-grid,
+body.reading-mode .daily-principle,
+body.reading-mode .roots-buying-rule,
+body.reading-mode .recipe-actions,
+body.reading-mode .batch-scaling,
+body.reading-mode .tonight-grid,
+body.reading-mode #tonight-filters,
+body.reading-mode .meal-day {
+  display: none !important;
+}
+body.reading-mode .workspace .main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 18px;
+  line-height: 1.62;
+}
+body.reading-mode .recipe-card {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+body.reading-mode .recipe-card .recipe-meta {
+  border-bottom: 1px solid var(--rule);
+}
+body.reading-mode .app-header .app-title {
+  font-size: 18px;
+}
+body.reading-mode .app-header .btn-tools span,
+body.reading-mode .app-header .print-btn span,
+body.reading-mode .app-header .btn-grocery span,
+body.reading-mode .app-header .btn-sos span,
+body.reading-mode .app-header .btn-reading span {
+  display: inline !important;
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  .app-header, .sidebar, .dashboard, .app-footer, .no-print, .mobile-bottom-nav, .grocery-panel, .sos-overlay,
+  .quick-start-grid, .daily-principle, .roots-buying-rule, .recipe-actions, .batch-scaling {
+    display: none !important;
+  }
+  .main {
+    max-height: none !important;
+    padding: 20px !important;
+    margin: 0 auto !important;
+    max-width: 720px !important;
+    font-size: 11pt !important;
+  }
+  .recipe-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: none !important;
+    padding: 0 !important;
+    margin: 16px 0 !important;
+    box-shadow: none !important;
+  }
+  .recipe-card .recipe-meta {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .cover-block { padding: 40px 20px !important; }
+  body { background: white !important; color: black !important; }
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: var(--font-serif);
@@ -37,7 +130,7 @@ button, input { font: inherit; }
 button { cursor: pointer; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
-/* === Header === */
+/* ===== Header ===== */
 .app-header {
   position: sticky; top: 0; z-index: 50;
   height: var(--header-h);
@@ -63,24 +156,31 @@ button { cursor: pointer; }
   border: 1px solid var(--rule); border-radius: 6px;
   background: var(--soft);
   font-size: 13px;
+  color: var(--ink);
 }
 .search-wrap input:focus { outline: none; border-color: var(--accent); }
-.header-actions { display: flex; gap: 6px; }
-.btn-tools, .print-btn, .btn-grocery, .btn-sos {
+.search-wrap input::placeholder { color: var(--muted-light); }
+.header-actions { display: flex; gap: 6px; align-items: center; }
+.btn-tools, .print-btn, .btn-grocery, .btn-sos, .btn-reading {
   padding: 6px 10px;
   border: 1px solid var(--rule);
   border-radius: 6px;
   background: #fff;
+  color: var(--ink);
   font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 600;
   min-height: 36px;
+  transition: var(--transition);
 }
 .btn-sos { background: #fdf0e6; border-color: #d4a574; color: #8b6b4a; }
 .btn-sos:hover { background: #f5e6d6; }
+.btn-reading { background: var(--soft2); border-color: var(--rule); }
+.btn-reading:hover { background: var(--soft3); }
+.btn-reading.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 .btn-grocery:hover, .btn-tools:hover, .print-btn:hover { background: var(--soft); }
 
-/* === Layout === */
+/* ===== Layout ===== */
 .workspace { display: flex; min-height: calc(100vh - var(--header-h)); }
 .sidebar {
   width: 280px; flex-shrink: 0;
@@ -95,6 +195,7 @@ button { cursor: pointer; }
 .cat-btn {
   padding: 4px 8px; border-radius: 4px; border: 1px solid var(--rule);
   background: #fff;
+  color: var(--ink);
   font-family: var(--font-sans);
   font-size: 11px;
   min-height: 28px;
@@ -104,6 +205,7 @@ button { cursor: pointer; }
 .nav-item {
   text-align: left; padding: 7px 10px; border: none; border-radius: 5px;
   background: transparent;
+  color: var(--ink);
   font-family: var(--font-sans);
   font-size: 12px;
   width: 100%;
@@ -136,7 +238,7 @@ button { cursor: pointer; }
 }
 table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0; }
 th, td { border: 1px solid var(--rule); padding: 6px 8px; text-align: left; }
-th { background: #eee9e1; font-family: var(--font-sans); }
+th { background: var(--soft3); font-family: var(--font-sans); }
 .cover-block { text-align: center; padding: 28px 12px 20px; }
 .cover-block .title { font-family: var(--font-sans); font-size: 26px; font-weight: 800; color: var(--accent); }
 .cover-block .subtitle { font-family: var(--font-sans); font-size: 18px; font-weight: 700; }
@@ -144,7 +246,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
 .cover-block .motto { font-style: italic; font-size: 15px; color: var(--accent); margin-top: 18px; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: inline-block; }
 .cover-block .philosophy { font-size: 14px; color: var(--accent); max-width: 32em; margin: 12px auto; }
 
-/* === Quick Start Cards === */
+/* ===== Quick Start Cards ===== */
 .quick-start-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -159,8 +261,9 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   text-align: center;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 1px 4px rgba(32,29,25,0.06);
+  box-shadow: var(--card-shadow);
   min-height: 100px;
+  color: var(--ink);
 }
 .quick-start-card:hover {
   transform: translateY(-3px);
@@ -170,14 +273,15 @@ th { background: #eee9e1; font-family: var(--font-sans); }
 .quick-start-card .label { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--accent); }
 .quick-start-card .desc { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
-/* === Recipe Cards === */
+/* ===== Recipe Cards ===== */
 .recipe-card {
   background: #fff;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   padding: 20px 22px;
   margin: 16px 0;
-  box-shadow: 0 1px 4px rgba(32,29,25,0.06);
+  box-shadow: var(--card-shadow);
+  color: var(--ink);
 }
 .recipe-card h2 { border-bottom: none; font-size: 20px; margin: 0 0 4px; }
 .quick-badge {
@@ -204,22 +308,24 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   background: #fff; font-family: var(--font-sans);
   font-size: 11px; font-weight: 600;
   min-height: 36px;
+  color: var(--ink);
 }
 .btn-favorite.active { background: #fdf0e6; border-color: #d4a574; color: #8b6b4a; }
 
-/* === Tonight Mode === */
+/* ===== Tonight Mode ===== */
 .tonight-grid {
   display: flex; flex-wrap: wrap; gap: 8px;
   margin: 12px 0;
 }
 .tonight-btn {
   padding: 6px 16px; border: 1px solid var(--rule); border-radius: 20px;
-  background: #fff; font-family: var(--font-sans); font-size: 12px; font-weight: 600;
+  background: #fff; color: var(--ink);
+  font-family: var(--font-sans); font-size: 12px; font-weight: 600;
   min-height: 36px;
 }
 .tonight-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-/* === Dashboard === */
+/* ===== Dashboard ===== */
 .dashboard {
   width: 320px; flex-shrink: 0;
   background: var(--soft2);
@@ -232,12 +338,15 @@ th { background: #eee9e1; font-family: var(--font-sans); }
 .card {
   background: #fff; border: 1px solid var(--rule); border-radius: var(--radius);
   padding: 12px;
+  box-shadow: var(--card-shadow);
+  color: var(--ink);
 }
 .card h3 { font-family: var(--font-sans); font-size: 11px; color: var(--accent); text-transform: uppercase; margin: 0 0 6px; }
 .age-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 8px; }
 .age-tab {
   padding: 7px 4px; border-radius: 5px; border: 1px solid var(--rule);
-  background: #fff; font-family: var(--font-sans);
+  background: #fff; color: var(--ink);
+  font-family: var(--font-sans);
   font-size: 11px; text-align: center;
   min-height: 36px;
 }
@@ -249,16 +358,18 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   background: var(--soft); border: 1px solid rgba(207,198,186,0.6);
   font-size: 12px; cursor: pointer;
   min-height: 40px;
+  color: var(--ink);
 }
 .check-row {
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 12px; padding: 6px 4px; cursor: pointer;
   min-height: 32px;
+  color: var(--ink);
 }
 .check-row.done span { text-decoration: line-through; color: var(--muted); }
 .progress { font-size: 10px; font-weight: 700; background: var(--soft); padding: 2px 6px; border-radius: 4px; color: var(--accent); }
 
-/* === Grocery List === */
+/* ===== Grocery List ===== */
 .grocery-panel {
   position: fixed; top: var(--header-h); right: 0; bottom: 0;
   width: min(100%, 420px);
@@ -292,6 +403,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   display: flex; align-items: center; gap: 8px;
   padding: 6px 4px; border-bottom: 1px solid var(--soft3);
   font-size: 13px; min-height: 36px;
+  color: var(--ink);
 }
 .grocery-item input[type="checkbox"] { accent-color: var(--accent); min-width: 16px; min-height: 16px; }
 .grocery-text.checked { text-decoration: line-through; color: var(--muted); }
@@ -308,6 +420,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   padding: 6px 14px; border: 1px solid var(--rule); border-radius: 4px;
   background: #fff; font-family: var(--font-sans);
   font-size: 11px; font-weight: 600; min-height: 36px;
+  color: var(--ink);
 }
 .grocery-actions .btn-clear-all { color: #8b3a3a; border-color: #e6c5c5; }
 .grocery-actions .btn-export { background: var(--accent); color: #fff; border-color: var(--accent); }
@@ -316,7 +429,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   text-align: center; color: var(--muted); padding: 40px 20px; font-style: italic;
 }
 
-/* === SOS Overlay === */
+/* ===== SOS Overlay ===== */
 .sos-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.5); z-index: 90;
@@ -336,12 +449,13 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px;
   margin-bottom: 8px; cursor: pointer; background: #fff;
   min-height: 52px;
+  color: var(--ink);
 }
 .sos-item .sos-name { font-family: var(--font-sans); font-size: 13px; font-weight: 600; }
 .sos-item .sos-time { font-size: 11px; color: var(--muted); }
 .sos-item .sos-tag { font-size: 9px; font-weight: 700; text-transform: uppercase; background: #fdf0e6; color: #8b6b4a; padding: 2px 8px; border-radius: 4px; }
 
-/* === Mobile Bottom Nav === */
+/* ===== Mobile Bottom Nav ===== */
 .mobile-bottom-nav {
   display: none;
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
@@ -377,7 +491,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
 }
 .offline-indicator.visible { display: block; }
 
-/* === Daily Principle === */
+/* ===== Daily Principle ===== */
 .daily-principle {
   background: var(--soft2);
   border: 1px solid var(--rule);
@@ -395,7 +509,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   font-size: 14px; color: var(--accent); font-style: italic;
 }
 
-/* === Roots Buying Rule === */
+/* ===== Roots Buying Rule ===== */
 .roots-buying-rule {
   background: var(--soft2);
   border: 1px solid #d4a574;
@@ -412,7 +526,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   font-size: 14px; color: var(--accent);
 }
 
-/* === Recipe Finder === */
+/* ===== Recipe Finder ===== */
 .recipe-finder {
   background: var(--soft);
   border-radius: var(--radius);
@@ -422,7 +536,46 @@ th { background: #eee9e1; font-family: var(--font-sans); }
 .recipe-finder table { margin: 0; }
 .recipe-finder td { padding: 4px 8px; font-size: 11px; }
 
-/* === Responsive === */
+/* ===== Three Ages Grid ===== */
+.three-ages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.three-ages-grid .age-card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--card-shadow);
+}
+.three-ages-grid .age-card .age-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 4px;
+}
+.three-ages-grid .age-card .age-title {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.three-ages-grid .age-card .age-desc {
+  font-size: 13px;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .three-ages-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .sidebar {
     position: fixed; top: var(--header-h); left: 0; bottom: 0;
@@ -446,15 +599,16 @@ th { background: #eee9e1; font-family: var(--font-sans); }
   .quick-start-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .quick-start-card { padding: 12px; min-height: 80px; }
   .quick-start-card .icon { font-size: 28px; }
+  .three-ages-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
   .app-header { gap: 6px; padding: 0 8px; }
   .search-wrap { max-width: 140px; }
-  .btn-tools span, .print-btn span, .btn-grocery span, .btn-sos span { 
+  .btn-tools span, .print-btn span, .btn-grocery span, .btn-sos span, .btn-reading span { 
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
   }
-  .btn-tools, .print-btn, .btn-grocery, .btn-sos { padding: 6px 8px; min-width: 36px; justify-content: center; }
+  .btn-tools, .print-btn, .btn-grocery, .btn-sos, .btn-reading { padding: 6px 8px; min-width: 36px; justify-content: center; }
   .quick-start-grid { grid-template-columns: 1fr 1fr; gap: 6px; }
   .quick-start-card { padding: 10px; min-height: 70px; }
   .quick-start-card .icon { font-size: 24px; }
@@ -511,6 +665,7 @@ th { background: #eee9e1; font-family: var(--font-sans); }
     <input id="global-search" type="search" placeholder="Search recipes, guides…" aria-label="Search">
   </div>
   <div class="header-actions">
+    <button type="button" class="btn-reading no-print" id="toggle-reading" aria-label="Toggle reading mode">📖 <span>Read</span></button>
     <button type="button" class="btn-sos no-print" id="toggle-sos" aria-label="Emergency meals">🚨 <span>SOS</span></button>
     <button type="button" class="btn-grocery no-print" id="toggle-grocery" aria-label="Open grocery list">🛒 <span>Grocery</span></button>
     <button type="button" class="print-btn no-print" id="print-btn" aria-label="Print">🖨️ <span>Print</span></button>
@@ -746,7 +901,7 @@ function getAisle(item) {
 }
 
 // ============================================================
-// RECIPE DATA
+// RECIPE DATA — ALL 30 RECIPES
 // ============================================================
 function recipe(id, title, cat, influence, role, ingredients, method, safety, variations, baseYield, opts) {
   return {
@@ -831,8 +986,9 @@ const AGE_GUIDANCE = {
   "7": "Family portions, hunger-led, independence in serving."
 };
 
-// All 30 recipes (full list - same as previous version)
+// ===== ALL 30 RECIPES =====
 const RECIPES = [
+  // BREAKFAST (6)
   recipe("rec-01","01 Creamy Banana-Tahini Oat Porridge","breakfast","East African / Middle Eastern","Energy · healthy fat",
     "¼ cup oats; ½ cup water or fortified soy beverage; ½ banana; 1 tsp tahini; ½ tsp ground flax.",
     "Simmer oats in liquid 5-7 minutes. Remove from heat; mash in banana and flax. Stir tahini in completely.",
@@ -881,12 +1037,206 @@ const RECIPES = [
     "1 toddler serving",
     { prepTime: '5 min', cookTime: '7 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
   ),
-  // ... (remaining recipes rec-07 through rec-30 from previous version)
-  // For space, I'll include a placeholder - the full list would be here
+  // LUNCH (6)
+  recipe("rec-07","07 West African Chickpea, Sweet Potato & Greens","lunch","West African","Plant protein · iron",
+    "½ cup mashed chickpeas; ½-1 sweet potato; ½ cup cooked greens; 1 tsp oil; lemon/lime.",
+    "Simmer sweet potato 10-12 min. Steam greens 3-4 min. Mash chickpeas; combine all with oil and citrus.",
+    "Mash chickpeas; thin nut butter if used.",
+    "Black or white beans; mango instead of citrus.",
+    "1 toddler serving",
+    { prepTime: '10 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Peanut (optional)'] }
+  ),
+  recipe("rec-08","08 Caribbean Black Bean, Rice & Pumpkin Bowl","lunch","Caribbean","Plant iron · protein",
+    "½ cup low-sodium black beans; ½ cup rice; ¼-½ cup pumpkin; ¼ avocado; thyme; 1 tsp oil.",
+    "Warm beans with rice 2-3 min. Mash beans lightly. Fold in pumpkin and avocado; add thyme and oil.",
+    "Mash beans; keep sodium modest.",
+    "Tomato for vitamin C.",
+    "1 toddler serving",
+    { prepTime: '5 min', cookTime: '5 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
+  ),
+  recipe("rec-09","09 Ginger-Scented Tofu Rice Bowl","lunch","East Asian","Plant protein · energy",
+    "2-3 oz calcium-set tofu; ½ cup rice; soft broccoli/carrot; 1 tsp oil; tiny ginger.",
+    "Steam broccoli/carrot 5-6 min. Crumble tofu. Warm with rice, vegetables, oil and ginger.",
+    "Skip salty sauce.",
+    "Sesame or olive oil.",
+    "1 toddler serving",
+    { prepTime: '8 min', cookTime: '8 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Soy'] }
+  ),
+  recipe("rec-10","10 Red Lentil Dal with Rice","lunch","South Asian","Plant iron · protein",
+    "½ cup cooked red lentils; ½ cup rice; 1 tsp oil; mild turmeric/cumin.",
+    "Simmer lentils 12-15 min until soft. Stir in oil and spice; combine with rice.",
+    "Keep spice mild.",
+    "Tomato or lemon for vitamin C.",
+    "1 toddler serving",
+    { prepTime: '5 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
+  ),
+  recipe("rec-11","11 Lentil Soup + Soft Toast","lunch","Global","Iron · protein",
+    "¼ cup dry lentils; carrot; tomato; spinach; low-sodium broth; soft toast.",
+    "Simmer lentils, carrot, tomato 20-25 min. Stir in spinach last 2 min. Serve with toast.",
+    "Cool and check texture.",
+    "Make extra for next day.",
+    "1 bowl + toast",
+    { prepTime: '10 min', cookTime: '25 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten'] }
+  ),
+  recipe("rec-12","12 White Bean, Tomato & Olive Oil Bowl","lunch","Mediterranean","Plant protein · iron",
+    "½ cup low-sodium white beans; ¼ cup soft tomato; 1 tsp oil; herbs.",
+    "Warm beans with tomato 3-4 min. Mash together. Finish with oil and herbs.",
+    "Mash beans well; low sodium.",
+    "Quinoa or soft bread.",
+    "1 toddler serving",
+    { prepTime: '5 min', cookTime: '5 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
+  ),
+  // DINNER (8)
+  recipe("rec-13","13 Ethiopian Lentil-Rice Bowl","dinner","Ethiopian","Plant iron · protein",
+    "¼ cup dry lentils; ½ cup cooked rice; soft carrot/sweet potato; 1 tsp oil; mild turmeric/cumin.",
+    "Simmer lentils 15-18 min. Steam carrot 8-10 min. Combine with rice, oil and spice.",
+    "Toddler portion non-hot.",
+    "Add finely chopped greens.",
+    "1 toddler serving",
+    { prepTime: '10 min', cookTime: '18 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  ),
+  recipe("rec-14","14 Salmon-Sweet Potato & Peas","dinner","Global","DHA/EPA · protein",
+    "~1 oz cooked salmon; sweet potato; peas; 1 tsp oil.",
+    "Bake salmon 10-12 min, flake, check for bones. Steam sweet potato 10-12 min and peas 3-4 min; combine.",
+    "Lower-mercury fish; check bones every time.",
+    "Trout or other Best Choice fish.",
+    "~1 oz fish + vegetables",
+    { prepTime: '10 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Fish'] }
+  ),
+  recipe("rec-15","15 Mediterranean Lentil & Vegetable Stew","dinner","Mediterranean","Plant iron · protein",
+    "½ cup red lentils; ¼ cup diced potato; ¼ cup diced carrot; ¼ cup peas; 2 Tbsp tomato purée; 1 tsp oil; herbs.",
+    "Simmer all 20-25 min until tender. Finish with oil and herbs; mash lightly.",
+    "Low sodium.",
+    "Over rice or soft pasta.",
+    "1 bowl",
+    { prepTime: '10 min', cookTime: '25 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  ),
+  recipe("rec-16","16 Chickpea Patties + Soft Tomato Pasta","dinner","Italian","Plant protein · iron",
+    "½ cup chickpeas; 1 egg; 2 Tbsp oat flour; herbs; soft pasta; tomato sauce.",
+    "Mash chickpeas with egg, oat flour and herbs. Shape patties; cook 3-4 min per side. Serve with pasta in tomato sauce.",
+    "Patties soft; pasta cut short.",
+    "Roots Cake/Patty formula.",
+    "1-2 patties + pasta",
+    { prepTime: '15 min', cookTime: '10 min', difficulty: 'Medium', dietary: ['Dairy-free'], allergens: ['Egg', 'Gluten'] }
+  ),
+  recipe("rec-17","17 Three Sisters-Style Bean, Corn & Squash","dinner","Indigenous North American-inspired","Plant protein · carbohydrate",
+    "Well-cooked beans; very soft corn; winter squash; olive oil.",
+    "Simmer beans until soft. Steam squash 10-12 min. Cook corn 5 min, finely chop. Mash beans and squash; fold in corn and oil.",
+    "No whole corn kernels.",
+    "Wild rice where appropriate.",
+    "1 toddler serving",
+    { prepTime: '15 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  ),
+  recipe("rec-18","18 Ethiopian Fish & Lentil Stew","dinner","Ethiopian","Protein · plant iron",
+    "~1 oz cooked white fish; ¼ cup red lentils; soft carrot; 1 tsp oil; mild turmeric/ginger.",
+    "Simmer lentils with carrot 15 min. Cook fish 8-10 min; flake, check bones. Fold into lentils with oil and spice.",
+    "Bone-check carefully.",
+    "Best Choice white fish.",
+    "~1 oz fish + lentils",
+    { prepTime: '10 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Fish'] }
+  ),
+  recipe("rec-19","19 Caribbean Fish & Pumpkin Stew","dinner","Caribbean","Protein · vitamin A",
+    "~1 oz cooked white fish; pumpkin/squash; 1 tsp oil; thyme.",
+    "Steam pumpkin 10-12 min; mash. Cook fish; flake and bone-check. Fold into pumpkin with oil and thyme.",
+    "Bone-check; lower-mercury species.",
+    "Over rice if needed.",
+    "~1 oz fish + pumpkin",
+    { prepTime: '10 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Fish'] }
+  ),
+  recipe("rec-20","20 Mediterranean Chickpea & Herb Bowl","dinner","Levantine / Mediterranean","Plant protein · iron",
+    "½ cup mashed chickpeas; herbs; ¼ cup quinoa; 1 tsp oil; thin tahini.",
+    "Cook quinoa 15 min. Mash chickpeas. Combine with quinoa, herbs, oil and thin tahini.",
+    "Chickpeas soft and mashed.",
+    "Tomato/lemon for vitamin C.",
+    "1 toddler serving",
+    { prepTime: '5 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
+  ),
+  // SNACKS (5)
+  recipe("rec-21","21 Avocado + Soft Toast","snack","Global / Roots staple","Healthy fat · energy",
+    "Soft whole-grain toast; mashed avocado.",
+    "Toast lightly. Mash avocado and spread; cut into strips.",
+    "Toast soft enough.",
+    "Add egg or hummus.",
+    "1 snack",
+    { prepTime: '5 min', cookTime: '3 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten'], isQuick: true }
+  ),
+  recipe("rec-22","22 Pear + Thin Sunflower Butter Toast","snack","Roots snack","Fruit · healthy fat",
+    "Soft toast; ripe pear; thin sunflower butter.",
+    "Spread sunflower butter thinly. Top with mashed pear.",
+    "Never use thick sticky seed butter.",
+    "Tahini or thin nut butter.",
+    "1 snack",
+    { prepTime: '5 min', cookTime: '3 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free', 'Nut-free'], allergens: ['Gluten', 'Sunflower'], isQuick: true }
+  ),
+  recipe("rec-23","23 Banana-Chia Mash","snack","Global","Energy · omega-3",
+    "½ banana; ½ tsp finely ground chia; optional fortified yogurt.",
+    "Mash banana. Stir in ground chia. Mix in yogurt if using.",
+    "Do not serve dry seeds.",
+    "Ground flax as alternate.",
+    "1 snack",
+    { prepTime: '3 min', cookTime: '0 min', difficulty: 'Easy', dietary: ['Plant-based'], allergens: ['None common'], isQuick: true }
+  ),
+  recipe("rec-24","24 Hummus + Soft Pita + Mango","snack","Mediterranean / West Asian","Plant protein · healthy fat",
+    "2 Tbsp smooth hummus; soft pita; ripe mango.",
+    "Thin hummus if needed. Warm pita, tear into pieces. Dice mango small.",
+    "Avoid large chewy pieces.",
+    "Add avocado.",
+    "1 snack",
+    { prepTime: '5 min', cookTime: '2 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten', 'Sesame'], isQuick: true }
+  ),
+  recipe("rec-25","25 Fortified Dairy-Free Yogurt + Berries","snack","Global","Calcium · vitamin D",
+    "Fortified unsweetened dairy-free yogurt; prepared berries.",
+    "Stir yogurt. Quarter berries; mash smaller berries.",
+    "Avoid whole round berries.",
+    "Banana or mango.",
+    "1 snack",
+    { prepTime: '3 min', cookTime: '0 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Varies'], isQuick: true }
+  ),
+  // FOUNDATIONS (5)
+  recipe("rec-26","26 Basic Toddler Vegetable Broth","foundation","Roots Foundations","Cooking base",
+    "Carrot, celery, onion, parsley stems; water.",
+    "Simmer vegetables 45-60 min. Strain, cool, freeze in portions. No salt.",
+    "Cooking liquid, not a drink.",
+    "",
+    "1 batch (4 cups)",
+    { prepTime: '15 min', cookTime: '60 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  ),
+  recipe("rec-27","27 Three-Grain Batch","foundation","Roots Foundations","Energy base",
+    "Equal parts rice, quinoa, oats.",
+    "Cook grains separately. Cool, store in fridge 3-4 days or freeze.",
+    "Reheat thoroughly.",
+    "",
+    "Batch",
+    { prepTime: '10 min', cookTime: '20 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten'] }
+  ),
+  recipe("rec-28","28 Master Lentils & Beans","foundation","Roots Foundations","Plant iron · protein",
+    "Red lentils, black beans, chickpeas.",
+    "Soak beans 8-12 hours. Cook beans 45-60 min, chickpeas 60-75 min. Cook red lentils 15-18 min.",
+    "Mash to texture; low sodium.",
+    "",
+    "Batch",
+    { prepTime: '10 min + soaking', cookTime: '75 min', difficulty: 'Medium', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  ),
+  recipe("rec-29","29 Soft Roasted Vegetable Mix","foundation","Roots Foundations","Vitamin A/C · fiber",
+    "Sweet potato, carrot, squash; 1 tsp oil.",
+    "Roast at 400°F 25-30 min until soft. Mash or dice.",
+    "Soft enough to mash between fingers.",
+    "",
+    "Batch",
+    { prepTime: '15 min', cookTime: '30 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  ),
+  recipe("rec-30","30 Mild Family Tomato Sauce","foundation","Roots Foundations","Vitamin-C pairing",
+    "Crushed tomatoes; olive oil; soft herbs.",
+    "Simmer 20-25 min. Remove toddler portion before salting.",
+    "Use with iron-rich foods; low sodium.",
+    "",
+    "Batch (2 cups)",
+    { prepTime: '5 min', cookTime: '25 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
+  )
 ];
 
 // ============================================================
-// COMPLETE SECTIONS DATA WITH ALL MISSING CONTENT ADDED
+// COMPLETE SECTIONS DATA
 // ============================================================
 const SECTIONS = [
   { id: "cover", title: "🏠 Cover & Overview", category: "start", content: `
@@ -947,15 +1297,36 @@ const SECTIONS = [
     <div id="tonight-results"></div>
   `},
 
-  { id: "one-table", title: "📊 One Table · Three Ages", category: "start", content: `
-    <h1>One Table · Ages 1–7</h1>
-    <table>
-      <tr><th>Family meal</th><th>1–3</th><th>4–6</th><th>7+</th></tr>
-      <tr><td>Lentil-rice bowl</td><td>Mash/soften</td><td>Family portion</td><td>Family portion</td></tr>
-      <tr><td>Salmon + sweet potato + peas</td><td>Flake; ~1 oz</td><td>~2 oz</td><td>~2 oz</td></tr>
-      <tr><td>Bean + squash</td><td>Mash beans</td><td>Family portion</td><td>Family portion</td></tr>
-    </table>
-    <p style="font-size:12px;color:var(--muted);">Caregiver decides what/when/where; child decides whether/how much.</p>
+  { id: "three-ages", title: "📊 One Table · Three Ages", category: "start", content: `
+    <h1>One Table · Three Ages</h1>
+    <p class="meta">The same family meal grows with the child. Use this as the master adaptation map throughout the book.</p>
+
+    <div class="three-ages-grid">
+      <div class="age-card">
+        <span class="age-label">Stage 1</span>
+        <div class="age-title">Toddler Table · Ages 1–3</div>
+        <div class="age-desc">Same family food; softer textures, safer shapes, smaller starting portions, less sodium, and close supervision.</div>
+      </div>
+      <div class="age-card">
+        <span class="age-label">Stage 2</span>
+        <div class="age-title">Growing Table · Ages 4–6</div>
+        <div class="age-desc">Same family food; larger, hunger-led portions, progressively broader textures, and increasing participation in self-feeding and simple food preparation.</div>
+      </div>
+      <div class="age-card">
+        <span class="age-label">Stage 3</span>
+        <div class="age-title">Family Table · Ages 7+</div>
+        <div class="age-desc">Same family meal; hunger-led portions, normal family textures as appropriate, and increasing independence with serving and preparation.</div>
+      </div>
+    </div>
+
+    <h2>Examples</h2>
+    <p><strong>Lentil-rice bowl</strong> — Toddler Table: mash or soften as needed; remove toddler portion before salting. Growing Table: serve the same bowl with broader texture and more food as appetite calls for. Family Table: serve the family version and let hunger guide the portion.</p>
+    <p><strong>Salmon + sweet potato + peas</strong> — Toddler Table: flake thoroughly, bone-check, and offer a small starting portion. Growing Table: larger portion with progressively more intact textures. Family Table: family preparation and hunger-led portion.</p>
+    <p><strong>Bean + squash bowl</strong> — Toddler Table: beans and squash very soft and mashable. Growing Table: retain more texture as skills allow. Family Table: serve as the family prepares it, with appropriate seasoning.</p>
+    <p><strong>Chickpea patty</strong> — Toddler Table: soft, moist strips or small pieces. Growing Table: larger soft pieces or whole patty as safely managed. Family Table: family portion.</p>
+    <p><strong>Oatmeal</strong> — Toddler Table: soft, safe texture. Growing Table: progressively thicker or more textured as comfortable. Family Table: normal family texture.</p>
+
+    <p style="font-size:12px;color:var(--muted);">Starting portions are not targets. The caregiver decides what, when and where food is offered; the child decides whether and how much to eat. Texture and portion should progress together, but neither should be advanced by the calendar alone.</p>
   `},
 
   { id: "planner", title: "📅 Plan the Week", category: "start", content: `
@@ -992,7 +1363,6 @@ const SECTIONS = [
       <li><strong>Fruit:</strong> banana, mashed berries, pear, mango</li>
       <li><strong>Protein (optional):</strong> egg, beans, tofu</li>
     </ul>
-    <p><strong>Examples:</strong> Avocado toast + banana slices; Hummus + soft pita + mango; Thin tahini + pear + soft bread; Fortified yogurt + berries + ground flax</p>
 
     <h2>10-Minute Emergency Meals</h2>
     <ul>
@@ -1084,33 +1454,24 @@ const SECTIONS = [
     <p>Indigenous North America is not one cuisine. Nations differ in territory, foods, harvesting practices, teachings, and traditions. The <strong>Three Sisters</strong> reference (corn, beans, and squash grown and eaten in relationship) is a broad foodway-inspired framework, not a substitute for Nation-specific knowledge.</p>
     <p>A Roots approach emphasizes land, season, locality, relationship, and respect. When a family has a connection to a particular Nation or community, local knowledge keepers and Nation-specific resources should take precedence over any general book.</p>
     <p><strong>Pantry ideas that appear in this book:</strong> corn, beans, squash, wild rice (when safely textured), berries, fish, and other locally specific foods.</p>
-    <p><strong>Why this belongs here.</strong> Health Canada notes that traditional foods can improve diet quality among Indigenous Peoples and that traditional food is linked to culture, identity, way of life and health. Examples across Canada include fish, shellfish, berries, corn, squash, beans, wild rice and other wild plants.</p>
-    <p><strong>Harvested foods — safety is part of the tradition, not a footnote.</strong> Check the current local advisory before serving frequently harvested fish, in addition to the general mercury guidance elsewhere in this book.</p>
+    <p><strong>Why this belongs here.</strong> Health Canada notes that traditional foods can improve diet quality among Indigenous Peoples and that traditional food is linked to culture, identity, way of life and health.</p>
+    <p><strong>Harvested foods — safety is part of the tradition, not a footnote.</strong> Check the current local advisory before serving frequently harvested fish.</p>
 
     <h3>A Second Meal Idea: Salmon, Squash &amp; Berry Plate</h3>
     <p><em>Inspired by • Pacific Northwest / broader Indigenous foodways</em></p>
-    <p><strong>Ingredients:</strong> 1–2 oz fully cooked salmon; ¼–½ cup soft winter squash; 1–2 Tbsp mashed berries such as blueberry or raspberry.</p>
-    <p><strong>Method:</strong> Cook and thoroughly flake salmon, checking carefully by hand for bones. Steam squash until soft and mash. Mash berries (or quarter lengthwise if they approach whole-grape size) and combine or serve alongside.</p>
+    <p><strong>Ingredients:</strong> 1–2 oz fully cooked salmon; ¼–½ cup soft winter squash; 1–2 Tbsp mashed berries.</p>
+    <p><strong>Method:</strong> Cook and thoroughly flake salmon, checking carefully by hand for bones. Steam squash until soft and mash. Mash berries and combine or serve alongside.</p>
     <p><strong>Toddler safety:</strong> Flake fish finely and bone-check every piece; mash squash and berries to the child's current texture skill.</p>
-    <p><strong>Family table:</strong> Add lemon, herbs or a family sauce to the adult portion after removing the toddler serving.</p>
 
-    <div class="callout-gold"><strong>The Respectful Rule</strong><br>Use Indigenous foods because they are good food — not as decorative "exotic" ingredients. Name a specific Nation or region when the foodway is specific; otherwise say "Indigenous foodways" rather than implying that one recipe represents all First Nations. The Roots goal is a workable global-inspired family table that stays humble about what it does not know.</div>
+    <div class="callout-gold"><strong>The Respectful Rule</strong><br>Use Indigenous foods because they are good food — not as decorative "exotic" ingredients. Name a specific Nation or region when the foodway is specific; otherwise say "Indigenous foodways." The Roots goal is a workable global-inspired family table that stays humble about what it does not know.</div>
 
     <h2>Regional Pantry Notes</h2>
     <ul>
       <li><strong>Africa:</strong> legumes, greens, sweet potato, millet, peanut sauces</li>
-      <li><strong>Caribbean:</strong> plantain, beans, pumpkin, avocado, fish. <strong>Ital cooking</strong> — the dietary practice rooted in Rastafari belief — offers a naturally aligned model for this book's plant-forward pattern. Recipe 08 sits comfortably within an Ital framework without changes, though it is labeled "Caribbean pantry-inspired" rather than "Ital" because Ital is a spiritual and cultural practice with its own standards.</li>
-      <li><strong>Latin America:</strong> beans, corn, avocado, squash, rice, plantain</li>
+      <li><strong>Caribbean:</strong> plantain, beans, pumpkin, avocado, fish. <strong>Ital cooking</strong> — a Rastafari-based whole-foods practice — aligns naturally with Recipe 08.</li>
+      <li><strong>Latin America:</strong> beans, corn, avocado, squash, rice</li>
       <li><strong>Mediterranean:</strong> chickpeas, lentils, olive oil, tomatoes, tahini</li>
-      <li><strong>Asia:</strong> tofu, rice, fish, sesame, ginger, vegetables</li>
-    </ul>
-
-    <h2>Practical Use at the Family Table</h2>
-    <ul>
-      <li>Pick one foodway lane for a week if you like a theme, or mix freely — the nutritional architecture matters more than geographic purity.</li>
-      <li>Let recipe labels teach pantry patterns (beans + squash, lentils + rice, fish + greens) rather than lock you into a "cuisine night."</li>
-      <li>Swap toward foods your family already buys and values; the formulas still hold.</li>
-      <li>Teach children that many places nourish people with legumes, grains, vegetables, fish, and shared pots — the same jobs, different pantries.</li>
+      <li><strong>Asia:</strong> tofu, rice, fish, sesame, ginger</li>
     </ul>
 
     <div class="callout"><strong>Respect Line</strong><br>Influence is invitation, not ownership. Where this book is thin, community cooks, family elders, and Nation-specific resources are the deeper teachers.</div>
@@ -1118,16 +1479,15 @@ const SECTIONS = [
 
   { id: "recipe-finder", title: "📋 Recipe Finder", category: "guide", content: `
     <h1>Recipe Finder</h1>
-    <p>Use the numbers on the meal map to jump directly to the core recipes. The categories below are a navigation aid — not a nutrition prescription.</p>
     <div class="recipe-finder">
       <table>
         <tr><th>Job</th><th>Core Recipes</th><th>Best Use</th></tr>
         <tr><td><strong>Iron / plant protein</strong></td><td>07, 10, 11, 12, 13, 15, 16, 17, 18, 20</td><td>Rotate legumes; pair plant iron with vitamin C</td></tr>
         <tr><td><strong>Fish / DHA-EPA</strong></td><td>14, 18, 19</td><td>Lower-mercury Best Choices; bone-check</td></tr>
         <tr><td><strong>Egg / choline</strong></td><td>02, 03, 05</td><td>Quick protein and energy</td></tr>
-        <tr><td><strong>Calcium / vitamin D support</strong></td><td>09, 14, 25 + fortified foods</td><td>Check labels; food pattern and fortification work together</td></tr>
-        <tr><td><strong>Breakfast / energy</strong></td><td>01–06</td><td>Porridges, egg bowls and soft cakes</td></tr>
-        <tr><td><strong>Snack / spread</strong></td><td>21–25</td><td>Use as a bridge between meals; add protein when needed</td></tr>
+        <tr><td><strong>Calcium / vitamin D support</strong></td><td>09, 14, 25 + fortified foods</td><td>Check labels; food pattern + fortification</td></tr>
+        <tr><td><strong>Breakfast / energy</strong></td><td>01–06</td><td>Porridges, egg bowls, soft cakes</td></tr>
+        <tr><td><strong>Snack / spread</strong></td><td>21–25</td><td>Bridge between meals; add protein when needed</td></tr>
       </table>
     </div>
   `},
@@ -1137,11 +1497,11 @@ const SECTIONS = [
     <ul>
       <li>NIH ODS — Iron, Calcium, Vitamin D, B12, Zinc, Iodine</li>
       <li>FDA/EPA — Advice About Eating Fish</li>
-      <li>AAP — HealthyChildren.org — Recommended Drinks & Toddler Nutrition</li>
+      <li>AAP — HealthyChildren.org</li>
       <li>CDC — Choking Hazards, Food Safety</li>
-      <li>USDA Agricultural Marketing Service — Organic Production Standards</li>
+      <li>USDA Agricultural Marketing Service — Organic Standards</li>
     </ul>
-    <div class="callout"><strong>CLINICAL DISCLAIMER</strong><br>This is a general planning resource, not individualized medical care. Review restricted diets with your pediatrician.<br><br><strong>PFAS Note</strong><br>PFAS guidance is intentionally practical and source-specific. Because drinking-water standards, local advisories and product regulations can change, families should use current EPA, FDA, CDC/ATSDR and state/tribal guidance rather than treating this book as a permanent PFAS product list.</div>
+    <div class="callout"><strong>CLINICAL DISCLAIMER</strong><br>This is a general planning resource, not individualized medical care. Review restricted diets with your pediatrician.<br><br><strong>PFAS Note</strong><br>PFAS guidance is practical and source-specific. Use current EPA, FDA, CDC/ATSDR and state/tribal guidance.</div>
   `}
 ];
 
@@ -1187,9 +1547,10 @@ const appData = {
 };
 
 // ============================================================
-// RENDER FUNCTIONS (same as previous version)
+// RENDER FUNCTIONS
 // ============================================================
 let currentScale = 1;
+let readingMode = false;
 
 function getFirstSectionIdForCategory(cat) {
   const items = appData.sections.filter(s => cat === "all" || s.category === cat);
@@ -1593,6 +1954,17 @@ function getDailyPrinciple() {
 }
 
 // ============================================================
+// READING MODE
+// ============================================================
+function toggleReadingMode() {
+  readingMode = !readingMode;
+  document.body.classList.toggle('reading-mode', readingMode);
+  const btn = document.getElementById('toggle-reading');
+  btn.classList.toggle('active', readingMode);
+  btn.innerHTML = readingMode ? '📖 <span>Reading</span>' : '📖 <span>Read</span>';
+}
+
+// ============================================================
 // PANEL CONTROLS
 // ============================================================
 function openSidebar() {
@@ -1759,6 +2131,9 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMobileNav(targetId);
     });
   });
+
+  // Reading mode
+  document.getElementById("toggle-reading").addEventListener("click", toggleReadingMode);
 
   // Tools
   document.getElementById("toggle-tools").addEventListener("click", toggleTools);
