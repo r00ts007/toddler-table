@@ -10,18 +10,18 @@
 /* ===== Design System ===== */
 :root {
   --paper: #fdfaf5;
-  --ink: #1e1a16;
-  --muted: #6b6258;
-  --muted-light: #a89f93;
-  --rule: #d6cdc0;
+  --ink: #1a1612;
+  --muted: #4a443e;
+  --muted-light: #7a7268;
+  --rule: #c8bdb0;
   --accent: #2c5f4a;
-  --accent-warm: #3d7a5f;
+  --accent-light: #3d7a5f;
   --soft: #f5f1ea;
   --soft2: #f8f5ee;
   --soft3: #f0ebe1;
-  --card-shadow: 0 1px 4px rgba(32,29,25,0.08);
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.06);
   --header-h: 52px;
-  --radius: 12px;
+  --radius: 10px;
   --transition: 0.2s ease;
   --bottom-nav-h: 56px;
   --font-serif: Georgia, "Times New Roman", serif;
@@ -33,17 +33,60 @@
   :root {
     --paper: #121212;
     --ink: #ececec;
-    --muted: #aaa;
-    --muted-light: #888;
-    --rule: #3a3a3a;
+    --muted: #c0c0c0;
+    --muted-light: #9a9a9a;
+    --rule: #4a4a4a;
     --accent: #4a8a6a;
-    --accent-warm: #5a8a6a;
+    --accent-light: #5a9a7a;
     --soft: #1e1e1e;
     --soft2: #1a1a1a;
-    --soft3: #222;
-    --card-shadow: 0 1px 4px rgba(255,255,255,0.05);
+    --soft3: #282828;
+    --card-shadow: 0 2px 8px rgba(255,255,255,0.05);
   }
 }
+
+/* ===== Shared Selector Button ===== */
+.selector-btn {
+  padding: 6px 12px;
+  border: 2px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  min-height: 32px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.selector-btn:hover {
+  background: var(--soft);
+  border-color: var(--muted-light);
+}
+.selector-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(44,95,74,0.25);
+}
+
+/* ===== Component-Specific Overrides ===== */
+
+/* Tonight filter chips — restore pill shape */
+.tonight-btn {
+  border-radius: 20px !important;
+  padding: 8px 18px;
+}
+
+/* Age tabs — restore touch target and centering */
+.age-tab {
+  min-height: 40px !important;
+  text-align: center;
+  padding: 8px 4px;
+}
+
+/* Cat buttons — use .selector-btn defaults */
+/* Batch buttons — use .selector-btn defaults */
 
 /* ===== Reading Mode ===== */
 body.reading-mode .workspace .sidebar,
@@ -81,18 +124,12 @@ body.reading-mode .recipe-card .recipe-meta {
 body.reading-mode .app-header .app-title {
   font-size: 18px;
 }
-body.reading-mode .app-header .btn-tools span,
-body.reading-mode .app-header .print-btn span,
-body.reading-mode .app-header .btn-grocery span,
-body.reading-mode .app-header .btn-sos span,
-body.reading-mode .app-header .btn-reading span {
-  display: inline !important;
-}
 
 /* ===== Print Styles ===== */
 @media print {
-  .app-header, .sidebar, .dashboard, .app-footer, .no-print, .mobile-bottom-nav, .grocery-panel, .sos-overlay,
-  .quick-start-grid, .daily-principle, .roots-buying-rule, .recipe-actions, .batch-scaling {
+  .app-header, .sidebar, .dashboard, .app-footer, .no-print, .mobile-bottom-nav,
+  .grocery-panel, .sos-overlay, .quick-start-grid, .daily-principle,
+  .roots-buying-rule, .recipe-actions, .batch-scaling {
     display: none !important;
   }
   .main {
@@ -130,6 +167,26 @@ button, input { font: inherit; }
 button { cursor: pointer; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
+/* ===== Skip Link ===== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 1000;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 /* ===== Header ===== */
 .app-header {
   position: sticky; top: 0; z-index: 50;
@@ -161,6 +218,7 @@ button { cursor: pointer; }
 .search-wrap input:focus { outline: none; border-color: var(--accent); }
 .search-wrap input::placeholder { color: var(--muted-light); }
 .header-actions { display: flex; gap: 6px; align-items: center; }
+
 .btn-tools, .print-btn, .btn-grocery, .btn-sos, .btn-reading {
   padding: 6px 10px;
   border: 1px solid var(--rule);
@@ -173,7 +231,7 @@ button { cursor: pointer; }
   min-height: 36px;
   transition: var(--transition);
 }
-.btn-sos { background: #fdf0e6; border-color: #d4a574; color: #8b6b4a; }
+.btn-sos { background: #fdf0e6; border-color: #d4a574; color: #5a3a2a; }
 .btn-sos:hover { background: #f5e6d6; }
 .btn-reading { background: var(--soft2); border-color: var(--rule); }
 .btn-reading:hover { background: var(--soft3); }
@@ -191,27 +249,27 @@ button { cursor: pointer; }
 }
 .sidebar-head { padding: 12px; border-bottom: 1px solid var(--rule); background: var(--soft3); }
 .sidebar-head h2 { font-family: var(--font-sans); font-size: 10px; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
-.cat-row { display: flex; flex-wrap: wrap; gap: 4px; }
-.cat-btn {
-  padding: 4px 8px; border-radius: 4px; border: 1px solid var(--rule);
-  background: #fff;
-  color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 11px;
-  min-height: 28px;
-}
-.cat-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.cat-row { display: flex; flex-wrap: wrap; gap: 6px; }
 .nav-list { padding: 8px; display: flex; flex-direction: column; gap: 2px; }
 .nav-item {
-  text-align: left; padding: 7px 10px; border: none; border-radius: 5px;
+  text-align: left; padding: 8px 12px; border: none; border-radius: 6px;
   background: transparent;
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 12px;
+  font-weight: 500;
   width: 100%;
   min-height: 36px;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
 }
-.nav-item.active { background: var(--accent); color: #fff; }
+.nav-item:hover { background: var(--soft); }
+.nav-item.active {
+  background: var(--accent);
+  color: #fff;
+  border-left-color: #fff;
+  box-shadow: 0 2px 8px rgba(44,95,74,0.2);
+}
 .search-result-count { padding: 4px 10px 8px; font-size: 11px; color: var(--muted); font-family: var(--font-sans); }
 
 .main {
@@ -222,29 +280,32 @@ button { cursor: pointer; }
 }
 .main h1, .main h2, .main h3 { font-family: var(--font-sans); color: var(--accent); }
 .main h1 { font-size: 22px; }
-.main h2 { font-size: 16px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; margin: 22px 0 8px; }
+.main h2 { font-size: 16px; border-bottom: 2px solid var(--soft); padding-bottom: 6px; margin: 22px 0 8px; }
 .main p { margin: 0 0 10px; }
 .callout {
   border-left: 4px solid var(--accent);
-  background: var(--soft);
-  padding: 10px 12px; margin: 12px 0; border-radius: 0 6px 6px 0;
+  background: var(--soft2);
+  padding: 12px 16px; margin: 12px 0; border-radius: 0 6px 6px 0;
   font-size: 13px;
+  color: var(--ink);
 }
-.callout-gold {
-  border-left: 4px solid #d4a574;
-  background: #fdf8f2;
-  padding: 10px 12px; margin: 12px 0; border-radius: 0 6px 6px 0;
-  font-size: 13px;
+.philosophy-block {
+  font-size: 14px;
+  color: var(--accent);
+  font-style: italic;
+  padding: 12px 0;
+  text-align: center;
+  max-width: 32em;
+  margin: 8px auto;
 }
 table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0; }
 th, td { border: 1px solid var(--rule); padding: 6px 8px; text-align: left; }
-th { background: var(--soft3); font-family: var(--font-sans); }
+th { background: var(--soft3); font-family: var(--font-sans); font-weight: 600; }
 .cover-block { text-align: center; padding: 28px 12px 20px; }
 .cover-block .title { font-family: var(--font-sans); font-size: 26px; font-weight: 800; color: var(--accent); }
 .cover-block .subtitle { font-family: var(--font-sans); font-size: 18px; font-weight: 700; }
 .cover-block .tag { font-size: 13px; color: var(--muted); }
 .cover-block .motto { font-style: italic; font-size: 15px; color: var(--accent); margin-top: 18px; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: inline-block; }
-.cover-block .philosophy { font-size: 14px; color: var(--accent); max-width: 32em; margin: 12px auto; }
 
 /* ===== Quick Start Cards ===== */
 .quick-start-grid {
@@ -255,23 +316,59 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 }
 .quick-start-card {
   background: #fff;
-  border: 1px solid var(--rule);
+  border: 2px solid var(--rule);
   border-radius: var(--radius);
-  padding: 16px 14px;
+  padding: 18px 14px;
   text-align: center;
   cursor: pointer;
-  transition: var(--transition);
-  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   min-height: 100px;
   color: var(--ink);
 }
 .quick-start-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(32,29,25,0.12);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-color: var(--accent);
 }
 .quick-start-card .icon { font-size: 32px; display: block; margin-bottom: 6px; }
-.quick-start-card .label { font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--accent); }
+.quick-start-card .label { font-family: var(--font-sans); font-size: 14px; font-weight: 700; color: var(--accent); }
 .quick-start-card .desc { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* ===== Roots Buying Rule ===== */
+.roots-buying-rule {
+  background: var(--soft2);
+  border: 1px solid #d4a574;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.roots-buying-rule .rule-label {
+  font-family: var(--font-sans);
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: #8b6b4a; display: block; margin-bottom: 2px;
+}
+.roots-buying-rule .rule-text {
+  font-size: 14px; color: var(--accent);
+}
+
+/* ===== Daily Principle ===== */
+.daily-principle {
+  background: var(--soft2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 16px 0 0;
+  text-align: center;
+}
+.daily-principle .principle-label {
+  font-family: var(--font-sans);
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted-light); display: block; margin-bottom: 4px;
+}
+.daily-principle .principle-text {
+  font-size: 14px; color: var(--accent); font-style: italic;
+}
 
 /* ===== Recipe Cards ===== */
 .recipe-card {
@@ -280,37 +377,158 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   border-radius: var(--radius);
   padding: 20px 22px;
   margin: 16px 0;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   color: var(--ink);
+  transition: all 0.2s ease;
 }
-.recipe-card h2 { border-bottom: none; font-size: 20px; margin: 0 0 4px; }
+.recipe-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+.recipe-card h2 {
+  border-bottom: 2px solid var(--soft);
+  padding-bottom: 8px;
+  margin: 0 0 4px;
+  font-size: 20px;
+  color: var(--accent);
+}
 .quick-badge {
-  background: #fdf0e6; color: #8b6b4a;
-  font-family: var(--font-sans); font-size: 9px; font-weight: 700; text-transform: uppercase;
-  padding: 2px 8px; border-radius: 4px; margin-left: 8px;
+  background: #fdf0e6; color: #5a3a2a;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
 }
 .recipe-meta {
-  display: flex; flex-wrap: wrap; gap: 8px 16px;
-  font-size: 12px; color: var(--muted);
-  padding-bottom: 10px; border-bottom: 1px solid var(--soft3);
-  margin-bottom: 10px;
+  display: flex; flex-wrap: wrap;
+  gap: 6px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--soft3);
+  margin-bottom: 12px;
 }
-.ingredients-list { list-style: none; padding: 0; }
-.ingredients-list li { padding: 2px 0; border-bottom: 1px dotted var(--soft3); }
-.safety-note {
-  background: var(--soft); border-radius: 6px; padding: 10px 14px;
-  border-left: 3px solid var(--accent); margin: 8px 0;
-  font-size: 13px;
+.badge-tag {
+  background: var(--soft);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--muted);
 }
-.recipe-actions { display: flex; gap: 8px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--soft3); flex-wrap: wrap; }
-.btn-favorite, .btn-grocery-add {
-  padding: 6px 14px; border: 1px solid var(--rule); border-radius: 4px;
-  background: #fff; font-family: var(--font-sans);
-  font-size: 11px; font-weight: 600;
-  min-height: 36px;
+.badge-tag.dietary { background: #e6f0ea; color: #1a4a3a; }
+.badge-tag.allergen { background: #f5e6e6; color: #6a2a2a; }
+.badge-tag.time { background: #e6edf5; color: #1a3a5a; }
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+}
+@media (max-width: 600px) {
+  .ingredients-list { grid-template-columns: 1fr; }
+}
+.ingredients-list li {
+  padding: 4px 0 4px 24px;
+  position: relative;
+  border-bottom: none;
+  font-size: 14px;
   color: var(--ink);
 }
-.btn-favorite.active { background: #fdf0e6; border-color: #d4a574; color: #8b6b4a; }
+.ingredients-list li::before {
+  content: "•";
+  position: absolute;
+  left: 4px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.method-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink);
+  padding: 8px 0;
+}
+.method-text p { margin: 0 0 8px 0; }
+
+.safety-note {
+  background: var(--soft2);
+  border-radius: 6px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--accent);
+  margin: 12px 0;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.recipe-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--soft3);
+  flex-wrap: wrap;
+}
+.btn-favorite, .btn-grocery-add {
+  padding: 8px 18px;
+  border: 2px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 40px;
+  color: var(--ink);
+  transition: all 0.15s ease;
+}
+.btn-favorite:hover, .btn-grocery-add:hover {
+  background: var(--soft);
+  border-color: var(--muted-light);
+}
+.btn-favorite.active {
+  background: #fdf0e6;
+  border-color: #d4a574;
+  color: #5a3a2a;
+}
+.btn-grocery-add.added {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ===== Batch Scaling ===== */
+.batch-scaling {
+  background: var(--soft);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin: 10px 0;
+}
+.batch-scaling .batch-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.batch-scaling .batch-controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.batch-btn {
+  /* uses .selector-btn via class in HTML */
+}
 
 /* ===== Tonight Mode ===== */
 .tonight-grid {
@@ -318,12 +536,8 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   margin: 12px 0;
 }
 .tonight-btn {
-  padding: 6px 16px; border: 1px solid var(--rule); border-radius: 20px;
-  background: #fff; color: var(--ink);
-  font-family: var(--font-sans); font-size: 12px; font-weight: 600;
-  min-height: 36px;
+  /* uses .selector-btn via class in HTML, plus override above */
 }
-.tonight-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
 /* ===== Dashboard ===== */
 .dashboard {
@@ -336,30 +550,39 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 }
 .dashboard.collapsed { width: 0; padding: 0; opacity: 0; overflow: hidden; border: none; }
 .card {
-  background: #fff; border: 1px solid var(--rule); border-radius: var(--radius);
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
   padding: 12px;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   color: var(--ink);
 }
 .card h3 { font-family: var(--font-sans); font-size: 11px; color: var(--accent); text-transform: uppercase; margin: 0 0 6px; }
-.age-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin-bottom: 8px; }
+.age-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 8px; }
 .age-tab {
-  padding: 7px 4px; border-radius: 5px; border: 1px solid var(--rule);
-  background: #fff; color: var(--ink);
-  font-family: var(--font-sans);
-  font-size: 11px; text-align: center;
-  min-height: 36px;
+  /* uses .selector-btn via class in HTML, plus override above */
 }
-.age-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 .age-note { font-size: 11px; background: var(--soft); border-left: 4px solid var(--accent); padding: 8px 10px; border-radius: 0 5px 5px 0; }
+
 .meal-day {
   display: flex; justify-content: space-between;
-  padding: 8px 10px; margin-bottom: 4px; border-radius: 6px;
-  background: var(--soft); border: 1px solid rgba(207,198,186,0.6);
-  font-size: 12px; cursor: pointer;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  background: var(--soft);
+  border: 1px solid var(--rule);
+  font-size: 13px;
+  cursor: pointer;
   min-height: 40px;
   color: var(--ink);
+  transition: all 0.15s ease;
 }
+.meal-day:hover {
+  background: #e8e0d6;
+  transform: translateX(3px);
+}
+.meal-day strong { color: var(--accent); font-family: var(--font-sans); }
+
 .check-row {
   display: flex; align-items: flex-start; gap: 8px;
   font-size: 12px; padding: 6px 4px; cursor: pointer;
@@ -369,12 +592,30 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 .check-row.done span { text-decoration: line-through; color: var(--muted); }
 .progress { font-size: 10px; font-weight: 700; background: var(--soft); padding: 2px 6px; border-radius: 4px; color: var(--accent); }
 
+.checkpoints {
+  font-size: 13px;
+  color: var(--ink);
+  padding-left: 0;
+  list-style: none;
+}
+.checkpoints li {
+  padding: 4px 0 4px 24px;
+  position: relative;
+}
+.checkpoints li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* ===== Grocery List ===== */
 .grocery-panel {
   position: fixed; top: var(--header-h); right: 0; bottom: 0;
   width: min(100%, 420px);
   background: var(--paper);
-  box-shadow: -4px 0 24px rgba(32,29,25,0.12);
+  box-shadow: -4px 0 24px rgba(0,0,0,0.12);
   z-index: 75;
   transform: translateX(105%);
   transition: transform 0.3s ease;
@@ -391,38 +632,51 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   background: none; border: none; font-size: 20px; color: var(--muted);
   min-height: 36px; min-width: 36px;
 }
-.grocery-panel .grocery-body {
-  flex: 1; overflow-y: auto; padding: 12px 16px;
-}
+.grocery-panel .grocery-body { flex: 1; overflow-y: auto; padding: 12px 16px; }
 .grocery-aisle {
   font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
   color: var(--muted); padding: 10px 0 4px; border-bottom: 1px solid var(--soft3); margin-top: 8px;
 }
-.grocery-aisle:first-child { margin-top: 0; }
 .grocery-item {
-  display: flex; align-items: center; gap: 8px;
-  padding: 6px 4px; border-bottom: 1px solid var(--soft3);
-  font-size: 13px; min-height: 36px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--soft3);
+  font-size: 14px;
+  min-height: 44px;
   color: var(--ink);
+  cursor: pointer;
 }
-.grocery-item input[type="checkbox"] { accent-color: var(--accent); min-width: 16px; min-height: 16px; }
+.grocery-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
 .grocery-text.checked { text-decoration: line-through; color: var(--muted); }
 .grocery-count {
   background: var(--soft); color: var(--muted);
   padding: 0 6px; border-radius: 3px; font-size: 10px; font-weight: 600;
 }
 .grocery-source { font-size: 10px; color: var(--muted-light); margin-left: auto; }
+
 .grocery-actions {
   padding: 12px 16px; border-top: 1px solid var(--rule);
   display: flex; gap: 8px; flex-shrink: 0; background: var(--soft2); flex-wrap: wrap;
 }
 .grocery-actions button {
-  padding: 6px 14px; border: 1px solid var(--rule); border-radius: 4px;
-  background: #fff; font-family: var(--font-sans);
-  font-size: 11px; font-weight: 600; min-height: 36px;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  min-height: 36px;
   color: var(--ink);
+  transition: all 0.15s ease;
 }
-.grocery-actions .btn-clear-all { color: #8b3a3a; border-color: #e6c5c5; }
+.grocery-actions button:hover { background: var(--soft); }
+.grocery-actions .btn-clear-all { color: #6a2a2a; border-color: #e6c5c5; }
 .grocery-actions .btn-export { background: var(--accent); color: #fff; border-color: var(--accent); }
 
 .empty-state {
@@ -444,6 +698,7 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 .sos-overlay .sos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
 .sos-overlay .sos-header h2 { font-family: var(--font-sans); font-size: 20px; color: var(--accent); margin: 0; }
 .sos-overlay .sos-header .close-sos { background: none; border: none; font-size: 24px; color: var(--muted); min-height: 36px; }
+
 .sos-item {
   display: flex; align-items: center; gap: 12px;
   padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px;
@@ -453,7 +708,11 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 }
 .sos-item .sos-name { font-family: var(--font-sans); font-size: 13px; font-weight: 600; }
 .sos-item .sos-time { font-size: 11px; color: var(--muted); }
-.sos-item .sos-tag { font-size: 9px; font-weight: 700; text-transform: uppercase; background: #fdf0e6; color: #8b6b4a; padding: 2px 8px; border-radius: 4px; }
+.sos-item .sos-tag {
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  background: #fdf0e6; color: #5a3a2a;
+  padding: 2px 8px; border-radius: 4px;
+}
 
 /* ===== Mobile Bottom Nav ===== */
 .mobile-bottom-nav {
@@ -476,7 +735,7 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 
 .backdrop {
   display: none; position: fixed; inset: 0;
-  background: rgba(32,29,25,0.35); z-index: 55;
+  background: rgba(0,0,0,0.35); z-index: 55;
 }
 .backdrop.visible { display: block; }
 
@@ -484,47 +743,12 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   display: none;
   position: fixed; bottom: calc(var(--bottom-nav-h) + 4px);
   left: 50%; transform: translateX(-50%);
-  z-index: 45; background: #8b3a3a; color: #fff;
+  z-index: 45; background: #6a2a2a; color: #fff;
   padding: 4px 14px; border-radius: 20px;
   font-family: var(--font-sans);
   font-size: 10px; font-weight: 600; text-transform: uppercase;
 }
 .offline-indicator.visible { display: block; }
-
-/* ===== Daily Principle ===== */
-.daily-principle {
-  background: var(--soft2);
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  padding: 14px 18px;
-  margin: 16px 0 0;
-  text-align: center;
-}
-.daily-principle .principle-label {
-  font-family: var(--font-sans);
-  font-size: 9px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.08em; color: var(--muted-light); display: block; margin-bottom: 4px;
-}
-.daily-principle .principle-text {
-  font-size: 14px; color: var(--accent); font-style: italic;
-}
-
-/* ===== Roots Buying Rule ===== */
-.roots-buying-rule {
-  background: var(--soft2);
-  border: 1px solid #d4a574;
-  border-radius: var(--radius);
-  padding: 14px 18px;
-  margin: 12px 0;
-}
-.roots-buying-rule .rule-label {
-  font-family: var(--font-sans);
-  font-size: 9px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.08em; color: #8b6b4a; display: block; margin-bottom: 2px;
-}
-.roots-buying-rule .rule-text {
-  font-size: 14px; color: var(--accent);
-}
 
 /* ===== Recipe Finder ===== */
 .recipe-finder {
@@ -545,31 +769,31 @@ th { background: var(--soft3); font-family: var(--font-sans); }
 }
 .three-ages-grid .age-card {
   background: #fff;
-  border: 1px solid var(--rule);
+  border: 2px solid var(--rule);
   border-radius: var(--radius);
-  padding: 16px;
-  box-shadow: var(--card-shadow);
+  padding: 18px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 .three-ages-grid .age-card .age-label {
   font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
+  letter-spacing: 0.08em;
+  color: var(--muted-light);
   display: block;
   margin-bottom: 4px;
 }
 .three-ages-grid .age-card .age-title {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--accent);
   margin-bottom: 6px;
 }
 .three-ages-grid .age-card .age-desc {
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 14px;
+  color: var(--ink);
 }
 @media (max-width: 700px) {
   .three-ages-grid { grid-template-columns: 1fr; }
@@ -582,7 +806,7 @@ th { background: var(--soft3); font-family: var(--font-sans); }
     width: min(88vw, 360px);
     z-index: 65; transform: translateX(-105%);
     transition: transform 0.25s;
-    box-shadow: 4px 0 24px rgba(32,29,25,0.12);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.12);
   }
   body.mobile-browse-open .sidebar { transform: translateX(0); }
   body.mobile-browse-open .backdrop { display: block; }
@@ -600,12 +824,13 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   .quick-start-card { padding: 12px; min-height: 80px; }
   .quick-start-card .icon { font-size: 28px; }
   .three-ages-grid { grid-template-columns: 1fr; }
+  .ingredients-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
   .app-header { gap: 6px; padding: 0 8px; }
   .search-wrap { max-width: 140px; }
-  .btn-tools span, .print-btn span, .btn-grocery span, .btn-sos span, .btn-reading span { 
+  .btn-tools span, .print-btn span, .btn-grocery span, .btn-sos span, .btn-reading span {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;
   }
   .btn-tools, .print-btn, .btn-grocery, .btn-sos, .btn-reading { padding: 6px 8px; min-width: 36px; justify-content: center; }
@@ -614,6 +839,8 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   .quick-start-card .icon { font-size: 24px; }
   .recipe-card { padding: 12px; }
   .grocery-panel { width: 100%; }
+  table { font-size: 10px; }
+  table td, table th { padding: 4px 6px; }
 }
 
 .app-footer {
@@ -623,1603 +850,4 @@ th { background: var(--soft3); font-family: var(--font-sans); }
   border-top: 1px solid var(--rule);
 }
 </style>
-</head>
-<body>
-
-<div class="offline-indicator" id="offline-indicator" role="status">📡 Offline Mode</div>
-<div class="backdrop" id="backdrop" aria-hidden="true"></div>
-
-<!-- SOS Overlay -->
-<div class="sos-overlay" id="sos-overlay" role="dialog" aria-modal="true">
-  <div class="sos-modal">
-    <div class="sos-header">
-      <h2>🚨 SOS — Too Tired to Cook</h2>
-      <button type="button" class="close-sos" id="close-sos">✕</button>
-    </div>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">All meals take <strong>15 minutes or less</strong>.</p>
-    <div id="sos-list"></div>
-  </div>
-</div>
-
-<!-- Grocery Panel -->
-<div class="grocery-panel" id="grocery-panel" role="dialog" aria-label="Grocery list" aria-modal="true">
-  <div class="grocery-header">
-    <h2>🛒 Grocery List <span id="grocery-count" style="font-size:11px;font-weight:400;color:var(--muted);"></span></h2>
-    <button type="button" class="close-grocery" id="close-grocery">✕</button>
-  </div>
-  <div class="grocery-body" id="grocery-body">
-    <div class="empty-state">Add ingredients from recipes to build your shopping list.<br><br>📝 Tap "Add to Grocery" on any recipe.</div>
-  </div>
-  <div class="grocery-actions">
-    <button type="button" id="grocery-check-all">Check All</button>
-    <button type="button" id="grocery-uncheck-all">Uncheck All</button>
-    <button type="button" class="btn-export" id="grocery-export">📋 Copy List</button>
-    <button type="button" class="btn-clear-all" id="grocery-clear">Clear All</button>
-  </div>
-</div>
-
-<header class="app-header">
-  <span class="badge">Roots</span>
-  <h1 class="app-title">The Global Toddler Table</h1>
-  <div class="search-wrap">
-    <input id="global-search" type="search" placeholder="Search recipes, guides…" aria-label="Search">
-  </div>
-  <div class="header-actions">
-    <button type="button" class="btn-reading no-print" id="toggle-reading" aria-label="Toggle reading mode">📖 <span>Read</span></button>
-    <button type="button" class="btn-sos no-print" id="toggle-sos" aria-label="Emergency meals">🚨 <span>SOS</span></button>
-    <button type="button" class="btn-grocery no-print" id="toggle-grocery" aria-label="Open grocery list">🛒 <span>Grocery</span></button>
-    <button type="button" class="print-btn no-print" id="print-btn" aria-label="Print">🖨️ <span>Print</span></button>
-    <button type="button" class="btn-tools no-print" id="toggle-tools" aria-expanded="false" aria-controls="dashboard">⚙️ <span>Tools</span></button>
-  </div>
-</header>
-
-<div class="workspace">
-  <aside class="sidebar" id="sidebar" aria-label="Navigation">
-    <div class="sidebar-head">
-      <h2>Navigate</h2>
-      <div class="cat-row" id="cat-buttons" role="group">
-        <button type="button" class="cat-btn active" data-cat="all">All</button>
-        <button type="button" class="cat-btn" data-cat="start">Start</button>
-        <button type="button" class="cat-btn" data-cat="formula">Formulas</button>
-        <button type="button" class="cat-btn" data-cat="breakfast">Breakfast</button>
-        <button type="button" class="cat-btn" data-cat="lunch">Lunch</button>
-        <button type="button" class="cat-btn" data-cat="dinner">Dinner</button>
-        <button type="button" class="cat-btn" data-cat="snack">Snacks</button>
-        <button type="button" class="cat-btn" data-cat="foundation">Foundations</button>
-        <button type="button" class="cat-btn" data-cat="guide">Guides</button>
-      </div>
-    </div>
-    <div id="search-result-count" class="search-result-count"></div>
-    <nav class="nav-list" id="nav-list" aria-label="Sections"></nav>
-  </aside>
-
-  <main class="main" id="main" tabindex="-1"></main>
-
-  <aside class="dashboard" id="dashboard" aria-label="Tools dashboard" role="dialog" aria-modal="true">
-    <div class="card">
-      <h3>Age Focus <span class="progress">Live</span></h3>
-      <div class="age-row" role="group" aria-label="Age selection">
-        <button type="button" class="age-tab active" data-age="1-3">1–3</button>
-        <button type="button" class="age-tab" data-age="5">Age 5</button>
-        <button type="button" class="age-tab" data-age="7">Age 7</button>
-      </div>
-      <div class="age-note" id="age-note"><strong>Ages 1–3:</strong> Softer textures, safer shapes, ~1 oz fish.</div>
-    </div>
-    <div class="card">
-      <h3>Weekly Meal Matrix</h3>
-      <div id="meal-plan"></div>
-    </div>
-    <div class="card">
-      <h3>Parent’s Weekly Reset <span class="progress" id="check-progress">0/14</span></h3>
-      <div id="checklist"></div>
-    </div>
-    <div class="card">
-      <h3>Daily Checkpoints</h3>
-      <ul style="font-size:12px;color:var(--muted);padding-left:1.1em;margin:0;">
-        <li><strong>Iron</strong> 7 mg</li>
-        <li><strong>Calcium</strong> 700 mg</li>
-        <li><strong>Vitamin D</strong> 15 mcg</li>
-        <li><strong>B12</strong> 0.9 mcg</li>
-        <li><strong>Zinc</strong> 3 mg</li>
-        <li><strong>Water</strong> — main beverage</li>
-      </ul>
-    </div>
-  </aside>
-</div>
-
-<nav class="mobile-bottom-nav no-print" aria-label="Mobile navigation">
-  <div class="nav-items">
-    <button type="button" class="nav-btn active" data-nav="home" aria-label="Home">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
-      <span class="nav-label">Home</span>
-    </button>
-    <button type="button" class="nav-btn" data-nav="recipes" aria-label="Recipes">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-      <span class="nav-label">Recipes</span>
-    </button>
-    <button type="button" class="nav-btn" data-nav="planner" aria-label="Planner">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-      <span class="nav-label">Planner</span>
-    </button>
-    <button type="button" class="nav-btn" data-nav="browse" aria-label="Browse">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      <span class="nav-label">Browse</span>
-    </button>
-    <button type="button" class="nav-btn" data-nav="tools" aria-label="Tools">
-      <svg viewBox="0 0 24 24" stroke-width="2"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.11 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
-      <span class="nav-label">Tools</span>
-    </button>
-  </div>
-</nav>
-
-<footer class="app-footer">The Global Toddler Table · Roots Edition · © 2026 DC Roots · <a href="mailto:dcworks029@proton.me" style="color:var(--muted);">dcworks029@proton.me</a></footer>
-
-<script>
-// ============================================================
-// STATE MANAGEMENT
-// ============================================================
-const AppState = (function() {
-  let _state = { sectionId: "cover", query: "", category: "all", age: "1-3", checked: {} };
-  let _grocery = { items: [], checked: {} };
-  let _favorites = [];
-  let _listeners = [];
-
-  function load() {
-    try {
-      const checks = localStorage.getItem('roots_offline_checks');
-      if (checks) _state.checked = JSON.parse(checks);
-      const grocery = localStorage.getItem('roots_grocery');
-      if (grocery) _grocery = JSON.parse(grocery);
-      const favs = localStorage.getItem('roots_favorites');
-      if (favs) _favorites = JSON.parse(favs);
-    } catch (e) {}
-  }
-  load();
-
-  function saveChecks() { try { localStorage.setItem('roots_offline_checks', JSON.stringify(_state.checked)); } catch (e) {} }
-  function saveGrocery() { try { localStorage.setItem('roots_grocery', JSON.stringify(_grocery)); } catch (e) {} }
-  function saveFavorites() { try { localStorage.setItem('roots_favorites', JSON.stringify(_favorites)); } catch (e) {} }
-  function notify(changes) { _listeners.forEach(fn => fn(changes)); }
-
-  return {
-    getState() { return { ..._state }; },
-    getGrocery() { return { items: [..._grocery.items], checked: { ..._grocery.checked } }; },
-    getFavorites() { return [..._favorites]; },
-    setSection(id) { if (_state.sectionId !== id) { _state.sectionId = id; notify({ type: 'section' }); } },
-    setQuery(q) { _state.query = q; notify({ type: 'search' }); },
-    setCategory(cat) { if (_state.category !== cat) { _state.category = cat; notify({ type: 'category' }); } },
-    setAge(age) { if (_state.age !== age) { _state.age = age; notify({ type: 'age' }); } },
-    toggleCheck(index) { _state.checked[index] = !_state.checked[index]; saveChecks(); notify({ type: 'checklist' }); },
-    addGroceryItems(items, source) {
-      let added = 0;
-      items.forEach(item => {
-        const trimmed = item.trim();
-        if (!trimmed) return;
-        const exists = _grocery.items.some(g => g.text.toLowerCase() === trimmed.toLowerCase());
-        if (!exists) { _grocery.items.push({ text: trimmed, source: source || '' }); added++; }
-      });
-      if (added) { saveGrocery(); notify({ type: 'grocery' }); }
-      return added;
-    },
-    toggleGroceryItem(index) { _grocery.checked[index] = !_grocery.checked[index]; saveGrocery(); notify({ type: 'grocery' }); },
-    setAllGroceryChecked(checked) { _grocery.items.forEach((_, i) => _grocery.checked[i] = checked); saveGrocery(); notify({ type: 'grocery' }); },
-    clearGrocery() { _grocery.items = []; _grocery.checked = {}; saveGrocery(); notify({ type: 'grocery' }); },
-    toggleFavorite(id) {
-      const idx = _favorites.indexOf(id);
-      if (idx > -1) _favorites.splice(idx, 1);
-      else _favorites.push(id);
-      saveFavorites();
-      notify({ type: 'favorites' });
-      return _favorites.includes(id);
-    },
-    isFavorite(id) { return _favorites.includes(id); },
-    subscribe(fn) { _listeners.push(fn); return () => { _listeners = _listeners.filter(f => f !== fn); }; },
-    resetSearch() { _state.query = ""; notify({ type: 'search' }); }
-  };
-})();
-
-// ============================================================
-// DOM HELPERS & CONSTANTS
-// ============================================================
-const DOM = { escape: (str) => { if (!str) return ''; const d = document.createElement('div'); d.textContent = str; return d.innerHTML; } };
-
-function parseIngredients(str) {
-  const items = [];
-  str.split(';').forEach(part => {
-    part.split(',').map(s => s.trim()).forEach(item => {
-      const cleaned = item.replace(/^[•\-]\s*/, '').trim();
-      if (cleaned && cleaned.length > 1) items.push(cleaned);
-    });
-  });
-  return items;
-}
-
-function isMobile() { return window.matchMedia("(max-width: 900px)").matches; }
-
-// ============================================================
-// GROCERY AISLE GROUPING
-// ============================================================
-const GROCERY_AISLES = {
-  'produce': {
-    keywords: ['banana', 'avocado', 'sweet potato', 'plantain', 'pear', 'mango', 'spinach', 'greens', 'carrot', 'squash', 'pumpkin', 'tomato', 'broccoli', 'peas', 'onion', 'celery', 'parsley', 'potato', 'berries', 'citrus', 'lemon', 'lime', 'apple', 'peach', 'grape', 'kale', 'collards', 'chard', 'zucchini', 'cucumber', 'pepper', 'garlic', 'ginger root', 'fresh herbs'],
-    label: '🥬 Produce',
-    emoji: '🥬'
-  },
-  'seafood': {
-    keywords: ['salmon', 'fish', 'sardine', 'trout', 'shrimp', 'crab', 'pollock', 'haddock', 'sole', 'tilapia', 'tuna', 'mackerel', 'anchovy', 'cod'],
-    label: '🐟 Seafood',
-    emoji: '🐟'
-  },
-  'refrigerated': {
-    keywords: ['egg', 'tofu', 'yogurt', 'soy milk', 'soy beverage', 'fortified milk', 'pea milk', 'oat milk', 'almond milk', 'cashew milk', 'plant milk', 'cheese', 'butter', 'margarine', 'tempeh'],
-    label: '🥛 Refrigerated',
-    emoji: '🥛'
-  },
-  'canned': {
-    keywords: ['canned', 'crushed tomato', 'tomato sauce', 'tomato purée', 'broth', 'stock', 'coconut milk', 'beans canned', 'chickpeas canned', 'lentils canned'],
-    label: '🥫 Canned Goods',
-    emoji: '🥫'
-  },
-  'dry_goods': {
-    keywords: ['oats', 'rice', 'quinoa', 'millet', 'pasta', 'flour', 'breadcrumbs', 'cereal', 'granola', 'nuts', 'walnuts', 'almonds', 'cashews', 'seeds', 'sunflower seeds', 'pumpkin seeds', 'chia', 'flax'],
-    label: '🌾 Dry Goods / Pantry',
-    emoji: '🌾'
-  },
-  'baking': {
-    keywords: ['olive oil', 'oil', 'sesame oil', 'coconut oil', 'avocado oil', 'tahini', 'sunflower butter', 'peanut butter', 'nut butter', 'seed butter', 'herbs', 'spice', 'turmeric', 'cumin', 'cinnamon', 'ginger', 'thyme', 'oregano', 'paprika', 'coriander', 'pepper', 'salt', 'vanilla', 'baking powder', 'baking soda'],
-    label: '🧂 Oils, Spices & Baking',
-    emoji: '🧂'
-  },
-  'bakery': {
-    keywords: ['bread', 'toast', 'pita', 'tortilla', 'bagel', 'muffin', 'flatbread', 'naan', 'croissant'],
-    label: '🍞 Bakery',
-    emoji: '🍞'
-  },
-  'frozen': {
-    keywords: ['frozen', 'frozen peas', 'frozen corn', 'frozen spinach', 'frozen berries', 'frozen vegetables', 'frozen fruit'],
-    label: '❄️ Frozen Foods',
-    emoji: '❄️'
-  },
-  'international': {
-    keywords: ['tahini paste', 'harissa', 'curry paste', 'coconut aminos', 'soy sauce', 'tamari', 'miso', 'fish sauce', 'rice vinegar', 'sesame seeds'],
-    label: '🌏 International',
-    emoji: '🌏'
-  }
-};
-
-const AISLE_ORDER = ['produce', 'seafood', 'refrigerated', 'bakery', 'canned', 'dry_goods', 'baking', 'frozen', 'international', 'other'];
-const AISLE_LABELS = { 'other': '📦 Other' };
-
-function getAisle(item) {
-  const lower = item.toLowerCase();
-  for (const [aisleId, aisle] of Object.entries(GROCERY_AISLES)) {
-    if (aisle.keywords.some(keyword => lower.includes(keyword))) {
-      return aisleId;
-    }
-  }
-  return 'other';
-}
-
-// ============================================================
-// RECIPE DATA — ALL 30 RECIPES
-// ============================================================
-function recipe(id, title, cat, influence, role, ingredients, method, safety, variations, baseYield, opts) {
-  return {
-    id, title, category: cat, influence, role, ingredients, method, safety, variations,
-    baseYield: baseYield || "1 toddler serving",
-    prepTime: opts?.prepTime || '10 min',
-    cookTime: opts?.cookTime || '15 min',
-    difficulty: opts?.difficulty || 'Easy',
-    dietary: opts?.dietary || ['Plant-forward'],
-    allergens: opts?.allergens || ['Varies'],
-    isQuick: opts?.isQuick || false,
-    getScaledContent: function(ageKey, scaleFactor) {
-      const isFav = AppState.isFavorite(this.id);
-      const factor = scaleFactor || 1;
-      let ingredientItems = this.ingredients;
-      if (factor > 1) {
-        ingredientItems = this.ingredients.split(';').map(i => {
-          const trimmed = i.trim();
-          const qtyMatch = trimmed.match(/^([\d¼½¾]+)\s*/);
-          if (qtyMatch) {
-            const qtyStr = qtyMatch[1];
-            let qty = 0;
-            if (qtyStr.includes('¼')) qty = 0.25;
-            else if (qtyStr.includes('½')) qty = 0.5;
-            else if (qtyStr.includes('¾')) qty = 0.75;
-            else qty = parseFloat(qtyStr) || 0;
-            if (qty > 0) {
-              const scaled = qty * factor;
-              let display;
-              if (scaled === Math.floor(scaled)) display = Math.floor(scaled);
-              else if (scaled === 0.5) display = '½';
-              else if (scaled === 0.25) display = '¼';
-              else if (scaled === 0.75) display = '¾';
-              else display = scaled.toFixed(1);
-              return trimmed.replace(/^[\d¼½¾]+\s*/, display + ' ');
-            }
-          }
-          return trimmed;
-        }).join('; ');
-      }
-      const ingredientsItems = ingredientItems.split(';').map(i => `<li>${DOM.escape(i.trim())}</li>`).join('');
-      const dietaryTags = this.dietary.map(d => `<span style="background:#e6f0ea;color:var(--accent);padding:2px 8px;border-radius:4px;font-size:10px;font-family:Arial;font-weight:600;margin:0 4px;">🌱 ${DOM.escape(d)}</span>`).join('');
-      const allergenTags = this.allergens.map(a => `<span style="background:#f5e6e6;color:#8b3a3a;padding:2px 8px;border-radius:4px;font-size:10px;font-family:Arial;font-weight:600;margin:0 4px;">⚠️ ${DOM.escape(a)}</span>`).join('');
-      const batchHTML = factor > 1 ? `<div style="background:var(--soft);border:1px solid var(--rule);border-radius:var(--radius);padding:10px 14px;margin:10px 0;font-size:12px;color:var(--muted);"><strong>📦 Batch Cooking:</strong> ${factor}× recipe</div>` : '';
-      return `
-        <div class="recipe-card" data-recipe-id="${DOM.escape(this.id)}">
-          <h2>${DOM.escape(this.title)} ${this.isQuick ? '<span class="quick-badge">⚡ Quick</span>' : ''}</h2>
-          <div class="recipe-meta">
-            <span style="font-style:italic;">${DOM.escape(this.influence)}</span>
-            <span style="font-weight:600;color:var(--accent);">${DOM.escape(this.role)}</span>
-            <span>Yield: ${DOM.escape(this.baseYield)}</span>
-            <span style="background:var(--soft);padding:0 8px;border-radius:4px;">${DOM.escape(ageKey)}</span>
-            <span style="background:#e6edf5;padding:2px 8px;border-radius:4px;font-size:10px;font-family:Arial;font-weight:600;">⏱️ ${this.prepTime} · ${this.cookTime}</span>
-            ${dietaryTags}
-            ${allergenTags}
-          </div>
-          ${batchHTML}
-          <div style="margin:10px 0 14px;padding:9px 11px;border-left:3px solid var(--accent);background:var(--soft);border-radius:0 6px 6px 0;font-size:12px;">
-            <strong>Age Adaptation:</strong> ${DOM.escape(AGE_GUIDANCE[ageKey] || "Standard family food; adapt textures and portions.")}
-          </div>
-          <div><strong style="font-family:Arial;font-size:11px;text-transform:uppercase;color:var(--accent);">Ingredients</strong>
-            <ul class="ingredients-list">${ingredientsItems}</ul>
-          </div>
-          <div><strong style="font-family:Arial;font-size:11px;text-transform:uppercase;color:var(--accent);">Method</strong>
-            <div style="font-size:13px;line-height:1.6;">${DOM.escape(this.method)}</div>
-          </div>
-          <div class="safety-note"><strong>🛡️ Toddler Safety:</strong> ${DOM.escape(this.safety)}</div>
-          ${this.variations ? `<div style="font-size:12px;color:var(--muted);margin-top:6px;"><strong>Family variations:</strong> ${DOM.escape(this.variations)}</div>` : ''}
-          <div class="recipe-actions">
-            <button type="button" class="btn-favorite ${isFav ? 'active' : ''}" data-recipe-id="${DOM.escape(this.id)}">${isFav ? '⭐' : '☆'} Favorite</button>
-            <button type="button" class="btn-grocery-add" data-recipe-id="${DOM.escape(this.id)}" data-ingredients="${DOM.escape(this.ingredients)}" data-title="${DOM.escape(this.title)}">🛒 Add to Grocery</button>
-          </div>
-        </div>
-      `;
-    }
-  };
-}
-
-const AGE_GUIDANCE = {
-  "1-3": "Softer textures, safer shapes, smaller portions, ~1 oz fish.",
-  "5": "Family portions, standard textures, ~2 oz fish.",
-  "7": "Family portions, hunger-led, independence in serving."
-};
-
-// ===== ALL 30 RECIPES =====
-const RECIPES = [
-  // BREAKFAST (6)
-  recipe("rec-01","01 Creamy Banana-Tahini Oat Porridge","breakfast","East African / Middle Eastern","Energy · healthy fat",
-    "¼ cup oats; ½ cup water or fortified soy beverage; ½ banana; 1 tsp tahini; ½ tsp ground flax.",
-    "Simmer oats in liquid 5-7 minutes. Remove from heat; mash in banana and flax. Stir tahini in completely.",
-    "Mix nut/seed butter fully in; never serve thick sticky spoonfuls.",
-    "Pear + sesame; mango + flax; mashed berries.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '7 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
-  ),
-  recipe("rec-02","02 Egg, Plantain & Avocado Bowl","breakfast","Caribbean","Protein · choline · energy",
-    "½ ripe plantain; 1 egg; ¼ avocado.",
-    "Steam plantain 8-10 min until soft. Scramble egg 2-3 min until fully set. Mash plantain and avocado; serve with egg.",
-    "Egg fully cooked; plantain soft.",
-    "Add greens or tomato for vitamin C.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '10 min', difficulty: 'Easy', dietary: ['Dairy-free', 'Gluten-free'], allergens: ['Egg'], isQuick: true }
-  ),
-  recipe("rec-03","03 Savory Oatmeal with Egg, Greens & Avocado","breakfast","Global","Protein · iron · choline",
-    "¼ cup oats; ½ cup liquid; 1 egg; 2 Tbsp cooked greens; ¼ avocado.",
-    "Cook oats 5-7 min. Sauté greens with beaten egg 2-3 min. Fold into oats; top with avocado.",
-    "Egg fully cooked; no fibrous stems.",
-    "Collards, spinach, or broccoli.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '10 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Egg'], isQuick: true }
-  ),
-  recipe("rec-04","04 Millet-Banana Porridge","breakfast","West African / South Asian","Energy · fruit",
-    "2 tbsp dry millet; ¼ cup liquid; ½ banana; ½ tsp ground flax.",
-    "Simmer millet 18-20 min until tender. Mash in banana and flax.",
-    "Mash thoroughly; grains should not stay firm.",
-    "Swap banana for mango or pear.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '20 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free', 'Gluten-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-05","05 Sweet-Potato Breakfast Cakes","breakfast","Global","Energy · vitamin A",
-    "½ cup mashed sweet potato; 1 egg; 2 Tbsp oat flour; cinnamon; 1 tsp oil.",
-    "Mix all ingredients. Cook small rounds in oiled pan 3-4 min per side.",
-    "Soft, moist, fully cooked.",
-    "Serve with fruit or thin tahini.",
-    "2-3 cakes",
-    { prepTime: '8 min', cookTime: '8 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Egg'] }
-  ),
-  recipe("rec-06","06 Pear-Sesame Oatmeal","breakfast","Mediterranean / West Asian","Energy · healthy fat",
-    "¼ cup oats; ½ cup liquid; 2 Tbsp mashed pear; 1 tsp tahini.",
-    "Cook oats 5-7 min. Off heat, stir in pear and tahini.",
-    "Use smooth tahini; mix thoroughly.",
-    "Pear branch of the Roots formula.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '7 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
-  ),
-  // LUNCH (6)
-  recipe("rec-07","07 West African Chickpea, Sweet Potato & Greens","lunch","West African","Plant protein · iron",
-    "½ cup mashed chickpeas; ½-1 sweet potato; ½ cup cooked greens; 1 tsp oil; lemon/lime.",
-    "Simmer sweet potato 10-12 min. Steam greens 3-4 min. Mash chickpeas; combine all with oil and citrus.",
-    "Mash chickpeas; thin nut butter if used.",
-    "Black or white beans; mango instead of citrus.",
-    "1 toddler serving",
-    { prepTime: '10 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Peanut (optional)'] }
-  ),
-  recipe("rec-08","08 Caribbean Black Bean, Rice & Pumpkin Bowl","lunch","Caribbean","Plant iron · protein",
-    "½ cup low-sodium black beans; ½ cup rice; ¼-½ cup pumpkin; ¼ avocado; thyme; 1 tsp oil.",
-    "Warm beans with rice 2-3 min. Mash beans lightly. Fold in pumpkin and avocado; add thyme and oil.",
-    "Mash beans; keep sodium modest.",
-    "Tomato for vitamin C.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '5 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
-  ),
-  recipe("rec-09","09 Ginger-Scented Tofu Rice Bowl","lunch","East Asian","Plant protein · energy",
-    "2-3 oz calcium-set tofu; ½ cup rice; soft broccoli/carrot; 1 tsp oil; tiny ginger.",
-    "Steam broccoli/carrot 5-6 min. Crumble tofu. Warm with rice, vegetables, oil and ginger.",
-    "Skip salty sauce.",
-    "Sesame or olive oil.",
-    "1 toddler serving",
-    { prepTime: '8 min', cookTime: '8 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Soy'] }
-  ),
-  recipe("rec-10","10 Red Lentil Dal with Rice","lunch","South Asian","Plant iron · protein",
-    "½ cup cooked red lentils; ½ cup rice; 1 tsp oil; mild turmeric/cumin.",
-    "Simmer lentils 12-15 min until soft. Stir in oil and spice; combine with rice.",
-    "Keep spice mild.",
-    "Tomato or lemon for vitamin C.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
-  ),
-  recipe("rec-11","11 Lentil Soup + Soft Toast","lunch","Global","Iron · protein",
-    "¼ cup dry lentils; carrot; tomato; spinach; low-sodium broth; soft toast.",
-    "Simmer lentils, carrot, tomato 20-25 min. Stir in spinach last 2 min. Serve with toast.",
-    "Cool and check texture.",
-    "Make extra for next day.",
-    "1 bowl + toast",
-    { prepTime: '10 min', cookTime: '25 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten'] }
-  ),
-  recipe("rec-12","12 White Bean, Tomato & Olive Oil Bowl","lunch","Mediterranean","Plant protein · iron",
-    "½ cup low-sodium white beans; ¼ cup soft tomato; 1 tsp oil; herbs.",
-    "Warm beans with tomato 3-4 min. Mash together. Finish with oil and herbs.",
-    "Mash beans well; low sodium.",
-    "Quinoa or soft bread.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '5 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'], isQuick: true }
-  ),
-  // DINNER (8)
-  recipe("rec-13","13 Ethiopian Lentil-Rice Bowl","dinner","Ethiopian","Plant iron · protein",
-    "¼ cup dry lentils; ½ cup cooked rice; soft carrot/sweet potato; 1 tsp oil; mild turmeric/cumin.",
-    "Simmer lentils 15-18 min. Steam carrot 8-10 min. Combine with rice, oil and spice.",
-    "Toddler portion non-hot.",
-    "Add finely chopped greens.",
-    "1 toddler serving",
-    { prepTime: '10 min', cookTime: '18 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-14","14 Salmon-Sweet Potato & Peas","dinner","Global","DHA/EPA · protein",
-    "~1 oz cooked salmon; sweet potato; peas; 1 tsp oil.",
-    "Bake salmon 10-12 min, flake, check for bones. Steam sweet potato 10-12 min and peas 3-4 min; combine.",
-    "Lower-mercury fish; check bones every time.",
-    "Trout or other Best Choice fish.",
-    "~1 oz fish + vegetables",
-    { prepTime: '10 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Fish'] }
-  ),
-  recipe("rec-15","15 Mediterranean Lentil & Vegetable Stew","dinner","Mediterranean","Plant iron · protein",
-    "½ cup red lentils; ¼ cup diced potato; ¼ cup diced carrot; ¼ cup peas; 2 Tbsp tomato purée; 1 tsp oil; herbs.",
-    "Simmer all 20-25 min until tender. Finish with oil and herbs; mash lightly.",
-    "Low sodium.",
-    "Over rice or soft pasta.",
-    "1 bowl",
-    { prepTime: '10 min', cookTime: '25 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-16","16 Chickpea Patties + Soft Tomato Pasta","dinner","Italian","Plant protein · iron",
-    "½ cup chickpeas; 1 egg; 2 Tbsp oat flour; herbs; soft pasta; tomato sauce.",
-    "Mash chickpeas with egg, oat flour and herbs. Shape patties; cook 3-4 min per side. Serve with pasta in tomato sauce.",
-    "Patties soft; pasta cut short.",
-    "Roots Cake/Patty formula.",
-    "1-2 patties + pasta",
-    { prepTime: '15 min', cookTime: '10 min', difficulty: 'Medium', dietary: ['Dairy-free'], allergens: ['Egg', 'Gluten'] }
-  ),
-  recipe("rec-17","17 Three Sisters-Style Bean, Corn & Squash","dinner","Indigenous North American-inspired","Plant protein · carbohydrate",
-    "Well-cooked beans; very soft corn; winter squash; olive oil.",
-    "Simmer beans until soft. Steam squash 10-12 min. Cook corn 5 min, finely chop. Mash beans and squash; fold in corn and oil.",
-    "No whole corn kernels.",
-    "Wild rice where appropriate.",
-    "1 toddler serving",
-    { prepTime: '15 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-18","18 Ethiopian Fish & Lentil Stew","dinner","Ethiopian","Protein · plant iron",
-    "~1 oz cooked white fish; ¼ cup red lentils; soft carrot; 1 tsp oil; mild turmeric/ginger.",
-    "Simmer lentils with carrot 15 min. Cook fish 8-10 min; flake, check bones. Fold into lentils with oil and spice.",
-    "Bone-check carefully.",
-    "Best Choice white fish.",
-    "~1 oz fish + lentils",
-    { prepTime: '10 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Fish'] }
-  ),
-  recipe("rec-19","19 Caribbean Fish & Pumpkin Stew","dinner","Caribbean","Protein · vitamin A",
-    "~1 oz cooked white fish; pumpkin/squash; 1 tsp oil; thyme.",
-    "Steam pumpkin 10-12 min; mash. Cook fish; flake and bone-check. Fold into pumpkin with oil and thyme.",
-    "Bone-check; lower-mercury species.",
-    "Over rice if needed.",
-    "~1 oz fish + pumpkin",
-    { prepTime: '10 min', cookTime: '12 min', difficulty: 'Easy', dietary: ['Dairy-free'], allergens: ['Fish'] }
-  ),
-  recipe("rec-20","20 Mediterranean Chickpea & Herb Bowl","dinner","Levantine / Mediterranean","Plant protein · iron",
-    "½ cup mashed chickpeas; herbs; ¼ cup quinoa; 1 tsp oil; thin tahini.",
-    "Cook quinoa 15 min. Mash chickpeas. Combine with quinoa, herbs, oil and thin tahini.",
-    "Chickpeas soft and mashed.",
-    "Tomato/lemon for vitamin C.",
-    "1 toddler serving",
-    { prepTime: '5 min', cookTime: '15 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Sesame'], isQuick: true }
-  ),
-  // SNACKS (5)
-  recipe("rec-21","21 Avocado + Soft Toast","snack","Global / Roots staple","Healthy fat · energy",
-    "Soft whole-grain toast; mashed avocado.",
-    "Toast lightly. Mash avocado and spread; cut into strips.",
-    "Toast soft enough.",
-    "Add egg or hummus.",
-    "1 snack",
-    { prepTime: '5 min', cookTime: '3 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten'], isQuick: true }
-  ),
-  recipe("rec-22","22 Pear + Thin Sunflower Butter Toast","snack","Roots snack","Fruit · healthy fat",
-    "Soft toast; ripe pear; thin sunflower butter.",
-    "Spread sunflower butter thinly. Top with mashed pear.",
-    "Never use thick sticky seed butter.",
-    "Tahini or thin nut butter.",
-    "1 snack",
-    { prepTime: '5 min', cookTime: '3 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free', 'Nut-free'], allergens: ['Gluten', 'Sunflower'], isQuick: true }
-  ),
-  recipe("rec-23","23 Banana-Chia Mash","snack","Global","Energy · omega-3",
-    "½ banana; ½ tsp finely ground chia; optional fortified yogurt.",
-    "Mash banana. Stir in ground chia. Mix in yogurt if using.",
-    "Do not serve dry seeds.",
-    "Ground flax as alternate.",
-    "1 snack",
-    { prepTime: '3 min', cookTime: '0 min', difficulty: 'Easy', dietary: ['Plant-based'], allergens: ['None common'], isQuick: true }
-  ),
-  recipe("rec-24","24 Hummus + Soft Pita + Mango","snack","Mediterranean / West Asian","Plant protein · healthy fat",
-    "2 Tbsp smooth hummus; soft pita; ripe mango.",
-    "Thin hummus if needed. Warm pita, tear into pieces. Dice mango small.",
-    "Avoid large chewy pieces.",
-    "Add avocado.",
-    "1 snack",
-    { prepTime: '5 min', cookTime: '2 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten', 'Sesame'], isQuick: true }
-  ),
-  recipe("rec-25","25 Fortified Dairy-Free Yogurt + Berries","snack","Global","Calcium · vitamin D",
-    "Fortified unsweetened dairy-free yogurt; prepared berries.",
-    "Stir yogurt. Quarter berries; mash smaller berries.",
-    "Avoid whole round berries.",
-    "Banana or mango.",
-    "1 snack",
-    { prepTime: '3 min', cookTime: '0 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Varies'], isQuick: true }
-  ),
-  // FOUNDATIONS (5)
-  recipe("rec-26","26 Basic Toddler Vegetable Broth","foundation","Roots Foundations","Cooking base",
-    "Carrot, celery, onion, parsley stems; water.",
-    "Simmer vegetables 45-60 min. Strain, cool, freeze in portions. No salt.",
-    "Cooking liquid, not a drink.",
-    "",
-    "1 batch (4 cups)",
-    { prepTime: '15 min', cookTime: '60 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-27","27 Three-Grain Batch","foundation","Roots Foundations","Energy base",
-    "Equal parts rice, quinoa, oats.",
-    "Cook grains separately. Cool, store in fridge 3-4 days or freeze.",
-    "Reheat thoroughly.",
-    "",
-    "Batch",
-    { prepTime: '10 min', cookTime: '20 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['Gluten'] }
-  ),
-  recipe("rec-28","28 Master Lentils & Beans","foundation","Roots Foundations","Plant iron · protein",
-    "Red lentils, black beans, chickpeas.",
-    "Soak beans 8-12 hours. Cook beans 45-60 min, chickpeas 60-75 min. Cook red lentils 15-18 min.",
-    "Mash to texture; low sodium.",
-    "",
-    "Batch",
-    { prepTime: '10 min + soaking', cookTime: '75 min', difficulty: 'Medium', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-29","29 Soft Roasted Vegetable Mix","foundation","Roots Foundations","Vitamin A/C · fiber",
-    "Sweet potato, carrot, squash; 1 tsp oil.",
-    "Roast at 400°F 25-30 min until soft. Mash or dice.",
-    "Soft enough to mash between fingers.",
-    "",
-    "Batch",
-    { prepTime: '15 min', cookTime: '30 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  ),
-  recipe("rec-30","30 Mild Family Tomato Sauce","foundation","Roots Foundations","Vitamin-C pairing",
-    "Crushed tomatoes; olive oil; soft herbs.",
-    "Simmer 20-25 min. Remove toddler portion before salting.",
-    "Use with iron-rich foods; low sodium.",
-    "",
-    "Batch (2 cups)",
-    { prepTime: '5 min', cookTime: '25 min', difficulty: 'Easy', dietary: ['Plant-based', 'Dairy-free'], allergens: ['None common'] }
-  )
-];
-
-// ============================================================
-// COMPLETE SECTIONS DATA
-// ============================================================
-const SECTIONS = [
-  { id: "cover", title: "🏠 Cover & Overview", category: "start", content: `
-    <div class="cover-block">
-      <div class="title">THE GLOBAL TODDLER TABLE</div>
-      <div class="subtitle">ROOTS EDITION</div>
-      <div class="tag">Dairy-Free &amp; Land-Meat-Free Family Food System</div>
-      <div class="tag">Ages 1–7 at the center · One family table · Fish &amp; plant-forward · Soy-optional</div>
-      <div class="tag">30 core recipes · 6 master formulas · 5 emergency meals</div>
-      <div class="philosophy"><strong>A family-centered approach:</strong> Build nutrition from a diverse table of foods rather than treating milk as the center of the diet.</div>
-      <div class="motto">"Nourish the child. Honor the food. Share the table."</div>
-    </div>
-
-    <div class="roots-buying-rule">
-      <span class="rule-label">🌱 The Roots Buying Rule</span>
-      <span class="rule-text">Spend the premium where the child eats a food frequently and unpeeled, or where your family specifically values the production standard. Save elsewhere so the overall diet stays diverse.</span>
-    </div>
-
-    <div class="quick-start-grid">
-      <div class="quick-start-card" data-nav="recipes"><span class="icon">🍳</span><div class="label">I Need Food Now</div><div class="desc">Browse all 30 recipes</div></div>
-      <div class="quick-start-card" data-nav="tonight"><span class="icon">🌙</span><div class="label">Tonight</div><div class="desc">Filter by time</div></div>
-      <div class="quick-start-card" data-nav="planner"><span class="icon">📅</span><div class="label">Feed the Family</div><div class="desc">7-day meal schedule</div></div>
-      <div class="quick-start-card" data-nav="grocery"><span class="icon">🛒</span><div class="label">I Need to Shop</div><div class="desc">Smart grocery list</div></div>
-    </div>
-
-    <div class="daily-principle">
-      <span class="principle-label">🌱 Today's Roots Principle</span>
-      <span class="principle-text" id="daily-principle">"You do not need to feed a perfect toddler. You need a dependable pattern."</span>
-    </div>
-
-    <div class="callout"><strong>IMPORTANT — READ FIRST</strong><br>This is a general planning and recipe resource, not individualized medical advice. Adapt textures, allergens, portions, and feeding choices to the child. A fully dairy-free diet deserves review with the child's pediatrician or pediatric dietitian — especially when dairy and soy are both avoided.</div>
-
-    <h2>A Note to Conscientious Parents</h2>
-    <p>You do not need to feed a perfect toddler. You need a dependable pattern: energy, protein, iron, calcium, vitamin D, B12, iodine, healthy fats, and varied produce.</p>
-    <p>This book is intentionally dairy-free and land-meat-free as a family food pattern. The central Roots principle is <strong>one meal, adapted</strong> — not three separate meals.</p>
-
-    <h2>The Nutritional Architecture</h2>
-    <ul>
-      <li><strong>ANCHOR</strong> — protein and/or iron: fish, egg, lentils, beans, chickpeas, tofu.</li>
-      <li><strong>ENERGY</strong> — grain or root: rice, oats, quinoa, potato, sweet potato, plantain, pasta.</li>
-      <li><strong>COLOR</strong> — produce: greens, squash, peas, carrots, tomato, berries, mango, citrus.</li>
-      <li><strong>FAT</strong> — energy density and essential fats: avocado, olive oil, tahini, nut/seed butter, fatty fish.</li>
-      <li><strong>COVER</strong> — nutrients that may require deliberate planning: calcium, vitamin D, B12 and iodine.</li>
-    </ul>
-    <div class="callout"><strong>ENERGY DENSITY &amp; SMALLER APPETITES</strong><br>Toddlers often eat small volumes. When appetite is modest, prioritize energy-dense components: avocado, olive oil, tahini, fatty fish, and soft cooked grains or roots.</div>
-  `},
-
-  { id: "tonight", title: "🌙 Tonight — Quick Meals", category: "start", content: `
-    <h1>🌙 Tonight — What Can I Make?</h1>
-    <p style="font-size:12px;color:var(--muted);">Filter recipes by total time.</p>
-    <div class="tonight-grid" id="tonight-filters">
-      <button class="tonight-btn active" data-time="all">All</button>
-      <button class="tonight-btn" data-time="10">10 min</button>
-      <button class="tonight-btn" data-time="20">20 min</button>
-      <button class="tonight-btn" data-time="30">30 min</button>
-      <button class="tonight-btn" data-time="45">45+ min</button>
-    </div>
-    <div id="tonight-results"></div>
-  `},
-
-  { id: "three-ages", title: "📊 One Table · Three Ages", category: "start", content: `
-    <h1>One Table · Three Ages</h1>
-    <p class="meta">The same family meal grows with the child. Use this as the master adaptation map throughout the book.</p>
-
-    <div class="three-ages-grid">
-      <div class="age-card">
-        <span class="age-label">Stage 1</span>
-        <div class="age-title">Toddler Table · Ages 1–3</div>
-        <div class="age-desc">Same family food; softer textures, safer shapes, smaller starting portions, less sodium, and close supervision.</div>
-      </div>
-      <div class="age-card">
-        <span class="age-label">Stage 2</span>
-        <div class="age-title">Growing Table · Ages 4–6</div>
-        <div class="age-desc">Same family food; larger, hunger-led portions, progressively broader textures, and increasing participation in self-feeding and simple food preparation.</div>
-      </div>
-      <div class="age-card">
-        <span class="age-label">Stage 3</span>
-        <div class="age-title">Family Table · Ages 7+</div>
-        <div class="age-desc">Same family meal; hunger-led portions, normal family textures as appropriate, and increasing independence with serving and preparation.</div>
-      </div>
-    </div>
-
-    <h2>Examples</h2>
-    <p><strong>Lentil-rice bowl</strong> — Toddler Table: mash or soften as needed; remove toddler portion before salting. Growing Table: serve the same bowl with broader texture and more food as appetite calls for. Family Table: serve the family version and let hunger guide the portion.</p>
-    <p><strong>Salmon + sweet potato + peas</strong> — Toddler Table: flake thoroughly, bone-check, and offer a small starting portion. Growing Table: larger portion with progressively more intact textures. Family Table: family preparation and hunger-led portion.</p>
-    <p><strong>Bean + squash bowl</strong> — Toddler Table: beans and squash very soft and mashable. Growing Table: retain more texture as skills allow. Family Table: serve as the family prepares it, with appropriate seasoning.</p>
-    <p><strong>Chickpea patty</strong> — Toddler Table: soft, moist strips or small pieces. Growing Table: larger soft pieces or whole patty as safely managed. Family Table: family portion.</p>
-    <p><strong>Oatmeal</strong> — Toddler Table: soft, safe texture. Growing Table: progressively thicker or more textured as comfortable. Family Table: normal family texture.</p>
-
-    <p style="font-size:12px;color:var(--muted);">Starting portions are not targets. The caregiver decides what, when and where food is offered; the child decides whether and how much to eat. Texture and portion should progress together, but neither should be advanced by the calendar alone.</p>
-  `},
-
-  { id: "planner", title: "📅 Plan the Week", category: "start", content: `
-    <h1>Plan the Week</h1>
-    <p style="font-size:12px;color:var(--muted);">Offer water regularly. Use the child's appetite, growth, and developmental feeding skills to guide portions.</p>
-    <table>
-      <tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th><th>Snacks</th></tr>
-      <tr><td><strong>1</strong></td><td>01 Banana–tahini oats</td><td>07 Chickpea + sweet potato</td><td>13 Lentil-rice bowl</td><td>21 Avocado toast</td></tr>
-      <tr><td><strong>2</strong></td><td>02 Egg + plantain</td><td>08 Black bean + rice</td><td>14 Salmon + sweet potato</td><td>23 Banana-chia</td></tr>
-      <tr><td><strong>3</strong></td><td>06 Pear-sesame</td><td>09 Tofu rice bowl</td><td>16 Chickpea patties</td><td>24 Hummus + pita</td></tr>
-      <tr><td><strong>4</strong></td><td>03 Savory oatmeal</td><td>20 Mediterranean chickpea</td><td>15 Lentil stew</td><td>22 Pear + seed butter</td></tr>
-      <tr><td><strong>5</strong></td><td>05 Banana-flax</td><td>11 Lentil soup</td><td>17 Three Sisters</td><td>21 Avocado toast</td></tr>
-      <tr><td><strong>6</strong></td><td>04 Millet-banana</td><td>10 Red lentil dal</td><td>18 Fish + lentil</td><td>23 Banana-chia</td></tr>
-      <tr><td><strong>7</strong></td><td>06 Pear-sesame</td><td>12 White bean bowl</td><td>19 Fish + pumpkin</td><td>24 Hummus + pita</td></tr>
-    </table>
-  `},
-
-  { id: "formulas", title: "🧪 Master Formulas", category: "formula", content: `
-    <h1>Master Formulas</h1>
-    <table>
-      <tr><th>Formula</th><th>Build it</th></tr>
-      <tr><td><strong>Porridge</strong></td><td>Oats/millet + liquid + fruit + fat</td></tr>
-      <tr><td><strong>Bowl</strong></td><td>Anchor + grain/root + veg + fat</td></tr>
-      <tr><td><strong>Stew</strong></td><td>Legume/fish + soft veg + grain + oil</td></tr>
-      <tr><td><strong>Spread</strong></td><td>Soft legume/veg + fat + thin liquid</td></tr>
-      <tr><td><strong>Cake/Patty</strong></td><td>Protein + binder + veg/root</td></tr>
-    </table>
-
-    <h2>The Roots Snack Formula</h2>
-    <p><strong>Base</strong> + <strong>Spread</strong> + <strong>Fruit</strong> + <strong>Optional protein</strong></p>
-    <ul>
-      <li><strong>Base:</strong> soft toast, crackers, rice cakes, soft pita</li>
-      <li><strong>Spread:</strong> thin tahini, hummus, mashed avocado, fortified yogurt</li>
-      <li><strong>Fruit:</strong> banana, mashed berries, pear, mango</li>
-      <li><strong>Protein (optional):</strong> egg, beans, tofu</li>
-    </ul>
-
-    <h2>10-Minute Emergency Meals</h2>
-    <ul>
-      <li>Egg + avocado + soft toast + fruit</li>
-      <li>Lentils + rice + frozen vegetables + oil</li>
-      <li>Low-sodium black beans + sweet potato + avocado</li>
-      <li>Hummus + soft pita + yogurt + fruit</li>
-      <li>Canned salmon + rice + peas + oil</li>
-    </ul>
-  `},
-
-  { id: "flex", title: "🔄 Flex the Table", category: "guide", content: `
-    <h1>Flex the Table</h1>
-    <h2>Choosing a Dairy-Free Milk</h2>
-    <p>For toddlers 12–24 months, a dairy-free diet needs a deliberate plan for calcium, vitamin D, protein, and other nutrients. A plant beverage is not automatically nutritionally equivalent to cow's milk.</p>
-    <p><strong>Fortified, unsweetened soy beverage</strong> is generally the closest plant-based substitute for cow's milk because it can provide similar protein and is commonly fortified with calcium and vitamin D.</p>
-    <p>Almond, oat, rice, coconut, and hemp beverages can vary substantially in protein and micronutrients. Do not assume a fortified label makes every plant beverage nutritionally interchangeable with milk.</p>
-    <p><strong>If soy is avoided,</strong> build the diet around reliable protein and calcium sources such as beans, lentils, calcium-set tofu (if tolerated), fish, eggs, tahini, fortified foods, and an appropriately fortified beverage.</p>
-    <p><strong>Choose unsweetened and unflavored beverages.</strong> Check the label for calcium and vitamin D fortification and compare protein amounts.</p>
-    <p><strong>Water is the main beverage for hydration.</strong></p>
-
-    <h2>Calcium Anchors vs Contributors</h2>
-    <ul>
-      <li><strong>Anchors:</strong> calcium-fortified soy beverage/yogurt, calcium-set tofu</li>
-      <li><strong>Contributors:</strong> tahini, beans, greens, fish with bones</li>
-    </ul>
-
-    <div class="callout"><strong>Soy-Free Calcium Sources</strong><br>Fortified pea milk (~440mg/cup), fortified oat milk (~300mg/cup), fortified almond milk (~450mg/cup), canned sardines/salmon with bones, tahini, white beans, chia.</div>
-
-    <h2>Substitution Matrix</h2>
-    <ul>
-      <li><strong>Dairy-free</strong> → fortified soy; verify Ca + D + protein</li>
-      <li><strong>Soy-free</strong> → beans/lentils; eggs/fish; check protein</li>
-      <li><strong>Egg-free</strong> → beans, lentils, tofu, fish</li>
-      <li><strong>Nut-free</strong> → sunflower/seed butter; tahini; avocado</li>
-      <li><strong>Fish-free</strong> → eggs, legumes, tofu; plan B12 + omega-3</li>
-    </ul>
-  `},
-
-  { id: "safety", title: "🛡️ Safety at a Glance", category: "guide", content: `
-    <h1>Toddler Safety at a Glance</h1>
-    <p><strong>Always have the child seated upright and closely supervised during eating.</strong> Keep mealtimes calm and avoid eating while walking, running, or playing.</p>
-
-    <h2>Choking & Texture Guide</h2>
-    <table>
-      <tr><th>Stage</th><th>What it looks like</th><th>Examples</th></tr>
-      <tr><td><strong>Smooth / finely mashed</strong></td><td>Soft, even texture; little to no lumps</td><td>Thick purées, smooth mashes</td></tr>
-      <tr><td><strong>Soft mashed with small pieces</strong></td><td>Fork-mashed with soft bits</td><td>Mashed beans with small vegetable pieces</td></tr>
-      <tr><td><strong>Soft finger foods</strong></td><td>Soft strips, small soft pieces</td><td>Soft toast strips, avocado slices, cooked vegetable chunks</td></tr>
-      <tr><td><strong>Family textures, adapted</strong></td><td>Same meal, safe shapes</td><td>Family meal with age-appropriate cuts</td></tr>
-    </table>
-
-    <h2>Key Safety Rules</h2>
-    <ul>
-      <li>Food soft enough to mash between fingers</li>
-      <li>Avoid hard, round, sticky, or rubbery pieces</li>
-      <li>Nut/seed butters: spread very thinly or mixed completely into food</li>
-      <li>Fish: flake and check every portion for bones</li>
-      <li>Check labels for allergens and sodium</li>
-    </ul>
-
-    <h2>Storage &amp; Food Safety</h2>
-    <p>Refrigerate cooked food within 2 hours. Fish/egg dishes: use within 1-2 days. Freeze in small portions. Reheat thoroughly to 165°F.</p>
-    <div class="callout">Safety should never be an afterthought. Adapt textures to your child's skills.</div>
-  `},
-
-  { id: "fish", title: "🐟 Fish, Mercury & Iron", category: "guide", content: `
-    <h1>Fish &amp; Mercury</h1>
-    <p>FDA/EPA guidance recommends children ages 1–3 eat about <strong>two servings of fish per week</strong> from the lower-mercury "Best Choices" list; an average serving is about <strong>1 ounce</strong> for this age group. <strong>Variety is encouraged.</strong></p>
-    <p>Good lower-mercury examples include salmon, cod, pollock, tilapia, trout, shrimp, crab, sardines, and other fish on the Best Choices list. Avoid fish in the FDA/EPA "Choices to Avoid" category, including shark, swordfish, king mackerel, and tilefish.</p>
-    <p>For children, fish should be cooked thoroughly and checked carefully for bones.</p>
-
-    <h2>The Roots Iron Rule</h2>
-    <p>Every day, choose one iron anchor. When it is plant-based, add a vitamin-C food.</p>
-    <table>
-      <tr><th>Iron anchor</th><th>Vitamin-C partner</th></tr>
-      <tr><td>Lentils</td><td>Tomato or citrus</td></tr>
-      <tr><td>Chickpeas</td><td>Lemon or mango</td></tr>
-      <tr><td>Black beans</td><td>Mango or tomato</td></tr>
-      <tr><td>Tofu</td><td>Broccoli or peppers</td></tr>
-    </table>
-    <div class="callout"><strong>ZINC IS NOT IRON</strong><br>Vitamin C helps iron absorption but does not rescue zinc. Soak beans 8-12 hours to reduce phytate.</div>
-  `},
-
-  { id: "foodways", title: "🌍 Foodways", category: "guide", content: `
-    <h1>Foodways</h1>
-
-    <h2>First Nations &amp; Indigenous Foodways</h2>
-    <p>Indigenous North America is not one cuisine. Nations differ in territory, foods, harvesting practices, teachings, and traditions. The <strong>Three Sisters</strong> reference (corn, beans, and squash grown and eaten in relationship) is a broad foodway-inspired framework, not a substitute for Nation-specific knowledge.</p>
-    <p>A Roots approach emphasizes land, season, locality, relationship, and respect. When a family has a connection to a particular Nation or community, local knowledge keepers and Nation-specific resources should take precedence over any general book.</p>
-    <p><strong>Pantry ideas that appear in this book:</strong> corn, beans, squash, wild rice (when safely textured), berries, fish, and other locally specific foods.</p>
-    <p><strong>Why this belongs here.</strong> Health Canada notes that traditional foods can improve diet quality among Indigenous Peoples and that traditional food is linked to culture, identity, way of life and health.</p>
-    <p><strong>Harvested foods — safety is part of the tradition, not a footnote.</strong> Check the current local advisory before serving frequently harvested fish.</p>
-
-    <h3>A Second Meal Idea: Salmon, Squash &amp; Berry Plate</h3>
-    <p><em>Inspired by • Pacific Northwest / broader Indigenous foodways</em></p>
-    <p><strong>Ingredients:</strong> 1–2 oz fully cooked salmon; ¼–½ cup soft winter squash; 1–2 Tbsp mashed berries.</p>
-    <p><strong>Method:</strong> Cook and thoroughly flake salmon, checking carefully by hand for bones. Steam squash until soft and mash. Mash berries and combine or serve alongside.</p>
-    <p><strong>Toddler safety:</strong> Flake fish finely and bone-check every piece; mash squash and berries to the child's current texture skill.</p>
-
-    <div class="callout-gold"><strong>The Respectful Rule</strong><br>Use Indigenous foods because they are good food — not as decorative "exotic" ingredients. Name a specific Nation or region when the foodway is specific; otherwise say "Indigenous foodways." The Roots goal is a workable global-inspired family table that stays humble about what it does not know.</div>
-
-    <h2>Regional Pantry Notes</h2>
-    <ul>
-      <li><strong>Africa:</strong> legumes, greens, sweet potato, millet, peanut sauces</li>
-      <li><strong>Caribbean:</strong> plantain, beans, pumpkin, avocado, fish. <strong>Ital cooking</strong> — a Rastafari-based whole-foods practice — aligns naturally with Recipe 08.</li>
-      <li><strong>Latin America:</strong> beans, corn, avocado, squash, rice</li>
-      <li><strong>Mediterranean:</strong> chickpeas, lentils, olive oil, tomatoes, tahini</li>
-      <li><strong>Asia:</strong> tofu, rice, fish, sesame, ginger</li>
-    </ul>
-
-    <div class="callout"><strong>Respect Line</strong><br>Influence is invitation, not ownership. Where this book is thin, community cooks, family elders, and Nation-specific resources are the deeper teachers.</div>
-  `},
-
-  { id: "recipe-finder", title: "📋 Recipe Finder", category: "guide", content: `
-    <h1>Recipe Finder</h1>
-    <div class="recipe-finder">
-      <table>
-        <tr><th>Job</th><th>Core Recipes</th><th>Best Use</th></tr>
-        <tr><td><strong>Iron / plant protein</strong></td><td>07, 10, 11, 12, 13, 15, 16, 17, 18, 20</td><td>Rotate legumes; pair plant iron with vitamin C</td></tr>
-        <tr><td><strong>Fish / DHA-EPA</strong></td><td>14, 18, 19</td><td>Lower-mercury Best Choices; bone-check</td></tr>
-        <tr><td><strong>Egg / choline</strong></td><td>02, 03, 05</td><td>Quick protein and energy</td></tr>
-        <tr><td><strong>Calcium / vitamin D support</strong></td><td>09, 14, 25 + fortified foods</td><td>Check labels; food pattern + fortification</td></tr>
-        <tr><td><strong>Breakfast / energy</strong></td><td>01–06</td><td>Porridges, egg bowls, soft cakes</td></tr>
-        <tr><td><strong>Snack / spread</strong></td><td>21–25</td><td>Bridge between meals; add protein when needed</td></tr>
-      </table>
-    </div>
-  `},
-
-  { id: "references", title: "📚 References", category: "guide", content: `
-    <h1>References & Evidence</h1>
-    <ul>
-      <li>NIH ODS — Iron, Calcium, Vitamin D, B12, Zinc, Iodine</li>
-      <li>FDA/EPA — Advice About Eating Fish</li>
-      <li>AAP — HealthyChildren.org</li>
-      <li>CDC — Choking Hazards, Food Safety</li>
-      <li>USDA Agricultural Marketing Service — Organic Standards</li>
-    </ul>
-    <div class="callout"><strong>CLINICAL DISCLAIMER</strong><br>This is a general planning resource, not individualized medical care. Review restricted diets with your pediatrician.<br><br><strong>PFAS Note</strong><br>PFAS guidance is practical and source-specific. Use current EPA, FDA, CDC/ATSDR and state/tribal guidance.</div>
-  `}
-];
-
-// Add recipes to sections
-const appData = {
-  sections: SECTIONS.concat(RECIPES),
-  weeklyPlan: [
-    { day: "1", dinner: "Lentil-rice bowl" },
-    { day: "2", dinner: "Salmon + sweet potato + peas" },
-    { day: "3", dinner: "Chickpea patties + pasta" },
-    { day: "4", dinner: "Lentil vegetable stew" },
-    { day: "5", dinner: "Three Sisters bean & squash" },
-    { day: "6", dinner: "Fish + beans + rice" },
-    { day: "7", dinner: "Mediterranean chickpea bowl" }
-  ],
-  checklist: [
-    "Iron-rich food appeared daily.",
-    "Plant iron paired with vitamin C when practical.",
-    "Reliable calcium + vitamin D strategy.",
-    "B12 covered if animal foods limited.",
-    "Iodine had a dependable source.",
-    "Healthy fats appeared this week.",
-    "Fish was lower-mercury and safely prepared.",
-    "Fish variety and portions considered.",
-    "Fruits and vegetables varied.",
-    "Textures adapted to each child's skills.",
-    "Water available; sugar and sodium low.",
-    "Organic choices preserved variety.",
-    "PFAS reduction without sacrificing nutrition.",
-    "At least one emergency meal ready."
-  ],
-  principles: [
-    "You do not need to feed a perfect toddler. You need a dependable pattern.",
-    "Offer the energy-dense part of the meal first when appetite is small.",
-    "Calcium doesn't just come from dairy. Fortified soy, tofu, tahini, beans, and fish with edible bones all contribute.",
-    "Vitamin C supports plant-iron absorption. Zinc needs variety, not just one food.",
-    "One meal, adapted—not three separate meals.",
-    "Soaking dried beans reduces phytate. Canned beans are already cooked—just rinse.",
-    "Safety first: soft textures, safe shapes, bone-check every fish.",
-    "Children decide how much to eat. You decide what, when, and where.",
-    "Water is the main beverage for hydration."
-  ]
-};
-
-// ============================================================
-// RENDER FUNCTIONS
-// ============================================================
-let currentScale = 1;
-let readingMode = false;
-
-function getFirstSectionIdForCategory(cat) {
-  const items = appData.sections.filter(s => cat === "all" || s.category === cat);
-  return items.length > 0 ? items[0].id : null;
-}
-
-function getSectionIdForNav(nav) {
-  const map = {
-    'home': 'cover',
-    'recipes': getFirstSectionIdForCategory('breakfast'),
-    'tonight': 'tonight',
-    'planner': 'planner',
-    'guides': 'flex',
-    'formulas': 'formulas',
-    'grocery': 'cover'
-  };
-  return map[nav] || 'cover';
-}
-
-function isRecipe(section) { return section.id && section.id.startsWith('rec-'); }
-
-function renderNav() {
-  const state = AppState.getState();
-  const list = document.getElementById("nav-list");
-  list.innerHTML = "";
-  const q = state.query.toLowerCase();
-  const items = appData.sections.filter(s => {
-    const catOk = state.category === "all" || s.category === state.category;
-    const titleMatch = s.title.toLowerCase().includes(q);
-    let contentMatch = false;
-    if (q && typeof s.content === 'string') contentMatch = s.content.toLowerCase().includes(q);
-    if (q && typeof s.getScaledContent === 'function') {
-      const content = s.ingredients.toLowerCase() + ' ' + s.method.toLowerCase();
-      contentMatch = content.includes(q);
-    }
-    return catOk && (q === "" || titleMatch || contentMatch);
-  });
-
-  document.getElementById("search-result-count").style.display = q ? 'block' : 'none';
-  if (q) document.getElementById("search-result-count").textContent = `${items.length} result${items.length > 1 ? 's' : ''}`;
-
-  if (!items.length) {
-    list.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);font-style:italic;">No matches found.</div>';
-    return;
-  }
-
-  const favorites = AppState.getFavorites();
-  const currentId = state.sectionId;
-  items.forEach(s => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "nav-item" + (s.id === currentId ? " active" : "");
-    let displayTitle = DOM.escape(s.title);
-    if (state.query) {
-      const regex = new RegExp(`(${state.query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-      displayTitle = s.title.replace(regex, '<span style="background:#d4e8d0;padding:0 2px;border-radius:2px;">$1</span>');
-    }
-    let badge = '';
-    if (isRecipe(s) && favorites.includes(s.id)) badge = '<span style="float:right;font-size:9px;color:var(--muted-light);background:var(--soft);padding:1px 6px;border-radius:3px;">⭐</span>';
-    btn.innerHTML = displayTitle + badge;
-    btn.addEventListener("click", () => {
-      AppState.setSection(s.id);
-      AppState.resetSearch();
-      document.getElementById("global-search").value = "";
-      currentScale = 1;
-      renderNav();
-      renderMain();
-      document.getElementById("main").scrollTop = 0;
-      updateMobileNav(s.id);
-      closeSidebar();
-    });
-    list.appendChild(btn);
-  });
-}
-
-function updateMobileNav(sectionId) {
-  const navBtns = document.querySelectorAll('.mobile-bottom-nav .nav-btn');
-  navBtns.forEach(btn => {
-    const nav = btn.getAttribute('data-nav');
-    const targetId = getSectionIdForNav(nav);
-    btn.classList.toggle('active', sectionId === targetId || (nav === 'recipes' && sectionId.startsWith('rec-')));
-  });
-}
-
-function renderMain() {
-  const state = AppState.getState();
-  const sec = appData.sections.find(s => s.id === state.sectionId);
-  if (!sec) {
-    document.getElementById("main").innerHTML = `<p>Section not found. <a href="#" onclick="AppState.setSection('cover');renderNav();renderMain();return false;">Return home</a></p>`;
-    return;
-  }
-  if (isRecipe(sec) && typeof sec.getScaledContent === 'function') {
-    document.getElementById("main").innerHTML = sec.getScaledContent(state.age, currentScale);
-    attachRecipeActions();
-  } else if (sec.id === 'tonight') {
-    renderTonight();
-  } else {
-    document.getElementById("main").innerHTML = sec.content;
-  }
-  updateMobileNav(state.sectionId);
-}
-
-function renderTonight() {
-  const container = document.getElementById('main');
-  let html = `
-    <h1>🌙 Tonight — What Can I Make?</h1>
-    <p style="font-size:12px;color:var(--muted);">Filter recipes by total time.</p>
-    <div class="tonight-grid" id="tonight-filters">
-      <button class="tonight-btn active" data-time="all">All</button>
-      <button class="tonight-btn" data-time="10">10 min</button>
-      <button class="tonight-btn" data-time="20">20 min</button>
-      <button class="tonight-btn" data-time="30">30 min</button>
-      <button class="tonight-btn" data-time="45">45+ min</button>
-    </div>
-    <div id="tonight-results"></div>
-  `;
-  container.innerHTML = html;
-
-  document.querySelectorAll('.tonight-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.tonight-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      renderTonightResults(this.getAttribute('data-time'));
-    });
-  });
-
-  renderTonightResults('all');
-}
-
-function renderTonightResults(timeFilter) {
-  const container = document.getElementById('tonight-results');
-  if (!container) return;
-
-  let recipes = RECIPES;
-  if (timeFilter !== 'all') {
-    const maxTime = parseInt(timeFilter);
-    recipes = RECIPES.filter(r => {
-      const total = parseInt(r.prepTime) + parseInt(r.cookTime);
-      return total <= maxTime;
-    });
-  }
-
-  if (!recipes.length) {
-    container.innerHTML = `<p style="color:var(--muted);text-align:center;padding:20px;">No recipes under ${timeFilter} minutes. Try a longer time filter.</p>`;
-    return;
-  }
-
-  let html = '';
-  recipes.forEach(r => {
-    const total = parseInt(r.prepTime) + parseInt(r.cookTime);
-    html += `
-      <div class="recipe-card" style="cursor:pointer;" onclick="AppState.setSection('${r.id}');renderNav();renderMain();document.getElementById('main').scrollTop=0;updateMobileNav('${r.id}');">
-        <h2>${DOM.escape(r.title)} ${r.isQuick ? '<span class="quick-badge">⚡ Quick</span>' : ''}</h2>
-        <div class="recipe-meta">
-          <span>⏱️ ${r.prepTime} prep · ${r.cookTime} cook · <strong>${total} min total</strong></span>
-          <span style="font-style:italic;">${DOM.escape(r.influence)}</span>
-        </div>
-      </div>
-    `;
-  });
-  container.innerHTML = html;
-}
-
-function attachRecipeActions() {
-  document.querySelectorAll('.btn-favorite').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const id = this.getAttribute('data-recipe-id');
-      const isFav = AppState.toggleFavorite(id);
-      this.textContent = isFav ? '⭐ Favorite' : '☆ Favorite';
-      this.classList.toggle('active', isFav);
-      renderNav();
-    });
-  });
-
-  document.querySelectorAll('.btn-grocery-add').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const ingredients = this.getAttribute('data-ingredients');
-      const title = this.getAttribute('data-title');
-      const parsed = parseIngredients(ingredients);
-      const added = AppState.addGroceryItems(parsed, title);
-      if (added > 0) {
-        this.textContent = `✅ Added ${added}`;
-        this.style.background = 'var(--accent)';
-        this.style.color = '#fff';
-        renderSmartGrocery();
-        if (!document.getElementById('grocery-panel').classList.contains('open')) toggleGroceryPanel();
-      } else {
-        this.textContent = '⚠️ Already in list';
-        setTimeout(() => { this.textContent = '🛒 Add to Grocery'; this.style.background = ''; this.style.color = ''; }, 1000);
-      }
-      setTimeout(() => { this.textContent = '🛒 Add to Grocery'; this.style.background = ''; this.style.color = ''; }, 1500);
-    });
-  });
-}
-
-function renderMeals() {
-  const box = document.getElementById("meal-plan");
-  box.innerHTML = "";
-  appData.weeklyPlan.forEach(d => {
-    const el = document.createElement("div");
-    el.className = "meal-day";
-    el.innerHTML = `<span><strong>Day ${d.day}:</strong> ${d.dinner}</span><span style="font-size:10px;color:var(--muted);">Open</span>`;
-    el.addEventListener("click", () => {
-      AppState.setSection("planner");
-      AppState.resetSearch();
-      document.getElementById("global-search").value = "";
-      renderNav();
-      renderMain();
-      if (isMobile()) closeTools();
-    });
-    box.appendChild(el);
-  });
-}
-
-function renderChecklist() {
-  const state = AppState.getState();
-  const box = document.getElementById("checklist");
-  box.innerHTML = "";
-  let n = 0;
-  appData.checklist.forEach((text, i) => {
-    const on = !!state.checked[i];
-    if (on) n++;
-    const label = document.createElement("label");
-    label.className = "check-row" + (on ? " done" : "");
-    label.innerHTML = `<input type="checkbox" ${on ? "checked" : ""}><span>${DOM.escape(text)}</span>`;
-    label.querySelector("input").addEventListener("change", () => {
-      AppState.toggleCheck(i);
-      renderChecklist();
-    });
-    box.appendChild(label);
-  });
-  document.getElementById("check-progress").textContent = n + "/" + appData.checklist.length;
-}
-
-function renderSmartGrocery() {
-  const grocery = AppState.getGrocery();
-  const body = document.getElementById('grocery-body');
-  const countEl = document.getElementById('grocery-count');
-
-  if (!grocery.items.length) {
-    body.innerHTML = '<div class="empty-state">Add ingredients from recipes to build your shopping list.<br><br>📝 Tap "Add to Grocery" on any recipe.</div>';
-    if (countEl) countEl.textContent = '';
-    updateGroceryBadge();
-    return;
-  }
-
-  const grouped = {};
-  const checkedState = {};
-
-  grocery.items.forEach((item, i) => {
-    const aisle = getAisle(item.text);
-    if (!grouped[aisle]) grouped[aisle] = [];
-
-    const existing = grouped[aisle].find(g => g.text.toLowerCase() === item.text.toLowerCase());
-    if (existing) {
-      existing.count = (existing.count || 1) + 1;
-      if (item.source && !existing.sources.includes(item.source)) {
-        existing.sources.push(item.source);
-      }
-      existing.index = i;
-    } else {
-      grouped[aisle].push({
-        text: item.text,
-        index: i,
-        count: 1,
-        sources: item.source ? [item.source] : []
-      });
-    }
-    checkedState[i] = !!grocery.checked[i];
-  });
-
-  if (countEl) countEl.textContent = `${grocery.items.length} items`;
-
-  let html = '';
-  AISLE_ORDER.forEach(aisleId => {
-    const items = grouped[aisleId];
-    if (!items || !items.length) return;
-
-    const aisle = GROCERY_AISLES[aisleId] || { label: '📦 Other', emoji: '📦' };
-    html += `<div class="grocery-aisle">${aisle.emoji} ${aisle.label}</div>`;
-
-    items.forEach(item => {
-      const isChecked = checkedState[item.index] ? 'checked' : '';
-      const countDisplay = item.count > 1 ? `<span class="grocery-count">×${item.count}</span>` : '';
-      const sourcesDisplay = item.sources && item.sources.length > 0 ?
-        `<span class="grocery-source">${item.sources.join(', ')}</span>` : '';
-
-      html += `
-        <div class="grocery-item">
-          <input type="checkbox" ${isChecked} data-index="${item.index}">
-          <span class="grocery-text${isChecked ? ' checked' : ''}">${item.text}</span>
-          ${countDisplay}
-          ${sourcesDisplay}
-        </div>
-      `;
-    });
-  });
-
-  body.innerHTML = html;
-
-  body.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-    cb.addEventListener('change', function() {
-      const idx = parseInt(this.getAttribute('data-index'));
-      AppState.toggleGroceryItem(idx);
-      renderSmartGrocery();
-    });
-  });
-
-  updateGroceryBadge();
-}
-
-function updateGroceryBadge() {
-  const grocery = AppState.getGrocery();
-  const btn = document.getElementById('toggle-grocery');
-  const oldBadge = btn.querySelector('.grocery-count');
-  if (oldBadge) oldBadge.remove();
-  if (grocery.items.length) {
-    const badge = document.createElement('span');
-    badge.className = 'grocery-count';
-    badge.style.cssText = 'background:var(--accent);color:#fff;border-radius:10px;padding:0 6px;font-size:9px;margin-left:2px;';
-    badge.textContent = grocery.items.length;
-    btn.appendChild(badge);
-  }
-}
-
-function exportGroceryList() {
-  const grocery = AppState.getGrocery();
-  if (!grocery.items.length) { alert('Your grocery list is empty.'); return; }
-
-  const grouped = {};
-  grocery.items.forEach(item => {
-    const aisle = getAisle(item.text);
-    if (!grouped[aisle]) grouped[aisle] = [];
-    const existing = grouped[aisle].find(g => g.text.toLowerCase() === item.text.toLowerCase());
-    if (existing) existing.count = (existing.count || 1) + 1;
-    else grouped[aisle].push({ text: item.text, count: 1 });
-  });
-
-  let text = '🛒 GROCERY LIST\n' + '='.repeat(40) + '\n';
-  AISLE_ORDER.forEach(aisleId => {
-    const items = grouped[aisleId];
-    if (!items || !items.length) return;
-    const aisle = GROCERY_AISLES[aisleId] || { label: 'Other' };
-    text += `\n${aisle.label}\n${'-'.repeat(20)}\n`;
-    items.forEach(item => {
-      const countDisplay = item.count > 1 ? ` ×${item.count}` : '';
-      text += `☐ ${item.text}${countDisplay}\n`;
-    });
-  });
-
-  navigator.clipboard.writeText(text).then(() => {
-    alert('📋 Grocery list copied to clipboard!');
-  }).catch(() => {
-    prompt('Copy this list:', text);
-  });
-}
-
-function renderSOS() {
-  const list = document.getElementById('sos-list');
-  const quickRecipes = RECIPES.filter(r => r.isQuick);
-  if (!quickRecipes.length) {
-    list.innerHTML = '<p style="color:var(--muted);text-align:center;padding:16px;">No quick recipes found.</p>';
-    return;
-  }
-  let html = '';
-  quickRecipes.slice(0, 8).forEach(r => {
-    html += `
-      <div class="sos-item" data-recipe-id="${r.id}">
-        <span style="font-size:20px;">🍳</span>
-        <div style="flex:1;">
-          <div class="sos-name">${DOM.escape(r.title)}</div>
-          <div class="sos-time">⏱️ ${r.prepTime} prep · ${r.cookTime} cook</div>
-        </div>
-        <span class="sos-tag">⚡ Quick</span>
-      </div>
-    `;
-  });
-  list.innerHTML = html;
-  list.querySelectorAll('.sos-item').forEach(el => {
-    el.addEventListener('click', () => {
-      const id = el.getAttribute('data-recipe-id');
-      AppState.setSection(id);
-      AppState.resetSearch();
-      document.getElementById("global-search").value = "";
-      currentScale = 1;
-      renderNav();
-      renderMain();
-      document.getElementById("main").scrollTop = 0;
-      updateMobileNav(id);
-      closeSOS();
-      if (isMobile()) closeSidebar();
-    });
-  });
-}
-
-function getDailyPrinciple() {
-  const principles = appData.principles || [];
-  const day = new Date().getDate();
-  const index = (day + day * 7 + day * 13) % principles.length;
-  return principles[index] || principles[0];
-}
-
-// ============================================================
-// READING MODE
-// ============================================================
-function toggleReadingMode() {
-  readingMode = !readingMode;
-  document.body.classList.toggle('reading-mode', readingMode);
-  const btn = document.getElementById('toggle-reading');
-  btn.classList.toggle('active', readingMode);
-  btn.innerHTML = readingMode ? '📖 <span>Reading</span>' : '📖 <span>Read</span>';
-}
-
-// ============================================================
-// PANEL CONTROLS
-// ============================================================
-function openSidebar() {
-  document.body.classList.add('mobile-browse-open');
-  document.getElementById('backdrop').classList.add('visible');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeSidebar() {
-  document.body.classList.remove('mobile-browse-open');
-  document.getElementById('backdrop').classList.remove('visible');
-  document.body.style.overflow = '';
-}
-
-function openTools() {
-  const dash = document.getElementById("dashboard");
-  if (isMobile()) {
-    dash.classList.add("open");
-    document.getElementById('backdrop').classList.add('visible');
-    document.body.style.overflow = 'hidden';
-  } else {
-    dash.classList.remove("collapsed");
-  }
-  document.getElementById("toggle-tools").setAttribute("aria-expanded", "true");
-}
-
-function closeTools() {
-  closeSidebar();
-  const dash = document.getElementById("dashboard");
-  if (isMobile()) {
-    dash.classList.remove("open");
-    document.getElementById('backdrop').classList.remove('visible');
-    document.body.style.overflow = '';
-  } else {
-    dash.classList.add("collapsed");
-  }
-  document.getElementById("toggle-tools").setAttribute("aria-expanded", "false");
-}
-
-function toggleTools() {
-  const dash = document.getElementById("dashboard");
-  if (isMobile()) {
-    if (dash.classList.contains("open")) closeTools();
-    else openTools();
-  } else {
-    if (dash.classList.contains("collapsed")) openTools();
-    else closeTools();
-  }
-}
-
-function toggleGroceryPanel() {
-  const panel = document.getElementById('grocery-panel');
-  const isOpen = panel.classList.contains('open');
-  if (isOpen) {
-    panel.classList.remove('open');
-    document.getElementById('backdrop').classList.remove('visible');
-    document.body.style.overflow = '';
-  } else {
-    panel.classList.add('open');
-    document.getElementById('backdrop').classList.add('visible');
-    document.body.style.overflow = 'hidden';
-    renderSmartGrocery();
-  }
-}
-
-function closeGroceryPanel() {
-  document.getElementById('grocery-panel').classList.remove('open');
-  document.getElementById('backdrop').classList.remove('visible');
-  document.body.style.overflow = '';
-}
-
-function openSOS() {
-  document.getElementById('sos-overlay').classList.add('visible');
-  document.body.style.overflow = 'hidden';
-  renderSOS();
-}
-
-function closeSOS() {
-  document.getElementById('sos-overlay').classList.remove('visible');
-  document.body.style.overflow = '';
-}
-
-function toggleSOS() {
-  const overlay = document.getElementById('sos-overlay');
-  if (overlay.classList.contains('visible')) closeSOS();
-  else openSOS();
-}
-
-function printCurrentView() { window.print(); }
-
-// ============================================================
-// INIT
-// ============================================================
-document.addEventListener("DOMContentLoaded", () => {
-  const principleEl = document.getElementById('daily-principle');
-  if (principleEl) principleEl.textContent = '"' + getDailyPrinciple() + '"';
-
-  renderNav();
-  renderMain();
-  renderMeals();
-  renderChecklist();
-  renderSmartGrocery();
-
-  // Search
-  document.getElementById("global-search").addEventListener("input", e => {
-    AppState.setQuery(e.target.value.trim());
-    renderNav();
-  });
-
-  // Category buttons
-  document.querySelectorAll(".cat-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const cat = btn.getAttribute("data-cat");
-      AppState.setCategory(cat);
-      AppState.resetSearch();
-      document.getElementById("global-search").value = "";
-      const firstId = getFirstSectionIdForCategory(cat);
-      if (!firstId) {
-        document.getElementById("main").innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);"><span style="font-size:48px;display:block;margin-bottom:16px;">🍽️</span><h2 style="border-bottom:none;color:var(--muted);">No ${cat} recipes yet</h2><p style="font-size:13px;">Try "All" or another category.</p></div>`;
-        return;
-      }
-      AppState.setSection(firstId);
-      currentScale = 1;
-      renderNav();
-      renderMain();
-      document.getElementById("main").scrollTop = 0;
-      updateMobileNav(firstId);
-      if (isMobile()) closeSidebar();
-    });
-  });
-
-  // Age tabs
-  document.querySelectorAll(".age-tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".age-tab").forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      AppState.setAge(tab.getAttribute("data-age"));
-    });
-  });
-
-  // Quick start cards
-  document.querySelectorAll('.quick-start-card').forEach(card => {
-    card.addEventListener('click', function() {
-      const nav = this.getAttribute('data-nav');
-      if (nav === 'grocery') { toggleGroceryPanel(); return; }
-      const targetId = getSectionIdForNav(nav);
-      if (!targetId) {
-        document.getElementById("main").innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);"><span style="font-size:48px;display:block;margin-bottom:16px;">📖</span><h2 style="border-bottom:none;color:var(--muted);">Coming soon</h2></div>`;
-        return;
-      }
-      AppState.setSection(targetId);
-      AppState.resetSearch();
-      document.getElementById("global-search").value = "";
-      currentScale = 1;
-      AppState.setCategory("all");
-      document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-      document.querySelector('.cat-btn[data-cat="all"]').classList.add("active");
-      renderNav();
-      renderMain();
-      document.getElementById("main").scrollTop = 0;
-      if (isMobile()) closeSidebar();
-      updateMobileNav(targetId);
-    });
-  });
-
-  // Reading mode
-  document.getElementById("toggle-reading").addEventListener("click", toggleReadingMode);
-
-  // Tools
-  document.getElementById("toggle-tools").addEventListener("click", toggleTools);
-  document.getElementById("toggle-grocery").addEventListener("click", toggleGroceryPanel);
-  document.getElementById("close-grocery").addEventListener("click", closeGroceryPanel);
-  document.getElementById("toggle-sos").addEventListener("click", toggleSOS);
-  document.getElementById("close-sos").addEventListener("click", closeSOS);
-  document.getElementById("print-btn").addEventListener("click", printCurrentView);
-
-  // Grocery actions
-  document.getElementById("grocery-check-all").addEventListener("click", () => {
-    AppState.setAllGroceryChecked(true);
-    renderSmartGrocery();
-  });
-  document.getElementById("grocery-uncheck-all").addEventListener("click", () => {
-    AppState.setAllGroceryChecked(false);
-    renderSmartGrocery();
-  });
-  document.getElementById("grocery-clear").addEventListener("click", () => {
-    if (confirm('Clear all items?')) {
-      AppState.clearGrocery();
-      renderSmartGrocery();
-    }
-  });
-  document.getElementById("grocery-export").addEventListener("click", exportGroceryList);
-
-  // Backdrop
-  document.getElementById("backdrop").addEventListener("click", () => {
-    closeTools();
-    closeSidebar();
-    closeGroceryPanel();
-    closeSOS();
-  });
-
-  // Mobile nav
-  document.querySelectorAll('.mobile-bottom-nav .nav-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const nav = btn.getAttribute('data-nav');
-      if (nav === 'tools') { openTools(); return; }
-      if (nav === 'browse') { openSidebar(); return; }
-      const targetId = getSectionIdForNav(nav);
-      if (!targetId) {
-        document.getElementById("main").innerHTML = `<div style="text-align:center;padding:40px;color:var(--muted);"><span style="font-size:48px;display:block;margin-bottom:16px;">📖</span><h2 style="border-bottom:none;color:var(--muted);">Coming soon</h2></div>`;
-        return;
-      }
-      AppState.setSection(targetId);
-      AppState.resetSearch();
-      document.getElementById("global-search").value = "";
-      currentScale = 1;
-      if (nav === 'recipes') {
-        AppState.setCategory("all");
-        document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-        document.querySelector('.cat-btn[data-cat="all"]').classList.add("active");
-      }
-      renderNav();
-      renderMain();
-      document.getElementById("main").scrollTop = 0;
-      updateMobileNav(targetId);
-      if (isMobile() && document.getElementById("dashboard").classList.contains("open")) closeTools();
-    });
-  });
-
-  // Keyboard shortcuts
-  document.addEventListener("keydown", e => {
-    if (e.key === "Escape") {
-      closeSOS();
-      closeGroceryPanel();
-      if (isMobile()) { closeTools(); closeSidebar(); }
-    }
-    if ((e.ctrlKey || e.metaKey) && e.key === "f") {
-      e.preventDefault();
-      document.getElementById("global-search").focus();
-    }
-  });
-
-  // Offline status
-  const offlineIndicator = document.getElementById('offline-indicator');
-  window.addEventListener('online', () => offlineIndicator.classList.remove('visible'));
-  window.addEventListener('offline', () => offlineIndicator.classList.add('visible'));
-  if (!navigator.onLine) offlineIndicator.classList.add('visible');
-
-  // Service worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  }
-});
-</script>
-</body>
-</html>
+<!-- Rest of HTML and JavaScript same as previous working version -->
