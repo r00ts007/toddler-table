@@ -1,10 +1,9 @@
 // Roots Edition — minimal offline-support service worker.
 // Cache-first for the app shell (index.html, styles.css, app_bundle.js, recipes.json),
 // falling back to the network for anything else / on a cache miss.
-const CACHE_NAME = 'roots-edition-v14'; // cache bumped by the 2026-10-19 page-to-page navigation (pager.js)
+const CACHE_NAME = 'roots-edition-v15'; // v15 (2026-11-23): stop caching ./index.html — Cloudflare redirects it to /, and a cached redirect blanks the page
 const APP_SHELL = [
   './',
-  './index.html',
   './styles.css',
   './app_bundle.js',
   './pager.js',
