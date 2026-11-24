@@ -1,0 +1,991 @@
+[
+  {
+    "id": "rec-01",
+    "title": "01 Creamy Banana-Tahini Oat Porridge",
+    "category": "breakfast",
+    "influence": "East African / Middle Eastern pantry crossover",
+    "role": "Energy · healthy fat · grain that contributes iron",
+    "ingredients": "¼ cup oats; ½ cup water or fortified soy beverage; ½ banana; 1 tsp tahini; ½ tsp ground flax",
+    "method": "Simmer oats in water or soy beverage over medium heat, then reduce to low and cook uncovered 5-7 minutes, stirring occasionally, until fully broken down and creamy. Remove from heat; mash in banana and flax. Stir tahini in completely — no streak or clump should remain. Thin to spoonable consistency.",
+    "safety": "Mix nut/seed butter fully in; never serve a thick sticky spoonful.",
+    "variations": "This is the base of the Roots Porridge formula: change the fruit, keep the method. Pear-sesame branch: swap the banana for 2 Tbsp mashed ripe pear and keep the tahini, stirred in off heat until no streaks remain. Mango + flax or mashed berries work the same way. Smooth nut or seed butter can replace the tahini once those foods have been safely introduced.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "7 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Sesame",
+      "Gluten",
+      "Soy"
+    ],
+    "allergenNotes": [
+      "Gluten: oats — use certified gluten-free oats if avoiding gluten",
+      "Soy only if using soy beverage (water works)"
+    ],
+    "allergenOptional": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "rec-02",
+    "title": "02 Egg, Plantain & Avocado Bowl",
+    "category": "breakfast",
+    "influence": "Caribbean pantry-inspired",
+    "role": "Protein · choline · energy",
+    "ingredients": "½ ripe plantain; 1 egg; ¼ avocado",
+    "method": "Steam plantain rounds 8-10 minutes, or pan-soften in oil over medium-low heat 6-8 minutes per side, until a fork passes through with no resistance. Scramble egg in a lightly oiled pan over medium-low heat 2-3 minutes until fully set. Mash plantain and avocado together; serve with egg mashed or in soft curds.",
+    "safety": "Egg fully cooked; plantain soft.",
+    "variations": "Add greens or tomato for vitamin C.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free",
+      "Gluten-free"
+    ],
+    "allergens": [
+      "Egg"
+    ]
+  },
+  {
+    "id": "rec-03",
+    "title": "03 Savory Oatmeal with Egg, Greens & Avocado",
+    "category": "breakfast",
+    "influence": "Global family-table recipe",
+    "role": "Protein · iron · choline · healthy fat",
+    "ingredients": "¼ cup oats; ½ cup liquid; 1 egg; 2 Tbsp finely chopped cooked greens; ¼ avocado",
+    "method": "Cook oats as in the Roots Porridge (5-7 min simmer). Sauté chopped greens with beaten egg over medium-low heat, stirring, 2-3 minutes until fully set. Fold into the finished oats; top with avocado just before serving.",
+    "safety": "Egg fully cooked; no fibrous stems.",
+    "variations": "Collards, spinach, or finely chopped broccoli.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "10 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Egg",
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Gluten: oats — use certified gluten-free oats if avoiding gluten"
+    ]
+  },
+  {
+    "id": "rec-04",
+    "title": "04 Millet-Banana Porridge",
+    "category": "breakfast",
+    "influence": "West African / South Asian pantry crossover",
+    "role": "Energy · fruit · grain that contributes iron",
+    "ingredients": "2 tbsp dry millet (makes about ¼ cup cooked); ¼ cup liquid; ½ banana; ½ tsp ground flax",
+    "method": "Simmer millet in water 18-20 minutes, covered, until fully tender and grains have burst — millet cooks longer than oats, don't shortcut this. Warm through with liquid 2-3 minutes, then mash in banana and flax until no firm grain remains.",
+    "safety": "Mash thoroughly; grains should not stay firm.",
+    "variations": "Swap banana for mango or pear.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "20 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free",
+      "Gluten-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-05",
+    "title": "05 Sweet-Potato Breakfast Cakes",
+    "category": "breakfast",
+    "influence": "Global family-table recipe",
+    "role": "Energy · vitamin A · protein",
+    "ingredients": "½ cup mashed sweet potato; 1 egg; 2 Tbsp oat flour; cinnamon; 1 tsp olive oil",
+    "method": "Mix mashed sweet potato with egg, oat flour and cinnamon. Cook small (2-inch) rounds in an oiled pan over low heat, 3-4 minutes per side, until set through with no raw batter visible when cut.",
+    "safety": "Soft, moist, fully cooked.",
+    "variations": "Serve with mashed fruit or thin tahini.",
+    "baseYield": "2-3 small cakes",
+    "prepTime": "8 min",
+    "cookTime": "8 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Egg",
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Gluten: oat flour — use certified gluten-free if avoiding gluten"
+    ]
+  },
+  {
+    "id": "rec-06",
+    "title": "06 Soft Tofu & Tomato Scramble",
+    "category": "breakfast",
+    "influence": "Global family-table recipe",
+    "role": "Plant protein · calcium (when calcium-set) · vitamin-C pairing",
+    "ingredients": "2-3 oz calcium-set firm tofu; ¼ cup soft chopped tomato; 1 tsp olive oil; pinch turmeric, optional; soft toast strips or ½ cup cooked oats on the side",
+    "method": "Warm oil in a pan over medium-low heat. Crumble tofu into small, soft curds with a fork and add it with the tomato and turmeric. Stir 3-4 minutes until warmed through and the tomato is completely soft; packaged tofu is already cooked, so this step is about warmth and texture. Mash any larger curds for the youngest child. Serve with soft toast strips or oats.",
+    "safety": "Crumble tofu into small, soft curds, not cubes. Skip salty sauces for the toddler portion.",
+    "variations": "Fold in finely chopped soft-cooked greens (Recipe 31). For a soy-free morning, use Recipe 02 or 03 instead. Check the tofu label: calcium depends on the coagulant.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "4 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Soy",
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Gluten: toast or oats on the side — use gluten-free bread or certified gluten-free oats if avoiding gluten"
+    ]
+  },
+  {
+    "id": "rec-07",
+    "title": "07 West African-Inspired Chickpea, Sweet Potato & Greens",
+    "category": "lunch",
+    "influence": "West African pantry-inspired",
+    "role": "Plant protein · iron · vitamin-C pairing",
+    "ingredients": "½ cup mashed chickpeas; ½-1 sweet potato; ½ cup cooked greens; 1 tsp peanut or olive oil; lemon/lime",
+    "method": "Simmer sweet potato in water 10-12 minutes until soft. Steam or sauté greens 3-4 minutes until wilted. Mash chickpeas (soaked and cooked per Recipe 28) with a fork. Combine all with oil and citrus.",
+    "safety": "Use peanut oil only once peanut has been safely introduced; otherwise use olive oil. Mash chickpeas well.",
+    "variations": "Black or white beans; mango instead of citrus.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Peanut"
+    ],
+    "allergenNotes": [
+      "Peanut optional in this recipe"
+    ],
+    "allergenOptional": [
+      "Peanut"
+    ]
+  },
+  {
+    "id": "rec-08",
+    "title": "08 Caribbean Black Bean, Rice & Pumpkin Bowl",
+    "category": "lunch",
+    "influence": "Caribbean pantry-inspired (aligns with Ital cooking as written—see Foodways)",
+    "role": "Plant iron · protein · healthy fat",
+    "ingredients": "½ cup low-sodium black beans; ½ cup cooked rice; ¼-½ cup pumpkin/squash; ¼ cup soft chopped tomato; ¼ avocado; thyme; 1 tsp oil",
+    "method": "Warm beans with rice over low heat 2-3 minutes. Mash beans lightly. Fold in soft-cooked pumpkin and chopped tomato; add thyme and oil. Top with avocado.",
+    "safety": "Flatten/mash beans; keep sodium modest.",
+    "variations": "The tomato is the vitamin-C partner for the beans; diced ripe mango or a squeeze of lime can stand in for it.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "5 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-09",
+    "title": "09 Ginger-Scented Tofu Rice Bowl",
+    "category": "lunch",
+    "influence": "East Asian pantry-inspired",
+    "role": "Plant protein · energy · vegetables",
+    "ingredients": "2-3 oz calcium-set tofu; ½ cup cooked rice; soft broccoli/carrot; 1 tsp oil; tiny amount ginger",
+    "method": "Steam broccoli/carrot 5-6 minutes until fully tender. Crumble tofu with a fork. Warm tofu, rice and vegetables together 2-3 minutes with oil and a tiny amount of grated ginger.",
+    "safety": "Skip salty sauce for toddler portion.",
+    "variations": "Sesame oil sparingly or olive oil.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "8 min",
+    "cookTime": "8 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "rec-10",
+    "title": "10 Red Lentil Dal with Rice",
+    "category": "lunch",
+    "influence": "South Asian pantry-inspired",
+    "role": "Plant iron · protein · energy",
+    "ingredients": "½ cup cooked red lentils; ½ cup rice; 1 tsp olive oil; mild turmeric/cumin; squeeze of lemon",
+    "method": "Rinse lentils (no soak needed — red lentils cook fast). Simmer in water 12-15 minutes, stirring occasionally, until fully broken down and porridge-soft. Stir in oil and mild spice; combine with rice. Finish with a squeeze of lemon, the vitamin-C partner for the lentils.",
+    "safety": "Keep spice mild/non-hot.",
+    "variations": "Soft chopped tomato can stand in for the lemon. Lentil-rice bowl: for a heartier dinner, fold in soft carrot or sweet potato (steamed 8-10 minutes) and finely chopped greens, then mash or finely chop to texture.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-11",
+    "title": "11 Sardine & Sweet Potato Mash with Lemon",
+    "category": "lunch",
+    "influence": "Mediterranean pantry-inspired",
+    "role": "DHA/EPA · calcium from soft bones · vitamin D · energy",
+    "ingredients": "~1 oz canned sardines with soft bones, in water or olive oil (no-salt-added or lower-sodium); ½ cup mashed cooked sweet potato; 1 tsp olive oil; squeeze of lemon; soft herbs, optional",
+    "method": "Drain the sardines and mash them thoroughly with a fork, soft bones included, until no bone pieces can be felt. Run your fingers through the mash and remove any firm or sharp piece. Fold into warm mashed sweet potato with oil, lemon and herbs.",
+    "safety": "Mash bones completely and check by hand every time — the soft bones are the calcium source, but no piece should remain that a child could feel. Sardines are a lower-mercury Best Choice; count this as one of the week's fish servings.",
+    "variations": "Serve on soft toast for older children. Swap the sweet potato for mashed white beans to add a plant iron anchor. Season the adult portion after the toddler share is removed.",
+    "baseYield": "~1 oz fish + sweet potato",
+    "prepTime": "5 min",
+    "cookTime": "0 min (uses cooked sweet potato)",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free",
+      "Gluten-free"
+    ],
+    "allergens": [
+      "Fish"
+    ]
+  },
+  {
+    "id": "rec-12",
+    "title": "12 White Bean, Tomato & Olive Oil Bowl",
+    "category": "lunch",
+    "influence": "Mediterranean pantry-inspired",
+    "role": "Plant protein · iron · healthy fat",
+    "ingredients": "½ cup low-sodium white beans; ¼ cup soft tomato; 1 tsp olive oil; herbs",
+    "method": "Warm beans with chopped tomato over low heat 3-4 minutes. Mash together with a fork. Finish with oil and chopped soft herbs.",
+    "safety": "Mash beans well; low sodium.",
+    "variations": "Quinoa or soft bread as energy base.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "5 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-13",
+    "title": "13 Ginger Trout, Rice & Bok Choy Bowl",
+    "category": "dinner",
+    "influence": "East Asian pantry-inspired",
+    "role": "DHA/EPA · protein · vitamin D · low-oxalate greens · energy",
+    "ingredients": "~1 oz cooked trout; ½ cup cooked rice; ½ cup chopped bok choy; 1 tsp oil; tiny amount grated ginger",
+    "method": "Bake trout at 400°F for 10-12 minutes, or pan-sear 3-4 minutes per side, until it is opaque and flakes easily with a fork (145°F at the thickest part if using a thermometer); thinner fillets may finish sooner. Cool slightly, flake, and run fingers through every piece checking for bones. Steam bok choy 5-6 minutes until the stems are completely tender. Toss warm rice with oil and ginger, then fold in the trout and bok choy, finely chopping the greens for the youngest.",
+    "safety": "Trout has fine pin bones — bone-check every piece by hand. Trout is a lower-mercury Best Choice; count this as one of the week's fish servings.",
+    "variations": "Salmon works the same way. Use broccoli if bok choy isn't available. Shrimp option, only where shellfish has already been safely introduced: about 1 oz shrimp cooked until pearly and opaque throughout, then chopped very finely (shrimp is firm and springy). Buy from a source you trust and check the country-of-origin label.",
+    "baseYield": "~1 oz fish + rice and greens",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free",
+      "Gluten-free"
+    ],
+    "allergens": [
+      "Fish"
+    ],
+    "allergenNotes": [
+      "Shellfish only in the optional shrimp variation"
+    ]
+  },
+  {
+    "id": "rec-14",
+    "title": "14 Salmon-Sweet Potato & Peas",
+    "category": "dinner",
+    "influence": "Global family-table recipe",
+    "role": "DHA/EPA · protein · vitamin D",
+    "ingredients": "~1 oz cooked salmon; sweet potato; peas; 1 tsp oil",
+    "method": "Bake salmon at 400°F for 10-12 minutes, or pan-sear 3-4 minutes per side, until it flakes easily and is opaque throughout. Cool slightly, flake, and run fingers through every piece checking for bones. Steam sweet potato 10-12 minutes and peas 3-4 minutes until soft; combine with oil.",
+    "safety": "Lower-mercury Best Choice fish; check bones every time.",
+    "variations": "Trout or another Best Choice fish.",
+    "baseYield": "~1 oz fish + vegetables",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Fish"
+    ]
+  },
+  {
+    "id": "rec-15",
+    "title": "15 Mediterranean Lentil & Vegetable Stew",
+    "category": "dinner",
+    "influence": "Mediterranean pantry-inspired",
+    "role": "Plant iron · protein",
+    "ingredients": "½ cup red lentils; ¼ cup diced potato; ¼ cup diced carrot; ¼ cup peas; 2 Tbsp tomato purée; 1 tsp olive oil; herbs",
+    "method": "Combine lentils, potato, carrot, peas and tomato purée with water. Simmer 20-25 minutes, stirring occasionally, until everything is very tender. Finish with oil and herbs; mash lightly.",
+    "safety": "Toddler portion low sodium.",
+    "variations": "Serve over rice or soft pasta. Soup night: thin the stew with extra water or low-sodium broth (Recipe 26), stir in finely chopped greens for the last few minutes, mash or blend to texture, and serve with soft whole-grain toast strips. A bigger batch makes an easy next-day lunch.",
+    "baseYield": "1 bowl",
+    "prepTime": "10 min",
+    "cookTime": "25 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [],
+    "allergenNotes": [
+      "Gluten only if serving with pasta or toast"
+    ]
+  },
+  {
+    "id": "rec-16",
+    "title": "16 Chickpea Patties + Soft Tomato Pasta",
+    "category": "dinner",
+    "influence": "Italian pantry-inspired",
+    "role": "Plant protein · iron · energy",
+    "ingredients": "½ cup chickpeas; 1 egg; 2 Tbsp oat flour; herbs; soft pasta; no-added-sugar tomato sauce",
+    "method": "Mash chickpeas with egg, oat flour and herbs into a moldable paste. Shape small patties; cook in an oiled pan over low-medium heat, 3-4 minutes per side, until fully set with no raw egg visible when cut. Meanwhile cook short-cut pasta in water until very soft, drain, then simmer it 2-3 minutes in tomato sauce (toddler portion removed before salting).",
+    "safety": "Patties soft; pasta cut short.",
+    "variations": "Roots Cake/Patty formula.",
+    "baseYield": "1-2 soft patties + pasta",
+    "prepTime": "15 min",
+    "cookTime": "10 min",
+    "difficulty": "Medium",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Egg",
+      "Gluten"
+    ]
+  },
+  {
+    "id": "rec-17",
+    "title": "17 Three Sisters-Style Bean, Corn & Squash Bowl",
+    "category": "dinner",
+    "influence": "Broad Indigenous North American foodway-inspired",
+    "role": "Plant protein · carbohydrate · vegetables",
+    "ingredients": "Well-cooked beans; very soft corn; winter squash; olive oil",
+    "method": "Simmer beans until very soft (see Recipe 28). Steam squash 10–12 minutes until fully soft. Cook corn kernels 5 minutes until tender, then finely chop — no whole kernels at this age. Mash beans and squash together; fold in chopped corn and oil.",
+    "safety": "Chop corn finely — no whole kernels; mash beans and squash.",
+    "variations": "Wild rice where appropriate and safely textured. This is a broad foodway-inspired framework, not a claim to represent any one Nation.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "15 min",
+    "cookTime": "12 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-18",
+    "title": "18 Ethiopian-Inspired Fish & Lentil Stew",
+    "category": "dinner",
+    "influence": "Ethiopian pantry-inspired",
+    "role": "Protein · plant iron · energy",
+    "ingredients": "~1 oz cooked white fish; ¼ cup red lentils; soft carrot; 1 tsp oil; mild turmeric/ginger",
+    "method": "Simmer lentils with carrot in water 15 minutes until soft. Bake fish at 400°F 8-10 minutes, or pan-sear 3 min/side, until opaque and flaking. Flake fish, checking thoroughly for bones, and fold into the lentil-carrot mixture with oil and mild spice.",
+    "safety": "Bone-check carefully.",
+    "variations": "Best Choice white fish.",
+    "baseYield": "~1 oz fish + lentils",
+    "prepTime": "10 min",
+    "cookTime": "15 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Fish"
+    ]
+  },
+  {
+    "id": "rec-19",
+    "title": "19 Caribbean-Inspired Fish & Pumpkin Stew",
+    "category": "dinner",
+    "influence": "Caribbean pantry-inspired",
+    "role": "Protein · vitamin A · energy",
+    "ingredients": "~1 oz cooked white fish; pumpkin/squash; 1 tsp oil; thyme",
+    "method": "Steam pumpkin/squash 10-12 minutes until very soft; mash. Cook fish as in Recipe 18; flake and bone-check thoroughly. Fold fish into mashed pumpkin with oil and thyme.",
+    "safety": "Bone-check; lower-mercury species.",
+    "variations": "Serve over rice if more energy needed.",
+    "baseYield": "~1 oz fish + pumpkin",
+    "prepTime": "10 min",
+    "cookTime": "12 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Fish"
+    ]
+  },
+  {
+    "id": "rec-20",
+    "title": "20 Mediterranean Chickpea & Herb Bowl",
+    "category": "dinner",
+    "influence": "Levantine / Mediterranean pantry-inspired",
+    "role": "Plant protein · iron · energy",
+    "ingredients": "½ cup mashed chickpeas; herbs; ¼ cup quinoa; 1 tsp olive oil; thin tahini; squeeze of lemon",
+    "method": "Cook quinoa per package directions (about 15 minutes simmered, covered). Mash chickpeas with a fork. Combine warm quinoa, mashed chickpeas, herbs, oil and a thin drizzle of tahini. Finish with a squeeze of lemon, the vitamin-C partner for the chickpeas.",
+    "safety": "Chickpeas soft and mashed.",
+    "variations": "Soft chopped tomato can stand in for the lemon.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "5 min",
+    "cookTime": "15 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Sesame"
+    ]
+  },
+  {
+    "id": "rec-21",
+    "title": "21 Avocado + Soft Toast",
+    "category": "snack",
+    "influence": "Global / Roots staple",
+    "role": "Healthy fat · energy",
+    "ingredients": "Soft whole-grain toast; mashed avocado",
+    "method": "Toast bread until lightly golden but still easily compressible — avoid a hard, brittle crust at this age. Mash avocado and spread smoothly; cut into manageable strips.",
+    "safety": "Toast soft enough for the child.",
+    "variations": "Add egg or hummus for protein.",
+    "baseYield": "1 snack",
+    "prepTime": "5 min",
+    "cookTime": "3 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "rec-22",
+    "title": "22 Pear + Thin Sunflower Butter Toast",
+    "category": "snack",
+    "influence": "Roots snack",
+    "role": "Fruit · healthy fat · energy",
+    "ingredients": "Soft toast; ripe pear; thin sunflower butter",
+    "method": "Toast bread as above. Spread sunflower butter in a very thin, translucent layer — toast should be visible through it. Top with finely mashed pear.",
+    "safety": "Never use thick sticky seed butter.",
+    "variations": "Tahini or thin nut butter if appropriate.",
+    "baseYield": "1 snack",
+    "prepTime": "5 min",
+    "cookTime": "3 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free",
+      "Nut-free"
+    ],
+    "allergens": [
+      "Gluten",
+      "Sunflower"
+    ],
+    "allergenNotes": [
+      "Variation uses tahini (sesame) or nut butter (tree nut/peanut)"
+    ]
+  },
+  {
+    "id": "rec-23",
+    "title": "23 Banana-Chia Mash",
+    "category": "snack",
+    "influence": "Global family-table recipe",
+    "role": "Energy · ALA omega-3",
+    "ingredients": "½ banana; ½ tsp finely ground chia; optional fortified dairy-free yogurt",
+    "method": "Mash banana thoroughly with a fork until no lumps remain. Stir in finely ground chia (grind whole seeds first — never serve whole/dry chia at this age). Mix in yogurt if using.",
+    "safety": "Do not serve dry seeds.",
+    "variations": "Ground flax as alternate ALA.",
+    "baseYield": "1 snack",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [],
+    "allergenNotes": [
+      "Soy only if adding the optional dairy-free yogurt"
+    ]
+  },
+  {
+    "id": "rec-24",
+    "title": "24 Hummus + Soft Pita + Mango",
+    "category": "snack",
+    "influence": "Mediterranean / West Asian pantry-inspired",
+    "role": "Plant protein · healthy fat · fruit",
+    "ingredients": "2 Tbsp smooth hummus; soft pita; ripe mango",
+    "method": "Thin hummus with a few drops of water if needed for easy spreading. Warm pita briefly and tear into small pieces. Serve with prepared mango, diced small.",
+    "safety": "Avoid large chewy pieces.",
+    "variations": "Add avocado for more energy.",
+    "baseYield": "1 snack",
+    "prepTime": "5 min",
+    "cookTime": "2 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Gluten",
+      "Sesame"
+    ],
+    "allergenNotes": [
+      "Sesame (tahini in hummus)"
+    ]
+  },
+  {
+    "id": "rec-25",
+    "title": "25 Fortified Dairy-Free Yogurt + Prepared Berries",
+    "category": "snack",
+    "influence": "Global family-table recipe",
+    "role": "Calcium · vitamin D opportunity",
+    "ingredients": "Fortified unsweetened dairy-free yogurt; prepared berries",
+    "method": "Stir yogurt until smooth. Quarter any berry approaching grape-size lengthwise (not just in half); mash smaller berries.",
+    "safety": "Avoid whole round berries when choking risk is present.",
+    "variations": "Banana or mango when berries unavailable.",
+    "baseYield": "1 snack",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Soy"
+    ],
+    "allergenNotes": [
+      "Soy: dairy-free yogurt is often soy-based — choose a soy-free yogurt to avoid soy"
+    ],
+    "allergenOptional": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "rec-26",
+    "title": "26 Basic Toddler Vegetable Broth",
+    "category": "foundation",
+    "influence": "Roots Foundations",
+    "role": "Cooking base",
+    "ingredients": "Carrot, celery, onion, parsley stems; water",
+    "method": "Combine chopped vegetables and parsley stems with water. Bring to a boil, then simmer uncovered 45-60 minutes. Strain, discard solids, cool completely, then freeze in small portions. No added salt.",
+    "safety": "Unsalted; cooking liquid, not a drink.",
+    "variations": "",
+    "baseYield": "1 batch (approx 4 cups)",
+    "prepTime": "15 min",
+    "cookTime": "60 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-27",
+    "title": "27 Three-Grain Batch",
+    "category": "foundation",
+    "influence": "Roots Foundations",
+    "role": "Energy base",
+    "ingredients": "Equal parts rice, quinoa and oats, cooked separately",
+    "method": "Cook rice, quinoa and oats separately per package directions (rice ~18 min covered; quinoa ~15 min covered; oats 5-7 min simmered). Cool each fully before combining or storing; refrigerate 3-4 days or freeze in single-serving portions.",
+    "safety": "Reheat thoroughly and cool before serving.",
+    "variations": "",
+    "baseYield": "Batch",
+    "prepTime": "10 min",
+    "cookTime": "20 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Gluten (oats, use certified GF if needed)"
+    ]
+  },
+  {
+    "id": "rec-28",
+    "title": "28 Master Lentils & Beans",
+    "category": "foundation",
+    "influence": "Roots Foundations",
+    "role": "Plant iron · protein base",
+    "ingredients": "Red lentils, black beans and chickpeas",
+    "method": "Soak black beans and chickpeas separately in cold water 8-12 hours (or overnight) — red lentils don't need soaking. Drain and rinse soaked beans well; this step is what reduces phytate, so don't skip it. Cook in fresh water, covered, 45-60 minutes (beans) or 60-75 minutes (chickpeas) until fully soft and easily mashed. Cook rinsed red lentils 15-18 minutes until broken down. Cool, portion and freeze.",
+    "safety": "Mash to texture skill; keep sodium modest.",
+    "variations": "",
+    "baseYield": "Batch",
+    "prepTime": "10 min + soaking",
+    "cookTime": "75 min",
+    "difficulty": "Medium",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-29",
+    "title": "29 Soft Roasted Vegetable Mix",
+    "category": "foundation",
+    "influence": "Roots Foundations",
+    "role": "Vitamin A/C · fiber base",
+    "ingredients": "Sweet potato, carrot, squash; 1 tsp oil",
+    "method": "Toss vegetables with oil. Roast at 400°F for 25–30 minutes, turning once, until every piece yields easily to a fork—or steam until equally soft. Mash or dice to texture; portion and refrigerate 3–4 days or freeze.",
+    "safety": "Soft enough to mash between fingers.",
+    "variations": "",
+    "baseYield": "Batch",
+    "prepTime": "15 min",
+    "cookTime": "30 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-30",
+    "title": "30 Mild Family Tomato Sauce",
+    "category": "foundation",
+    "influence": "Roots Foundations",
+    "role": "Vitamin-C pairing",
+    "ingredients": "Crushed tomatoes; olive oil; soft herbs",
+    "method": "Simmer crushed tomatoes with oil and herbs over low heat, uncovered, 20-25 minutes, stirring occasionally, until slightly thickened and mellow-tasting. Remove the toddler's portion before adding salt to the rest.",
+    "safety": "Remove the toddler portion before salting; cool before serving.",
+    "variations": "",
+    "baseYield": "Batch (approx 2 cups)",
+    "prepTime": "5 min",
+    "cookTime": "25 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-31",
+    "title": "31 Soft-Cooked Low-Oxalate Greens",
+    "category": "foundation",
+    "influence": "Roots Foundations",
+    "role": "Color · calcium contributor (lower-oxalate greens)",
+    "ingredients": "Kale, collards or bok choy, washed; water; 1 tsp olive oil",
+    "method": "Strip tough stems from kale or collards (bok choy stems can stay). Chop the leaves finely, then steam or simmer, covered, until very soft. Bok choy takes about 5-6 minutes. Kale and collards vary much more, from a few minutes for finely chopped young kale to 30-45 minutes for braised collards, so judge by texture: the greens should mash easily between finger and thumb. Drain, chop again finely, and stir in oil. Cool, portion and freeze in small amounts.",
+    "safety": "No fibrous stems or stringy pieces; chop finely after cooking.",
+    "variations": "Fold into stews, scrambles, bowls and porridges. These greens are a calcium contributor, not an anchor; they're preferred over spinach for calcium because of their lower oxalate.",
+    "baseYield": "About ½ cup cooked greens",
+    "prepTime": "10 min",
+    "cookTime": "6 min (bok choy) to 45 min (collards)",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free",
+      "Gluten-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-32",
+    "title": "32 Roots-Approved Celebration Smash Cake",
+    "category": "snack",
+    "influence": "Global / Roots Celebration",
+    "role": "Whole-food sweetness · healthy fat · starchy energy",
+    "ingredients": "2 ripe bananas, mashed; 1 egg (or 1 Tbsp ground flaxseed whisked with 3 Tbsp warm water for plant-based); ¼ cup unsweetened applesauce; 1 tsp vanilla extract; 1 cup oat flour; 1 tsp baking powder; ½ tsp cinnamon; 1 can (14 oz) full-fat coconut milk, chilled overnight to separate the solid cream; Optional: 1 tsp maple syrup or 2 mashed dates, for ages 2+",
+    "method": "Preheat oven to 350°F (175°C). Grease two 4-inch mini springform pans with a wipe of olive oil. Whisk mashed bananas, egg (or flax gel), applesauce and vanilla until smooth. Fold in oat flour, baking powder and cinnamon until fully combined. Divide batter between the pans and bake 15–18 minutes until a toothpick inserted in the center comes out clean. Cool completely. For the frosting: scoop the solid white coconut cream from the top of the chilled can into a chilled bowl (reserve the coconut water for stews or porridges); whip with a hand mixer or whisk until light and fluffy. Frost the cooled cakes and garnish with a sprinkle of cinnamon or finely mashed berries.",
+    "safety": "Ensure the cake is completely cooled before frosting; coconut cream frosting must stay chilled until serving. Cut into soft, small bites for ages 1–3.",
+    "variations": "Substitute pumpkin puree for applesauce; top with mashed mango instead of berries. This is a Roots-pattern option for a home celebration or first-birthday smash cake — see Birthdays & Celebrations for why it sits alongside, not in place of, real cake at a party.",
+    "baseYield": "1 mini smash cake (ideal for sharing)",
+    "prepTime": "15 min",
+    "cookTime": "18 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Egg",
+      "Coconut",
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Egg optional (use flax gel); Coconut optional (use mashed banana frosting)",
+      "Gluten: use certified gluten-free oat flour for a gluten-free cake"
+    ],
+    "allergenOptional": [
+      "Egg",
+      "Coconut"
+    ]
+  },
+  {
+    "id": "rec-33",
+    "title": "33 Egg, Avocado & Soft Toast Plate",
+    "category": "breakfast",
+    "influence": "Global pantry staple",
+    "role": "Anchor protein · healthy fat · energy from toast",
+    "ingredients": "1 egg, cooked soft-scrambled or hard-boiled and chopped; ¼ ripe avocado, mashed or sliced thin; 1 slice soft whole-grain toast, cut into strips; a few pieces of soft ripe fruit (banana, peach or berries), quartered if round",
+    "method": "Scramble the egg gently in a little olive oil until fully set but still soft, or use a hard-boiled egg from the fridge. Toast the bread and top with mashed avocado, or serve the avocado alongside. Add the fruit. Ready in about 5 minutes.",
+    "safety": "Cook egg fully through with no wet or glossy spots; cut toast into manageable strips rather than a whole slice for younger eaters; quarter any round fruit.",
+    "variations": "Fridge-egg route: keep a few eggs hard-boiled ahead of time (at least 8-10 minutes, fully cooked through) and chilled. Chop one, toast the bread and mash the avocado onto it, and the plate is ready in about 3 minutes with only a toaster. Swap toast for a tortilla or leftover rice; add hot sauce, everything-bagel seasoning or a slice of tomato to the adult portion.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "3 min",
+    "cookTime": "5 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Egg",
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Gluten (toast)"
+    ]
+  },
+  {
+    "id": "rec-34",
+    "title": "34 Lentil, Rice & Frozen Vegetable Bowl",
+    "category": "dinner",
+    "influence": "Global pantry staple",
+    "role": "Anchor protein and iron · energy grain · color from vegetables",
+    "ingredients": "½ cup cooked lentils (canned and rinsed, or leftover cooked); ½ cup cooked rice (leftover or quick-cooking); ½ cup frozen mixed vegetables, thawed and warmed; 1 tsp olive oil; pinch of mild spice such as cumin, optional",
+    "method": "Warm the lentils, rice and vegetables together in a pan or microwave until heated through. Stir in olive oil. Ready in about 8 minutes.",
+    "safety": "Mash or halve lentils and larger vegetable pieces (whole peas or corn kernels) for younger eaters; stir well and check temperature after microwaving.",
+    "variations": "Add lemon juice and chopped herbs for the adult portion; stir in dairy-free yogurt or tahini for extra creaminess.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "2 min",
+    "cookTime": "8 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [],
+    "allergenNotes": [
+      "Soy only if adding the optional dairy-free yogurt"
+    ]
+  },
+  {
+    "id": "rec-35",
+    "title": "35 Black Bean, Sweet Potato & Avocado Bowl",
+    "category": "lunch",
+    "influence": "Latin American pantry staple",
+    "role": "Anchor protein and fiber · energy from sweet potato · healthy fat",
+    "ingredients": "½ cup low-sodium black beans, drained, rinsed and warmed; ½ cup cooked sweet potato, mashed or diced soft; ¼ avocado, mashed or sliced",
+    "method": "Warm beans and sweet potato together on the stovetop or in the microwave. Mash lightly for younger eaters. Top with avocado. Ready in about 6 minutes when the sweet potato is already cooked.",
+    "safety": "Mash beans and sweet potato to remove firm lumps for younger eaters; cool fully before serving.",
+    "variations": "Add lime juice and cilantro; stir in salsa for the adult portion.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "2 min",
+    "cookTime": "6 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "rec-36",
+    "title": "36 Hummus & Pita Plate with Dairy-Free Yogurt and Fruit",
+    "category": "lunch",
+    "influence": "Middle Eastern pantry staple",
+    "role": "Anchor protein and healthy fat · calcium-supporting cover · color from fruit",
+    "ingredients": "2-3 Tbsp hummus; ½ soft pita, cut into strips; ¼ cup fortified unsweetened dairy-free yogurt; a few pieces of soft ripe fruit",
+    "method": "Arrange hummus, pita strips, yogurt and fruit on a plate. No cooking required. Ready in about 3 minutes.",
+    "safety": "Contains sesame (tahini in hummus) — introduce per your pediatrician's guidance if new. Cut pita into strips for younger eaters.",
+    "variations": "Add ¼ avocado, mashed or sliced, for extra energy density. Add olives, cucumber or tomato to the family plate; drizzle hummus with olive oil and paprika, or sprinkle za'atar, for the adult portion.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Sesame",
+      "Gluten",
+      "Soy"
+    ],
+    "allergenNotes": [
+      "Sesame (tahini in hummus)",
+      "Gluten (pita)",
+      "Soy: dairy-free yogurt is often soy-based — choose a soy-free yogurt to avoid soy"
+    ],
+    "allergenOptional": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "rec-37",
+    "title": "37 Canned Salmon, Rice & Pea Bowl",
+    "category": "dinner",
+    "influence": "Global pantry staple",
+    "role": "Anchor protein and omega-3 fat · energy grain · color from peas",
+    "ingredients": "¼ cup canned boneless, skinless salmon, drained and flaked; ½ cup cooked rice (leftover or quick-cooking); ¼ cup frozen peas, thawed and warmed; 1 tsp olive oil",
+    "method": "Flake the salmon and run fingers through it checking carefully for any small bones or skin, even when the label says boneless and skinless. Warm rice and peas together, then stir in the salmon and olive oil. Ready in about 6 minutes.",
+    "safety": "Bone-check every piece by hand before serving. Salmon is a lower-mercury Best Choice appropriate for regular use.",
+    "variations": "Add lemon juice and dill. Creamy version: stir 1 tsp mayonnaise (contains egg) or fortified dairy-free yogurt into the warm rice before adding the salmon.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "3 min",
+    "cookTime": "6 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Fish"
+    ],
+    "allergenNotes": [
+      "Egg and soy only in the creamy variation (mayonnaise contains egg; dairy-free yogurt is often soy)"
+    ]
+  },
+  {
+    "id": "rec-38",
+    "title": "38 Dairy-Free Yogurt, Banana & Oat Parfait",
+    "category": "breakfast",
+    "influence": "Global pantry staple",
+    "role": "Calcium-supporting cover and protein · energy from oats and banana",
+    "ingredients": "½ cup fortified unsweetened dairy-free yogurt; ½ banana, mashed or sliced thin; 2 Tbsp cooked oats (leftover or quick-cooking, cooled); 1 tsp thin nut or seed butter, fully mixed in, optional",
+    "method": "Layer or stir together the yogurt, banana and cooled oats. Mix any nut or seed butter in completely rather than leaving a spoonful on top. No cooking required if the oats are already made. Ready in about 3 minutes.",
+    "safety": "Never serve a thick spoonful of nut or seed butter on its own — mix it fully into the yogurt or oats. Slice banana thin or mash for younger eaters.",
+    "variations": "Add cinnamon or berries. A drizzle of honey or maple syrup is an option for children 2 and older and adults.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Gluten",
+      "Soy"
+    ],
+    "allergenNotes": [
+      "Gluten: oats — use certified gluten-free oats if avoiding gluten",
+      "Soy: dairy-free yogurt is often soy-based — choose a soy-free yogurt to avoid soy",
+      "Nut or seed butter is optional — tree nut, peanut, sesame or sunflower depending on choice"
+    ],
+    "allergenOptional": [
+      "Soy"
+    ]
+  },
+  {
+    "id": "rec-39",
+    "title": "39 Sardine, White Bean & Soft Bread Plate",
+    "category": "lunch",
+    "influence": "Mediterranean pantry staple",
+    "role": "Anchor protein and DHA/EPA · calcium from soft bones · plant iron · energy from bread",
+    "ingredients": "~1 oz canned sardines with soft bones (no-salt-added or lower-sodium); ½ cup low-sodium white beans, drained and rinsed; 1 tsp olive oil; squeeze of lemon; 1 slice soft bread, cut into strips",
+    "method": "Drain the sardines. Mash them with the beans, oil and lemon until smooth and no bone pieces can be felt; run your fingers through the mash and remove any firm piece. Serve with soft bread strips. No cooking required. Ready in about 4 minutes.",
+    "safety": "Mash bones completely and check by hand; cut bread into manageable strips. Counts as one of the week's fish servings.",
+    "variations": "Add chopped herbs, or a few olives to the adult plate; toast the bread for older children.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "4 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Fish",
+      "Gluten"
+    ],
+    "allergenNotes": [
+      "Gluten (bread)"
+    ]
+  },
+  {
+    "id": "rec-40",
+    "title": "40 Bean, Avocado & Soft Bread Plate",
+    "category": "lunch",
+    "influence": "Global pantry staple",
+    "role": "Anchor protein and fiber · healthy fat · energy from bread",
+    "ingredients": "½ cup low-sodium beans (black, pinto or cannellini), drained, rinsed and mashed or warmed; ¼ avocado, mashed or sliced; 1 slice soft bread, cut into strips or cubes; a few pieces of soft ripe fruit",
+    "method": "Mash the beans lightly with a fork if serving cold and straight from the can, or warm briefly if preferred. Arrange with avocado, bread and fruit. Ready in about 4 minutes.",
+    "safety": "Mash beans to remove firm skins for younger eaters; cut bread into manageable strips.",
+    "variations": "Add hot sauce or lime juice for the adult portion; toast the bread for extra texture.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "4 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [
+      "Gluten"
+    ]
+  },
+  {
+    "id": "rec-41",
+    "title": "41 Leftover Rice & Bean Bowl",
+    "category": "dinner",
+    "influence": "Global pantry staple built from leftovers",
+    "role": "Energy grain · anchor protein and fiber · color from vegetables",
+    "ingredients": "½ cup leftover cooked rice; ¼ cup mashed low-sodium beans (any variety); ¼ cup soft or thawed vegetables (leftover cooked vegetables, or frozen peas or corn, thawed); 1 tsp olive oil",
+    "method": "Combine the rice, mashed beans and vegetables. Serve cold or at room temperature, or warm briefly if preferred. Stir in olive oil. Ready in about 3 minutes.",
+    "safety": "If warming, stir well and check temperature before serving. Mash beans and cut larger vegetable pieces for younger eaters.",
+    "variations": "Add salsa, herbs, or a fried egg on top for adults; stir in dairy-free yogurt for creaminess.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "3 min",
+    "cookTime": "0 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free"
+    ],
+    "allergens": [],
+    "allergenNotes": [
+      "Soy only if adding the optional dairy-free yogurt"
+    ]
+  },
+  {
+    "id": "rec-42",
+    "title": "42 Tofu, Rice & Frozen Vegetable Bowl",
+    "category": "dinner",
+    "influence": "Global pantry staple",
+    "role": "Anchor protein and calcium (when calcium-set) · energy grain · color from vegetables",
+    "ingredients": "2-3 oz calcium-set firm tofu, crumbled; ½ cup cooked rice (leftover or quick-cooking); ½ cup frozen broccoli or mixed vegetables, cooked until soft; 1 tsp oil; squeeze of lemon or a spoonful of soft tomato",
+    "method": "Warm the tofu, rice and vegetables together in a pan or microwave until heated through. Stir in oil and lemon or tomato. Ready in about 8 minutes. Packaged tofu is already cooked, so on a no-stove night it can also be crumbled cold into cool leftover rice and soft cooked vegetables.",
+    "safety": "Crumble tofu into soft curds; cut or mash larger vegetable pieces. Stir well and check temperature after microwaving, since spots can heat unevenly.",
+    "variations": "Add soy sauce, sesame oil or chili to the adult portion after removing the toddler share. For a soy-free night, use Recipe 34 or 37.",
+    "baseYield": "1 toddler serving",
+    "prepTime": "2 min",
+    "cookTime": "8 min",
+    "difficulty": "Easy",
+    "dietary": [
+      "Plant-based",
+      "Dairy-free",
+      "Gluten-free"
+    ],
+    "allergens": [
+      "Soy"
+    ]
+  }
+]

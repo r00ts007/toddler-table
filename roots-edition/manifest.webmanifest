@@ -1,0 +1,76 @@
+{
+  "name": "The Global Toddler Table — Roots Edition",
+  "short_name": "Roots Edition",
+  "description": "A dairy-free, land-meat-free family food system for toddlers and young children.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#2c5f4a",
+  "theme_color": "#2c5f4a",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dinner tonight",
+      "short_name": "Tonight",
+      "description": "Fastest dinners, matched to what you have",
+      "url": "./index.html#tonight",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Day fell apart?",
+      "short_name": "Emergency",
+      "description": "10 emergency and no-cook meals",
+      "url": "./index.html#emergency",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Grocery list",
+      "short_name": "Grocery",
+      "url": "./index.html#grocery",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Plan the week",
+      "short_name": "Plan",
+      "url": "./index.html#planner",
+      "icons": [
+        {
+          "src": "./icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
